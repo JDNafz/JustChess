@@ -6,6 +6,7 @@ import "./Square.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+
 export default function Square({ id, board, updateBoard }) {
   const dispatch = useDispatch();
   const selectedPiece = useSelector((store) => store.selectedPiece);
@@ -13,9 +14,14 @@ export default function Square({ id, board, updateBoard }) {
 
   const square = board[id];
 
+
   const handleClick = () => {
+    const legalMoves = getLegalMoves(square);
+    if (legalMoves.contains(square.piece)){
+      dispatch({type: "MOVE_PIECE",payload: square})
+    }
     dispatch({ type: "SELECT_PIECE", payload: square });
-  }
+  }; //end handle click
 
   return (
     <>

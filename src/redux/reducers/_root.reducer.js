@@ -4,7 +4,7 @@ import user from "./user.reducer";
 
 // later move these into individual files and import them here:
 const initSP = {
-  coordinate: "EMPTY",
+  coordinate: "",
   id: null,
   isBlack: null,
   piece: null,
@@ -18,24 +18,29 @@ const selectedPiece = (state = initSP, action) => {
 
   switch (action.type) {
     case "SELECT_PIECE":
-      console.log(`i ${inputSquare.coordinate} s ${state.coordinate}`);
       if (inputSquare.coordinate === state.coordinate) {
         console.log("resetting SP state");
         return initSP;
-      } else
-      if (whiteTurn) {
+      } else if (whiteTurn) {
         console.log("W TRUE");
-        if (inputSquare.piece[0] === "w") {
-          return inputSquare;
-        } //end if w piece selected
+        if (inputSquare.piece) {
+          //check if a piece was selected
+          if (inputSquare.piece[0] === "w") {
+            return inputSquare;
+          } //end if w piece selected
+        } //end piece selection check
       } //end if white's turn
+      return state;
+    case "MOVE_PIECE":
+      
+    
       return state;
     default:
       return state;
   }
 };
 
-const whiteTurn = (state = true, action) => {
+const whiteTurn = (state = true, action) => { //boolean or 'w' 'b'
   switch (action.type) {
     case "TOGGLE_TURN":
       return !state;
