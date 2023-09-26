@@ -13,9 +13,7 @@ router.get('/', (req, res) => {
   const sqlText = `SELECT * FROM moves ORDER BY id;`;
   pool.query(sqlText)
       .then((result) => {
-          console.log(`Got stuff back from the database`);
           const stateObj = checkState( result.rows );
-          // console.log("StateOBJ", stateObj)
           res.send(stateObj);
       })
       .catch((error) => {
@@ -29,13 +27,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const turn = req.body.turn;
   const move = req.body.move;
-  console.log(`Post Call => turn: ${turn}, move: ${move}`)
   const sqlText =    `INSERT INTO moves ("turn","move") VALUES($1, $2);`;
   // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
   // the $1, $2, etc get substituted with the values from the array below
   pool.query(sqlText, [turn,move])
       .then((result) => {
-          console.log(`Added most recent boardState to database`);
           res.sendStatus(201);
       })
       .catch((error) => {
@@ -46,7 +42,6 @@ router.post('/', (req, res) => {
 
 // DELETE Route
 router.delete('/newGame', (req, res) => {
-  console.log(`restarting db newGame requested`)
   const sqlText =    `Delete from moves;
                       INSERT INTO moves ("turn")
                       VALUES(0);`;
@@ -54,7 +49,6 @@ router.delete('/newGame', (req, res) => {
   // the $1, $2, etc get substituted with the values from the array below
   pool.query(sqlText)
       .then((result) => {
-          console.log(`reset db`);
           res.sendStatus(201);
       })
       .catch((error) => {

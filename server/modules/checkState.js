@@ -10,7 +10,7 @@ function checkState(data){
     const turn = row.turn
 
     currentTurn = turn;
-    console.log("CheckState:(Move turn):(", move, turn,")"); 
+    console.log(`CheckState.js: (Move: ${move} Turn: ${turn})`); 
     if (turn === 0 ){  // if turn is 0 give back starting board
       currentBoard = startingBoard 
     } else{
@@ -27,14 +27,14 @@ function simpleMove(currentBoard,move){
   //Identify the two pieces square coordiantes
   const start = move.slice(0,2);
   const end = move.slice(2);
-  console.log("SLICE'N",start,end);
+  // console.log("SLICE'N",start,end);
 
 
   //map over board and assign start piece to 'movingPiece' and that square's location to null.
   let movingPiece;
   const removeStart = currentBoard.map(sq => {
     if (sq.coordinate === start) {
-      console.log("found start piece:",sq.piece);
+      // console.log("found start piece:",sq.piece);
       movingPiece = sq.piece; //assign pice moving to put into next map
       return ({
         ...sq,

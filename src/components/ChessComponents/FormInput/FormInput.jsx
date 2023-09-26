@@ -5,10 +5,9 @@ export default function FormInput({getBoard, setStart, setEnd, start, end, turn}
 
   const makeMove = (event) => {
     event.preventDefault();
-    console.log("ready for axios POST",turn, start,end)
     //POST move
     const moveString = start + end
-    console.log(moveString,"SMOKE")
+    
     axios({
       method: 'POST',
       url: '/board',
@@ -33,7 +32,7 @@ export default function FormInput({getBoard, setStart, setEnd, start, end, turn}
       }
     )
       .then((response) => {
-        console.log("Game has been reset");
+        // console.log("Game has been reset");
         getBoard();
       })
       .catch(function (error) {
