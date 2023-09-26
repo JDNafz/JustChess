@@ -45,13 +45,23 @@ const whiteTurn = (state = true, action) => { //boolean or 'w' 'b'
     case "TOGGLE_TURN":
       return !state;
   }
-
   //why does if statements break reducers?
   // if (action.type ="TOGGLE_TURN"){
   //   return !state
   // }
   return state;
 };
+
+const legalMoves = (state = [], action) => {
+  return action.payload;
+}
+
+
+
+
+
+
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
