@@ -65,7 +65,7 @@ export default function FormInput({getBoard, setStart, setEnd, start, end, turn}
         <button id="makeMove" type="submit">Make Move</button>
       </form>
       <button id="newGame" onClick={newGame}>New Game</button>
-      <button id="EvansGambit" onClick={loadEvans}>Load Evan's Gambit</button>
+      {/* <button id="EvansGambit" onClick={loadEvans}>Load Evan's Gambit</button> TODO: */}
     </div>
   )
 }//end FormInput
