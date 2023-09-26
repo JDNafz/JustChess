@@ -4,22 +4,22 @@ import Coordinate from "../Coordinate/Coordinate";
 
 import "./Square.css";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Square({ id, board, updateBoard }) {
-  const square = board[id];
-  const [selectedPiece, setSelectedPiece] = useState("");
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const selectedPiece = useSelector((store) => store.selectedPiece);
+  const whiteTurn = useSelector((store) => store.whiteTurn);
 
-  const greenShadow = "drop-shadow(-1px 3px 2px  rgb(29, 204, 87))";
+  const square = board[id];
+
   const handleClick = () => {
-    console.log(square.coordinate, square.id);
-    // dispatch({type: "SELECT_PIECE", payload: square.coordinate})
-    setSelectedPiece(square.coordinate)
-  };
+    dispatch({ type: "SELECT_PIECE", payload: square });
+  }
 
   return (
     <>
-      {square.coordinate === selectedPiece ? (
+      {square.coordinate === selectedPiece.coordinate ? (
         <div
           className={`square ${square.isBlack ? "black" : "white"} selected`}
           onClick={handleClick}
@@ -39,3 +39,14 @@ export default function Square({ id, board, updateBoard }) {
     </>
   );
 }
+
+// square info:
+
+// coordinate: "d4"
+// id: 27
+// isBlack: false
+// piece: null
+// underAttackFromBlack: false
+// underAttackFromWhite: false
+// x: 3
+// y: 3

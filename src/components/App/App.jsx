@@ -25,12 +25,11 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
     dispatch({ type: "FETCH_USER" });
-  }, [dispatch]);
+  }, [dispatch]); //QUESTION why does dispatch go here?
 
   return (
     <Router>

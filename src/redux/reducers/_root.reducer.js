@@ -1,6 +1,52 @@
-import { combineReducers } from 'redux';
-import errors from './errors.reducer';
-import user from './user.reducer';
+import { combineReducers } from "redux";
+import errors from "./errors.reducer";
+import user from "./user.reducer";
+
+// later move these into individual files and import them here:
+const initSP = {
+  coordinate: "EMPTY",
+  id: null,
+  isBlack: null,
+  piece: null,
+  underAttackFromBlack: null,
+  underAttackFromWhite: null,
+  x: -1,
+  y: -1,
+};
+const selectedPiece = (state = initSP, action) => {
+  const inputSquare = action.payload;
+
+  switch (action.type) {
+    case "SELECT_PIECE":
+      console.log(`i ${inputSquare.coordinate} s ${state.coordinate}`);
+      if (inputSquare.coordinate === state.coordinate) {
+        console.log("resetting SP state");
+        return initSP;
+      } else
+      if (whiteTurn) {
+        console.log("W TRUE");
+        if (inputSquare.piece[0] === "w") {
+          return inputSquare;
+        } //end if w piece selected
+      } //end if white's turn
+      return state;
+    default:
+      return state;
+  }
+};
+
+const whiteTurn = (state = true, action) => {
+  switch (action.type) {
+    case "TOGGLE_TURN":
+      return !state;
+  }
+
+  //why does if statements break reducers?
+  // if (action.type ="TOGGLE_TURN"){
+  //   return !state
+  // }
+  return state;
+};
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -11,6 +57,8 @@ import user from './user.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  selectedPiece, // First time clicking a piece selects it
+  whiteTurn, //boolean true, white goes first.
 });
 
 export default rootReducer;

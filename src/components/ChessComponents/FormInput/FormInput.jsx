@@ -1,7 +1,11 @@
 import axios from "axios";
+import { useState } from "react";
 
 
-export default function FormInput({getBoard, setStart, setEnd, start, end, turn}){
+export default function FormInput({getBoard, turn}){
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+
 
   const makeMove = (event) => {
     event.preventDefault();
