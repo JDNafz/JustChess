@@ -7,8 +7,7 @@ const app = express();
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
-// Route includes
-const userRouter = require('./routes/user.router');
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -22,7 +21,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
+const userRouter = require('./routes/user.router');
 app.use('/api/user', userRouter);
+
+const boardRouter = require('./routes/board.router.js');
 app.use('/board', boardRouter);
 
 

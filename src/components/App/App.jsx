@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Chess from '../Chess/Chess'
 
 import './App.css';
 
@@ -34,10 +35,21 @@ function App() {
   return (
     <Router>
       <div>
+       
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          {/* <Redirect exact from="/" to="/home" /> */}
+          <Redirect exact from="/" to="/chess" />
+
+
+          <Route
+            // shows AboutPage at all times (logged in or not)
+            exact
+            path="/chess"
+          >
+            <Chess />
+          </Route>
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route

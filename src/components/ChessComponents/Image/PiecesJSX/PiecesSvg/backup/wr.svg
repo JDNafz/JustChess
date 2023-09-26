@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-566.7274 -103 1664.797 507.0414" enable-background="new -566.7274 -103 1664.797 507.0414" xml:space="preserve">
+
+<g>
+	<path fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" d="M-380.5172,120.193c2.7344,0,4.945-2.2121,4.945-4.9466v-11.6226
+		c0-2.7344-2.2106-4.945-4.945-4.945h-148.8667c-2.7328,0-4.945,2.2106-4.945,4.945v11.6226c0,2.7344,2.212,4.9466,4.945,4.9466
+		H-380.5172z"/>
+	<rect x="-526.3322" y="80.3635" fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" width="142.7664" height="18.3191"/>
+	<polygon fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" stroke-linejoin="bevel" points="-383.5658,80.3635 
+		-398.2454,63.9094 -511.6526,63.9094 -526.3322,80.3635 	"/>
+	<polygon fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" stroke-linejoin="round" points="-379.092,-51.3664 
+		-398.2454,-33.0436 -511.6526,-33.0436 -530.8688,-51.3664 	"/>
+	<rect x="-511.6525" y="-33.0436" fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" width="113.2561" height="96.9625"/>
+	<path fill="#FFFFFF" stroke="#20201E" stroke-width="3.4947" stroke-linecap="square" d="M-383.7577-87.5087h-26.4161v16.987
+		l-14.8241,4.9098l-13.6688-4.9098v-16.987h-32.562v16.987l-13.6688,4.9098l-14.8256-4.9098v-16.987h-26.4162
+		c-2.6115,0-4.7283,2.2121-4.7283,4.9419v31.2536h151.8429v-31.2536c-0.0031-2.7308-2.1205-4.9425-4.7317-4.9425L-383.7577-87.5087z
+		"/>
+
+
+</g>
+</svg>

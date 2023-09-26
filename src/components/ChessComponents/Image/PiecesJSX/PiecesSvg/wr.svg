@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="Ebene_1"
+   x="0px"
+   y="0px"
+   viewBox="-566.7274 -103 162.2514 211.197"
+   enable-background="new -566.7274 -103 1664.797 507.0414"
+   xml:space="preserve"
+   width="162.2514"
+   height="211.19701"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs6664" />
+
+<g
+   id="g6659"
+   transform="translate(-30.65115,-13.74335)">
+	<path
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   d="m -380.5172,120.193 c 2.7344,0 4.945,-2.2121 4.945,-4.9466 v -11.6226 c 0,-2.7344 -2.2106,-4.945 -4.945,-4.945 h -148.8667 c -2.7328,0 -4.945,2.2106 -4.945,4.945 v 11.6226 c 0,2.7344 2.212,4.9466 4.945,4.9466 z"
+   id="path6647" />
+	<rect
+   x="-526.33221"
+   y="80.363503"
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   width="142.7664"
+   height="18.319099"
+   id="rect6649" />
+	<polygon
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   stroke-linejoin="bevel"
+   points="-511.6526,63.9094 -526.3322,80.3635 -383.5658,80.3635 -398.2454,63.9094 "
+   id="polygon6651" />
+	<polygon
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   stroke-linejoin="round"
+   points="-511.6526,-33.0436 -530.8688,-51.3664 -379.092,-51.3664 -398.2454,-33.0436 "
+   id="polygon6653" />
+	<rect
+   x="-511.6525"
+   y="-33.043598"
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   width="113.2561"
+   height="96.962502"
+   id="rect6655" />
+	<path
+   fill="#ffffff"
+   stroke="#20201e"
+   stroke-width="3.4947"
+   stroke-linecap="square"
+   d="m -383.7577,-87.5087 h -26.4161 v 16.987 l -14.8241,4.9098 -13.6688,-4.9098 v -16.987 h -32.562 v 16.987 l -13.6688,4.9098 -14.8256,-4.9098 v -16.987 h -26.4162 c -2.6115,0 -4.7283,2.2121 -4.7283,4.9419 v 31.2536 h 151.8429 v -31.2536 c -0.003,-2.7308 -2.1205,-4.9425 -4.7317,-4.9425 z"
+   id="path6657" />
+
+
+</g>
+</svg>

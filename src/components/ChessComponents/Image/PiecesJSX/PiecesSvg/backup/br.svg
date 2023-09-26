@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+viewBox="-566.7274 -103 1664.797 507.0414" enable-background="new -566.7274 -103 1664.797 507.0414" xml:space="preserve">
+
+<g>
+
+<path stroke="#000000" stroke-width="2.684" stroke-linecap="square" d="M-379.3941,368.9229h-3.0493v-18.3175l-14.6781-16.437
+			h-0.149v-96.9625h0.149l19.0977-18.2668h0.1213v-31.2504c0-2.7313-2.1199-4.9435-4.7298-4.9435h-26.4209v16.9854l-14.8288,4.9126
+			l-13.6644-4.9126v-16.9854h-32.5652v16.9854l-13.6672,4.9126l-14.8272-4.9126v-16.9854h-26.4162
+			c-2.6115,0-4.7282,2.2121-4.7282,4.9435v31.2504h0.0538l19.1653,18.2668v96.9625l-14.6797,16.437v18.3175h-3.0524
+			c-2.7313,0-4.945,2.2152-4.945,4.9494v11.6226c0,2.7282,2.2136,4.9435,4.945,4.9435h148.8636
+			c2.7344,0,4.9466-2.2152,4.9466-4.9435v-11.6226c0-2.7057-2.2148-4.9394-4.9488-4.9394L-379.3941,368.9229z"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.684" stroke-linecap="round" x1="-520.3735" y1="368.9229" x2="-388.3667" y2="368.9229"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.684" stroke-linecap="round" x1="-519.7915" y1="350.6126" x2="-388.9456" y2="350.6126"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.684" stroke-linecap="round" x1="-402.9016" y1="334.1901" x2="-506.9963" y2="334.1901"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.684" stroke-linecap="round" x1="-506.4174" y1="237.2275" x2="-402.3196" y2="237.2275"/>
+		
+			<line fill="none" stroke="#FFFFFF" stroke-width="2.684" stroke-linecap="round" x1="-523.2805" y1="218.9488" x2="-381.9707" y2="218.9488"/>
+	
+</g>
+</svg>
