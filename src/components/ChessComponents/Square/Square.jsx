@@ -5,32 +5,34 @@ import Coordinate from "../Coordinate/Coordinate";
 import "./Square.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLegalMoves } from "../../../hooks/getLegalMoves";
+// import { getLegalMoves } from "../../../redux/sagas/getLegalMoves";
 
 
-export default function Square({ id, board, updateBoard }) {
+
+export default function Square({ id, getLegalMoves}) {
   const dispatch = useDispatch();
-  const getLegalMoves = getLegalMoves(); //is this a custom hook?
+  const legalMoves = useSelector((store) => store.legalMoves)
   const selectedPiece = useSelector((store) => store.selectedPiece);
-  const whiteTurn = useSelector((store) => store.whiteTurn);
-
+  const board = useSelector((store) => store.board);
+  // const turn = useSelector((store) => store.turn);
   const square = board[id];
   
   
   const firstClick = () => {
-    if (legalMoves.contains(square.piece)){
+    // console.log(legalMoves, "SMOKE")
+    if (legalMoves.includes(square.coordinate)){
+      
       dispatch({type: "MOVE_PIECE",payload: square})
-      dispatch({ type: "LEGAL_MOVES", payload: getLegalMoves(selectedPiece)});
       
       return
     }
     dispatch({ type: "SELECT_PIECE", payload: square });
+    
+    //with the selected piece, go check which moves are legal
+    const moves = getLegalMoves(selectedPiece,board)
+    dispatch({ type: "LEGAL_MOVES", payload: moves});
   }; //end handle click
 
-
-  const secondClick = () => {
-
-  }
   return (
     <>
       {square.coordinate === selectedPiece.coordinate ? (
@@ -64,3 +66,6 @@ export default function Square({ id, board, updateBoard }) {
 // underAttackFromWhite: false
 // x: 3
 // y: 3
+
+// -----------------------------------------------
+

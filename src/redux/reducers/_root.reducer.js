@@ -2,6 +2,25 @@ import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
 
+const board = (state = [], action) => {
+  if (action.type === "SET_BOARD"){
+    return action.payload;
+  }
+  return state;
+}
+const turn = (state = '', action) => {
+  if (action.type === "SET_TURN"){
+    return action.payload;
+  }
+  return state;
+}
+
+
+
+
+
+
+
 // later move these into individual files and import them here:
 const initSP = {
   coordinate: "",
@@ -21,8 +40,8 @@ const selectedPiece = (state = initSP, action) => {
       if (inputSquare.coordinate === state.coordinate) {
         console.log("resetting SP state");
         return initSP;
-      } else if (whiteTurn) {
-        console.log("W TRUE");
+      } else if (turn % 2 === 1) {
+        // console.log("W TRUE");
         if (inputSquare.piece) {
           //check if a piece was selected
           if (inputSquare.piece[0] === "w") {
@@ -40,20 +59,13 @@ const selectedPiece = (state = initSP, action) => {
   }
 };
 
-const whiteTurn = (state = true, action) => { //boolean or 'w' 'b'
-  switch (action.type) {
-    case "TOGGLE_TURN":
-      return !state;
-  }
-  //why does if statements break reducers?
-  // if (action.type ="TOGGLE_TURN"){
-  //   return !state
-  // }
-  return state;
-};
 
-const legalMoves = (state = [], action) => {
-  return action.payload;
+const legalMoves = (state = [-1,-1], action) => {
+  switch(action.type) {
+    case "LEGAL_MOVES":
+      return action.payload;
+  }
+  return state
 }
 
 
@@ -73,7 +85,10 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   selectedPiece, // First time clicking a piece selects it
-  whiteTurn, //boolean true, white goes first.
+  legalMoves,
+  board,
+  turn,
+
 });
 
 export default rootReducer;

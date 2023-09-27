@@ -2,9 +2,12 @@ const startingBoard = require('../modules/startingBoard.js');
 // const emptyBoard = require('../modules/emptyBoard.js')
 
 
+// for each move in the database, recalculate history of moves
 function checkState(data){
   let currentBoard = startingBoard;
   let currentTurn;
+
+  //for each move in DB
   for (let row of data){
     const move = row.move
     const turn = row.turn
@@ -23,12 +26,13 @@ function checkState(data){
 }//end checkState
 
 
+
+
 function simpleMove(currentBoard,move){
   //Identify the two pieces square coordiantes
   const start = move.slice(0,2);
   const end = move.slice(2);
   // console.log("SLICE'N",start,end);
-
 
   //map over board and assign start piece to 'movingPiece' and that square's location to null.
   let movingPiece;

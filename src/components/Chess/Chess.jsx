@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 import Board from "../ChessComponents/Board/Board";
 import Header from "../ChessComponents/Header/Header";
 import axios from "axios";
 import FormInput from "../ChessComponents/FormInput/FormInput";
 import "./Chess.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Chess() {
+  const dispatch = useDispatch();
+  
   const selectedPiece = useSelector((store) => store.selectedPiece);
-
-  const [board, setBoard] = useState([]);
-
-  const [turn, setTurn] = useState(1);
+  const board = useSelector((store) => store.board);
+  const turn = useSelector((store) => store.turn);
 
   const getBoard = () => {
     // console.log('turn:', turn);
     axios
       .get("/board")
       .then((response) => {
-        setBoard(response.data.currentBoard);
-        setTurn(response.data.currentTurn);
+        dispatch({type: "SET_BOARD", payload: response.data.currentBoard})
+        dispatch({type: "SET_TURN", payload: response.data.currentTurn})
       })
       .catch((error) => {
         console.log("GET /creatures error", error);
@@ -34,11 +34,8 @@ export default function Chess() {
     <div id="background">
       <Header />
       <div id="boardAndInput">
-        <FormInput
-          turn={turn}
-          getBoard={getBoard}
-        />
-        <Board board={board} />
+        <FormInput getBoard={getBoard} />
+        <Board />
       </div>
 
       <div className="selectedPieceText">Selected Piece: {selectedPiece.piece}</div>
@@ -48,10 +45,10 @@ export default function Chess() {
 
 //TODO LIST
 
-//import startingState into js file on server
-//return it as "GET GAME"
-
 //start moving pieces on node server without DB
 //client just syncs after piece load to sync "STATE"
 
 //move calc comes from client before getting to server
+
+//base mode TODO:
+// clear inputs, refocus on move From: highlight selected on input.
