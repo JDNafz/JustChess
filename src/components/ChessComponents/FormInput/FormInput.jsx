@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 
-export default function FormInput({getBoard, turn}){
+export default function FormInput({getBoard}){
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
@@ -22,7 +22,7 @@ export default function FormInput({getBoard, turn}){
     })
       .then((response) => {
         // console.log("POST /people response", response);
-        getBoard();
+        // getBoard(); // NO LONGER UPDATE BOARD AFTER POST
       })
       .catch(function (error) {
         console.log("POST /people error", error);

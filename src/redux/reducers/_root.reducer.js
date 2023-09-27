@@ -8,7 +8,7 @@ const board = (state = [], action) => {
   }
   return state;
 }
-const turn = (state = '', action) => {
+const turn = (state = 0, action) => {
   if (action.type === "SET_TURN"){
     return action.payload;
   }
