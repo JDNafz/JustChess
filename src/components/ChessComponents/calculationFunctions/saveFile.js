@@ -1,5 +1,5 @@
 // import getStartingState from "./getStartingState.js";
-const getStartingState = require("./getStartingState.js")
+const getStartingState = require("./generateDefaultBoard.js")
 
 const fs = require('fs');
 const path = require('path');
