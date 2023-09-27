@@ -10,12 +10,31 @@ const board = (state = defaultBoard, action) => {
   if (action.type === "SET_BOARD"){
     return action.payload;
   }
+  if (action.type === "NEW_GAME"){
+    // console.log("turn state",state);
+    return defaultBoard
+  }
   return state;
 }
 const turn = (state = 0, action) => {
   if (action.type === "TURN_STEP"){
     // console.log("turn state",state);
     return state = state + 1;
+  }
+  if (action.type === "NEW_GAME"){
+    // console.log("turn state",state);
+    return 0;
+  }
+  return state;
+}
+
+const dbLog = (state = [], action) => {
+  if (action.type === "SET_DB_LOG"){
+    return action.payload
+  }
+  if (action.type === "NEW_GAME"){
+    // console.log("turn state",state);
+    return [];
   }
   return state;
 }
@@ -93,7 +112,7 @@ const rootReducer = combineReducers({
   legalMoves,
   board,
   turn,
-
+  dbLog,
 });
 
 export default rootReducer;

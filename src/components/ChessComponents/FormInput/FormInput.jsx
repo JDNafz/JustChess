@@ -6,16 +6,23 @@ import useReduxStore from "../../../hooks/useReduxStore";
 
 export default function FormInput({ getBoard }) {
   const dispatch = useDispatch();
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
-  
-  const store = useReduxStore();
+
+  const [start, setStart] = useState(""); //used to take in text inputs
+  const [end, setEnd] = useState(""); //used to take in text inputs
+
+  const store = useReduxStore(); //use to get props to pass into makeSimpleMove
   const turn = store.turn;
-
-
 
   const makeMove = (event) => {
     event.preventDefault();
+
+    //update redux
+    //dispatch updatedBoard
+    dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, store) });
+    //dispatch increment 'turn' reducer
+    dispatch({ type: "TURN_STEP" });
+    // console.log("SMOKE",start, end);
+    const move = start + end
 
     //POST move
     axios({
@@ -23,16 +30,11 @@ export default function FormInput({ getBoard }) {
       url: "/board",
       data: {
         turn: turn,
-        move: [start, end],
+        move: move
       },
     })
       .then((response) => {
-        console.log("POST makeMove success", response);
-        //update redux
-        //dispatch board
-        dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, store) });
-        //dispatch turn step
-        dispatch({ type: "TURN_STEP" });
+        // console.log("POST makeMove success", response);
       })
       .catch(function (error) {
         console.log("POST makeMove error", error);
@@ -40,13 +42,17 @@ export default function FormInput({ getBoard }) {
   };
 
   const newGame = () => {
+    dispatch({ type: "NEW_GAME" });
+    // console.log("SMOKE",start, end);
+    getBoard();
+    
     axios({
       method: "DELETE",
       url: "/board/newGame",
     })
       .then((response) => {
         // console.log("Game has been reset");
-        getBoard();
+        
       })
       .catch(function (error) {
         console.log("DELETE Error /people error", error);

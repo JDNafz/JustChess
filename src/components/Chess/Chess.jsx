@@ -5,30 +5,32 @@ import axios from "axios";
 import FormInput from "../ChessComponents/FormInput/FormInput";
 import "./Chess.css";
 import { useDispatch, useSelector } from "react-redux";
+import GameInfo from "../ChessComponents/GameInfo/GameInfo";
 
 export default function Chess() {
-  const dispatch = useDispatch();
-  
   const selectedPiece = useSelector((store) => store.selectedPiece);
-  const board = useSelector((store) => store.board);
-  const turn = useSelector((store) => store.turn);
+  const dispatch = useDispatch();
+  const dbLog = useSelector((store) => store.dbLog);
+  const board = useSelector(store => store.board);
 
+  useEffect(() => {
+    getBoard();
+  }, [board]);
+
+  //TODO: rename getBoard and /board into getDBLog
   const getBoard = () => {
     // console.log('turn:', turn);
     axios
       .get("/board")
-      .then((response) => {
-        dispatch({type: "SET_BOARD", payload: response.data.currentBoard})
-        dispatch({type: "SET_TURN", payload: response.data.currentTurn})
+      .then((res) => {
+        // console.log("DIS", res.data);
+        dispatch({type: "SET_DB_LOG", payload: res.data});
       })
       .catch((error) => {
         console.log("GET /creatures error", error);
       });
   };
 
-  useEffect(() => {
-    // getBoard();
-  }, [selectedPiece]);
 
   return (
     <div id="background">
@@ -36,6 +38,7 @@ export default function Chess() {
       <div id="boardAndInput">
         <FormInput getBoard={getBoard} />
         <Board />
+        <GameInfo dbLog={dbLog} getBoard={getBoard} />
       </div>
 
       <div className="selectedPieceText">Selected Piece: {selectedPiece.piece}</div>

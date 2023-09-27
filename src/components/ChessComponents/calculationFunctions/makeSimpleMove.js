@@ -1,23 +1,14 @@
-import { useSelector } from "react-redux";
 
+//this function returns newBoard after moving the pieces.
 export default function makeSimpleMove(start, end, store) {
-  console.log("making simple move", start, end);
-
-  // const board = useSelector((store) => store.board);
-  // const turn = useSelector((store) => store.turn); //no longer have to call these
   const board = store.board;
   const turn = store.turn;
 
-  console.log(`CheckState.js: (Move: ${(start, end)} Turn: ${turn})`);
-  //map over board and assign start piece to 'movingPiece' and that square's location to null.
-
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
-
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
   return newBoard;
 } //end simpleMove Function
-
 
 // map over board, set start to null return [board, piece name]
 function removeStartingPiece(board, start) {
@@ -38,6 +29,7 @@ function removeStartingPiece(board, start) {
   return [boardAfterRemoval, movingPiece];
 }
 
+// map over board, replace end coordinate with the piece that is moving.
 function replaceDestination(board, startingPiece, end) {
   //assign 'movingPiece' to ending coordinate
   const newBoard = board.map((sq) => {
