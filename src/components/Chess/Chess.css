@@ -50,6 +50,7 @@ h1 {
 #boardAndInput{
   display:flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   /* border: 2px salmon solid; */
