@@ -49,7 +49,7 @@ function simpleMove(currentBoard,move){
   })
 
   //assign 'movingPiece' to ending coordinate
-  const moveToEnd= removeStart.map(sq => {
+  const newBoard= removeStart.map(sq => {
     if (sq.coordinate === end) {
       return ({
         ...sq,
@@ -61,7 +61,7 @@ function simpleMove(currentBoard,move){
   // this test was used to check moving from 'a1' to 'b1' the first two items in array.
   // console.log("changes made?", movingPiece ,moveToEnd[0],moveToEnd[1]) 
 
-  return moveToEnd
+  return newBoard
 }//end SimpleMove
 
 module.exports = checkState;

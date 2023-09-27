@@ -451,7 +451,3 @@ export const defaultBoard = [
     "isBlack":false}
   ]
 
-
-
-
-module.exports = board;

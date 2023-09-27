@@ -27,7 +27,7 @@ export default function Chess() {
   };
 
   useEffect(() => {
-    getBoard();
+    // getBoard();
   }, [selectedPiece]);
 
   return (
