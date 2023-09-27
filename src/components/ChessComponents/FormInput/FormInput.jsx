@@ -10,15 +10,15 @@ export default function FormInput({ getBoard }) {
   const [start, setStart] = useState(""); //used to take in text inputs
   const [end, setEnd] = useState(""); //used to take in text inputs
 
-  const store = useReduxStore(); //use to get props to pass into makeSimpleMove
-  const turn = store.turn;
+  const board = useSelector((store) => store.board);
+  const turn = useSelector((store) => store.turn);
 
   const makeMove = (event) => {
     event.preventDefault();
 
     //update redux
     //dispatch updatedBoard
-    dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, store) });
+    dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, board) });
     //dispatch increment 'turn' reducer
     dispatch({ type: "TURN_STEP" });
     // console.log("SMOKE",start, end);

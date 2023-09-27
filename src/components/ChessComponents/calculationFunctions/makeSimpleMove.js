@@ -1,8 +1,12 @@
 
 //this function returns newBoard after moving the pieces.
-export default function makeSimpleMove(start, end, store) {
-  const board = store.board;
-  const turn = store.turn;
+//start and end are coordinates
+
+//move to square obj, once we're only clicking? pass through in reducer
+export default function makeSimpleMove(start, end, board) {
+  console.log("makingSimpleMove!")
+  // const board = store.board;
+  // const turn = store.turn;
 
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
@@ -12,6 +16,7 @@ export default function makeSimpleMove(start, end, store) {
 
 // map over board, set start to null return [board, piece name]
 function removeStartingPiece(board, start) {
+  console.log("THIS IS board:", board);
   let movingPiece;
   const boardAfterRemoval = board.map((sq) => {
     if (sq.coordinate === start) {
