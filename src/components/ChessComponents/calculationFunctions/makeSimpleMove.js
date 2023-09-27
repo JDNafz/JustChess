@@ -17,16 +17,16 @@ export default function makeSimpleMove(start, end, store) {
 
   return newBoard;
 } //end simpleMove Function
-// simpleMove(e2, e4);
+
 
 // map over board, set start to null return [board, piece name]
 function removeStartingPiece(board, start) {
   let movingPiece;
   const boardAfterRemoval = board.map((sq) => {
     if (sq.coordinate === start) {
-      // console.log("found start piece:",sq.piece);
+      //starting piece has been found call it movingPiece
       movingPiece = sq.piece;
-      //assign piece in start position to null
+      //assign coordinate of movingPiece to null
       return {
         ...sq,
         piece: null,
@@ -42,6 +42,7 @@ function replaceDestination(board, startingPiece, end) {
   //assign 'movingPiece' to ending coordinate
   const newBoard = board.map((sq) => {
     if (sq.coordinate === end) {
+      //TODO: mark as captured, move off board (even if null? make it easy)
       return {
         ...sq,
         piece: startingPiece,
