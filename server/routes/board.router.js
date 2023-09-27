@@ -13,6 +13,12 @@ router.get("/", (req, res) => {
   pool
     .query(sqlText)
     .then((result) => {
+<<<<<<< HEAD
+=======
+      // THIS WAS OLD SERVER SIDE MOVEMENTS
+      // const stateObj = checkState( result.rows );
+      // res.send(stateObj);
+>>>>>>> workInProgress
       // console.log(result.rows);
       res.send(result.rows);
     })
