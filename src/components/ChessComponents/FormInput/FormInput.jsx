@@ -15,49 +15,24 @@ export default function FormInput({ getBoard }) {
 
   const makeMove = (event) => {
     event.preventDefault();
-
     //update redux
     //dispatch updatedBoard
     dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, board) });
     //dispatch increment 'turn' reducer
     dispatch({ type: "TURN_STEP" });
-    // console.log("SMOKE",start, end);
+
+    //convert db use start and end instead of move (or in addition?) TODO
     const move = start + end
 
     //POST move
     dispatch({ type: "POST_MOVE_DATA", payload: {turn: turn, move: move}})
-    // axios({
-    //   method: "POST",
-    //   url: "/board",
-    //   data: {
-    //     turn: turn,
-    //     move: move
-    //   },
-    // })
-    //   .then((response) => {
-    //     // console.log("POST makeMove success", response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log("POST makeMove error", error);
-    //   });
   };
 
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
     // console.log("SMOKE",start, end);
-    getBoard();
     
-    axios({
-      method: "DELETE",
-      url: "/board/newGame",
-    })
-      .then((response) => {
-        // console.log("Game has been reset");
-        
-      })
-      .catch(function (error) {
-        console.log("DELETE Error /people error", error);
-      });
+ 
   };
 
   const loadEvans = () => {

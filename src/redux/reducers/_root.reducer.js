@@ -100,6 +100,7 @@ const rootReducer = combineReducers({
   board,
   turn,
   dbLog,
+  moveData
 });
 
 export default rootReducer;

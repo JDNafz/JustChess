@@ -12,7 +12,6 @@ function* postMoveData(action) {
 }
 
 
-
 function* fetchMoveData(action) {
   try {
     const response = yield axios.get('/board');
@@ -22,9 +21,19 @@ function* fetchMoveData(action) {
   }
 }
 
+function* deleteMoveData(action) {
+  try {
+    yield axios.delete('/newGame');
+    yield put({ type: 'FETCH_MOVE_DATA', payload: response.data});
+  } catch (error) {
+    console.log('Error deleting moveData:', error);
+  }
+}
+
 function* boardSaga() {
   yield takeLatest('POST_MOVE_DATA', postMoveData);
   yield takeLatest('FETCH_MOVE_DATA', fetchMoveData);
+  yield takeLatest('NEW_GAME', deleteMoveData)
 }
 
 export default boardSaga;
