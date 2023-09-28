@@ -15,6 +15,18 @@ const board = (state = defaultBoard, action) => {
   }
   return state;
 };
+
+const moveData = (state = defaultBoard, action) => {
+  if (action.type === "SET_MOVE_DATA") {
+    return action.payload;
+  }
+  if (action.type === "NEW_GAME") {
+    // console.log("turn state",state);
+    return defaultBoard;
+  }
+  return state;
+};
+
 const turn = (state = 0, action) => {
   if (action.type === "TURN_STEP") {
     // console.log("turn state",state);

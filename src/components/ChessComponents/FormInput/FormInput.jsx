@@ -25,20 +25,21 @@ export default function FormInput({ getBoard }) {
     const move = start + end
 
     //POST move
-    axios({
-      method: "POST",
-      url: "/board",
-      data: {
-        turn: turn,
-        move: move
-      },
-    })
-      .then((response) => {
-        // console.log("POST makeMove success", response);
-      })
-      .catch(function (error) {
-        console.log("POST makeMove error", error);
-      });
+    dispatch({ type: "POST_MOVE_DATA", payload: {turn: turn, move: move}})
+    // axios({
+    //   method: "POST",
+    //   url: "/board",
+    //   data: {
+    //     turn: turn,
+    //     move: move
+    //   },
+    // })
+    //   .then((response) => {
+    //     // console.log("POST makeMove success", response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log("POST makeMove error", error);
+    //   });
   };
 
   const newGame = () => {
