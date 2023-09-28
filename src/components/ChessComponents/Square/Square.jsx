@@ -6,9 +6,11 @@ import "./Square.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
+import { useValidPawnMoves } from "../../../hooks/useValidPawnMoves";
 // import { getLegalMoves } from "../../../redux/sagas/getLegalMoves";
 
 export default function Square({ id, getLegalMoves }) {
+  const {getValidPawnMoves} = useValidPawnMoves();
   const dispatch = useDispatch();
   const legalMoves = useSelector((store) => store.legalMoves);
   const selectedPiece = useSelector((store) => store.selectedPiece);
@@ -17,28 +19,32 @@ export default function Square({ id, getLegalMoves }) {
   const square = board[id];
 
   const handleClick = () => {
+    //useState may be better
+
     console.log("clicked:", square.piece);
     dispatch({ type: "SELECT_PIECE", payload: square });
-    const inputSquare = square;
+    const validMoves = getValidPawnMoves(square)
+    console.log(validMoves)
+    // const inputSquare = square;
 
-    //if square is already selected, deselect
-    if (inputSquare.coordinate === selectedPiece.coordinate) {
-      dispatch({ type: "DESELECT_PIECE", payload: square });
-    } 
-    else if (inputSquare.piece) { //check if a piece was selected if piece is null this returns false.
-      if (turn % 2 === 0) { //check if it's white's turn
-        if (inputSquare.piece[0] === "w") { 
-          dispatch({ type: "SELECT_PIECE", payload: square });; // if white was already selected, change focus to new piece
-        } 
-        else {
-          // makeSimpleMove()? 
-        }
+    // //if square is already selected, deselect
+    // if (inputSquare.coordinate === selectedPiece.coordinate) {
+    //   dispatch({ type: "DESELECT_PIECE", payload: square });
+    // } 
+    // else if (inputSquare.piece) { //check if a piece was selected if piece is null this returns false.
+    //   if (turn % 2 === 0) { //check if it's white's turn
+    //     if (inputSquare.piece[0] === "w") { 
+    //       dispatch({ type: "SELECT_PIECE", payload: square });; // if white was already selected, change focus to new piece
+    //     } 
+    //     else {
+    //       // makeSimpleMove()? 
+    //     }
 
-      } //end if white's turn
-      else if (inputSquare.piece[0] === "b") {
-        return inputSquare;
-      } //end piece selection check
-  } //end SELECT_PIECE
+    //   } //end if white's turn
+    //   else if (inputSquare.piece[0] === "b") {
+    //     return inputSquare;
+    //   } //end piece selection check
+  // } //end SELECT_PIECE
 
 
 

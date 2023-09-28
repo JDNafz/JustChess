@@ -1,11 +1,18 @@
 // import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Square from "../Square/Square";
+import { useValidPawnMoves } from "../../../hooks/useValidPawnMoves";
 
 export default function Board() {
   const board = useSelector((store) => store.board);
+  const {getValidPawnMoves} = useValidPawnMoves();
   // const turn = useSelector((store) => store.turn);
 
+  
+  
+  
+  
+  
   //this function runs when a square is clicked in square.jsx(handleClick)
   function getLegalMoves(square, board) {
     // dispatch({type: "LEGAL_MOVES", payload: [3,4]})
@@ -20,7 +27,7 @@ export default function Board() {
 
     return [-1, -1];
   }
-
+  
   function pawnMoves(square, board) {
     let legalMovesOutput;
     if (square.piece === "wp") {
