@@ -1,20 +1,11 @@
 import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
-
+import { board } from "./board.reducer";
 import { defaultBoard } from "../../components/ChessComponents/calculationFunctions/defaultBoard.js";
 import makeSimpleMove from "../../components/ChessComponents/calculationFunctions/makeSimpleMove";
 
-const board = (state = defaultBoard, action) => {
-  if (action.type === "SET_BOARD") {
-    return action.payload;
-  }
-  if (action.type === "NEW_GAME") {
-    // console.log("turn state",state);
-    return defaultBoard;
-  }
-  return state;
-};
+
 const turn = (state = 0, action) => {
   if (action.type === "TURN_STEP") {
     // console.log("turn state",state);
