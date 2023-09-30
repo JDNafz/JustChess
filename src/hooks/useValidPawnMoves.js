@@ -18,15 +18,16 @@ export function useValidPawnMoves() {
       : null;
 
     const nextRowSquares = board.filter((square) => {
-      const isOnSameX = square.x === selectedPawn.x
-      const isValidOneSquareMove = (square.x === selectedPawn.x && square.y === nextMoveYOne);
-      const isValidTwoSquareMove =  (nextMoveYTwo && isOnSameX && square.y === nextMoveYTwo);
+      const isOnSameX = square.x === selectedPawn.x;
+      const isValidOneSquareMove =
+        square.x === selectedPawn.x && square.y === nextMoveYOne;
+      const isValidTwoSquareMove =
+        nextMoveYTwo && isOnSameX && square.y === nextMoveYTwo;
       const squareIsNotOccupied = !square.piece;
       return (
-        ( isValidOneSquareMove || isValidTwoSquareMove ) && squareIsNotOccupied
+        (isValidOneSquareMove || isValidTwoSquareMove) && squareIsNotOccupied
       );
     }); //end filter
-
 
     return nextRowSquares;
   };

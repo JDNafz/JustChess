@@ -11,7 +11,7 @@ export default function Chess() {
   const selectedPiece = useSelector((store) => store.selectedPiece);
   const dispatch = useDispatch();
   const dbLog = useSelector((store) => store.dbLog);
-  const board = useSelector(store => store.board);
+  const board = useSelector((store) => store.board);
 
   useEffect(() => {
     getBoard();
@@ -24,13 +24,12 @@ export default function Chess() {
       .get("/board")
       .then((res) => {
         // console.log("DIS", res.data);
-        dispatch({type: "SET_DB_LOG", payload: res.data});
+        dispatch({ type: "SET_DB_LOG", payload: res.data });
       })
       .catch((error) => {
         console.log("GET /creatures error", error);
       });
   };
-
 
   return (
     <div id="background">
@@ -41,7 +40,9 @@ export default function Chess() {
         <GameInfo dbLog={dbLog} getBoard={getBoard} />
       </div>
 
-      <div className="selectedPieceText">Selected Piece: {selectedPiece.piece}</div>
+      <div className="selectedPieceText">
+        Selected Piece: {selectedPiece.piece}
+      </div>
     </div>
   );
 } //end Board

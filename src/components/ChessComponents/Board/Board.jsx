@@ -8,12 +8,7 @@ export default function Board() {
   return (
     <div id="boardMargin">
       {board.map((obj) => {
-        return (
-          <Square
-            key={`sq${obj.id}`}
-            id={obj.id}
-          />
-        );
+        return <Square key={`sq${obj.id}`} id={obj.id} />;
       })}
     </div>
   ); //end return
