@@ -78,6 +78,19 @@ form, #forms{
 }
 
 
+
+
+.square {
+  max-width: 40px;
+  min-width: 41px;
+  min-height: 40px;
+  max-height: 40px;
+  border: 1px solid black;
+  font-size: 10px;
+  text-align: left;
+  padding: 0px 0px 0px 2px;
+}
+
 .selectedPieceText {
   display: flex;
   justify-content: center;

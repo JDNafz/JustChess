@@ -9,13 +9,13 @@ import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 import { useValidPawnMoves } from "../../../hooks/useValidPawnMoves";
 // import { getLegalMoves } from "../../../redux/sagas/getLegalMoves";
 
-export default function Square({ id, getLegalMoves }) {
-  const {getValidPawnMoves} = useValidPawnMoves();
+export default function Square({ id }) {
+  const { getValidPawnMoves } = useValidPawnMoves();
   const dispatch = useDispatch();
   const legalMoves = useSelector((store) => store.legalMoves);
   const selectedPiece = useSelector((store) => store.selectedPiece);
   const board = useSelector((store) => store.board);
-  const turn = useSelector((store) => store.turn);
+  // const turn = useSelector((store) => store.turn);
   const square = board[id];
 
   const handleClick = () => {
@@ -23,36 +23,11 @@ export default function Square({ id, getLegalMoves }) {
 
     console.log("clicked:", square.piece);
     dispatch({ type: "SELECT_PIECE", payload: square });
-    const validMoves = getValidPawnMoves(square)
-    console.log(validMoves)
-    // const inputSquare = square;
+    dispatch({ type: "SET_LEGAL_MOVES", payload: getValidPawnMoves(square) });
 
-    // //if square is already selected, deselect
-    // if (inputSquare.coordinate === selectedPiece.coordinate) {
-    //   dispatch({ type: "DESELECT_PIECE", payload: square });
-    // } 
-    // else if (inputSquare.piece) { //check if a piece was selected if piece is null this returns false.
-    //   if (turn % 2 === 0) { //check if it's white's turn
-    //     if (inputSquare.piece[0] === "w") { 
-    //       dispatch({ type: "SELECT_PIECE", payload: square });; // if white was already selected, change focus to new piece
-    //     } 
-    //     else {
-    //       // makeSimpleMove()? 
-    //     }
-
-    //   } //end if white's turn
-    //   else if (inputSquare.piece[0] === "b") {
-    //     return inputSquare;
-    //   } //end piece selection check
-  // } //end SELECT_PIECE
-
-
-
-
-
-    //with the selected piece, go check which moves are legal
-    // const moves = getLegalMoves(selectedPiece, board);
-    // dispatch({ type: "LEGAL_MOVES", payload: moves });
+    //test getMoves
+    // const validMoves = getValidPawnMoves(square)
+    // console.log(validMoves)
   }; //end handle click
 
   return (
@@ -74,6 +49,66 @@ export default function Square({ id, getLegalMoves }) {
           <Image key={`img${square.id}`} piece={square.piece} />
         </div>
       )}
+
+      {/* {square.coordinate === legalMoves.coordinate ? (
+        <div
+          className={`square ${square.isBlack ? "black" : "white"} legalMove`}
+          onClick={handleClick}
+        >
+          <Coordinate coordinate={square.coordinate} />
+          <Image key={`img${square.id}`} piece={square.piece} />
+        </div>
+      ) : (
+        <div
+          className={`square ${square.isBlack ? "black" : "white"} `}
+          onClick={handleClick}
+        >
+          <Coordinate coordinate={square.coordinate} />
+          <Image key={`img${square.id}`} piece={square.piece} />
+        </div>
+      )} */}
+
+      {/* {(() => {
+        switch (square.coordinate) {
+          case `${legalMoves.coordinate}`:
+            console.log("SELECTED", legalMoves.coordinate);
+
+            return (
+              <div
+                className={`square ${
+                  square.isBlack ? "black" : "white"
+                } legalMove`}
+                onClick={handleClick}
+              >
+                <Coordinate coordinate={square.coordinate} />
+                <Image key={`img${square.id}`} piece={square.piece} />
+              </div>
+            );
+          case `${selectedPiece.coordinate}`:
+            console.log("SELECTED", selectedPiece.coordinate);
+            return (
+              <div
+                className={`square ${
+                  square.isBlack ? "black" : "white"
+                } selected`}
+                onClick={handleClick}
+              >
+                <Coordinate coordinate={square.coordinate} />
+                <Image key={`img${square.id}`} piece={square.piece} />
+              </div>
+            );
+          default:
+            return (
+              <div
+                className={`square ${square.isBlack ? "black" : "white"} `}
+                onClick={handleClick}
+              >
+                <Coordinate coordinate={square.coordinate} />
+                <Image key={`img${square.id}`} piece={square.piece} />
+              </div>
+            );
+        }
+      })()} */}
     </>
   );
 }

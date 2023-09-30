@@ -1,6 +1,6 @@
 # To-do List ideas
 
-Save board state: let's go back and play from here. 
+Save board state: let's go back and play from here.
 
 Play against Stock fish
 
@@ -9,8 +9,12 @@ Play against JD (+ StockFish)
 Play against Friends
 
 Chess Timer Timer
-  Flat
-  Increment
+Flat
+Increment
 
 
+select board size:
+scalable board
 
+
+flip perspective, display playing as black.
