@@ -2,7 +2,6 @@ import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
 import { board } from "./board.reducer";
-import { defaultBoard } from "../../components/ChessComponents/calculationFunctions/defaultBoard.js";
 import makeSimpleMove from "../../components/ChessComponents/calculationFunctions/makeSimpleMove";
 
 

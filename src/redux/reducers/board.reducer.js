@@ -1,3 +1,6 @@
+import { defaultBoard } from "../../components/ChessComponents/calculationFunctions/defaultBoard.js";
+
+
 export const board = (state = defaultBoard, action) => {
   if (action.type === "SET_BOARD") {
     return action.payload;
