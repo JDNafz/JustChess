@@ -71,8 +71,7 @@ form, #forms{
 #boardMargin {
   border: 5px rgb(144, 108, 42) solid;
   border-radius: 2%;
-  min-width: 357px;
-  max-width: 357px;
+  width: 360px;
   display:flex;
   flex-wrap: wrap-reverse;
 }

@@ -8,3 +8,9 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE "moves" (
+    "id" SERIAL PRIMARY KEY,
+    "turn" INTEGER,
+    "move" VARCHAR(20)
+)
