@@ -28,7 +28,6 @@ const dbLog = (state = [], action) => {
 
 const currentGameMoves = (state = [], action) => {
   if (action.type === "ADD_TO_CURRENT_GAME_MOVES"){
-    console.log("adding to currentGameMoves")
     return [...state, action.payload]
   }
 

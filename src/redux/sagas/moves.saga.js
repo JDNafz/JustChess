@@ -5,11 +5,12 @@ import axios from 'axios';
 function* makeMove(action) {
   const newBoard = action.payload.newBoard;
   const move = action.payload.move;
+  // console.log("CURRENT MOVE IN MAKEMOVE: ", payload: move)
 try {
   yield put({ type: "SET_BOARD", payload: newBoard});
   yield put({ type: "TURN_STEP"});
   //TODO: Axios call?
-  yield put({ type: "ADD_TO_CURRENT_GAME_MOVES"})
+  yield put({ type: "ADD_TO_CURRENT_GAME_MOVES", payload: move})
 } catch (error) {
   console.log("Error making move", error)
 }
