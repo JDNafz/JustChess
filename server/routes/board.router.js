@@ -27,6 +27,7 @@ router.get("/", (req, res) => {
 
 // POST Route
 router.post("/", (req, res) => {
+  console.log("in post '/board'");
   const turn = req.body.turn;
   const move = req.body.move;
   const sqlText = `INSERT INTO moves ("turn","move") VALUES($1, $2);`;

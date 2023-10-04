@@ -5,19 +5,27 @@ import { useSelector } from "react-redux";
 export default function GameInfo({getBoard}) {
   const turn = useSelector((store) => store.turn);
   const dbLog = useSelector((store) => store.dbLog);
-  
-
+  const currentGameMoves = useSelector((store) => store.currentGameMoves)
 //TODO: convert to table
   return (
     <div>
       <button onClick={getBoard}>Refresh</button>
       <ul>
         <li>Turn {Math.floor(turn/2)}</li>
-        {dbLog.map((row) => {
+        {/* {dbLog.map((row) => {
           return (
             <li key={`dbEntry${row.id}`}>{row.move} </li>
-          )})}
+          )})} */}
         
+
+          {/* using only redux */}
+        {currentGameMoves.map((move, index) => {
+          return (
+            <>
+            <li key={`dbEntry${index}`}>{move} </li>
+            </>
+
+          )})}
       </ul>
     </div>
   );

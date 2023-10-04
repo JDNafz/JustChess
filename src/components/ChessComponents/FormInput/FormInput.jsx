@@ -26,21 +26,21 @@ export default function FormInput({ getBoard }) {
     // console.log("SMOKE",start, end);
     const move = start + end
 
-    // POST move
-    axios({
-      method: "POST",
-      url: "/board",
-      data: {
-        turn: turn,
-        move: move
-      },
-    })
-      .then((response) => {
-        // console.log("POST makeMove success", response);
-      })
-      .catch(function (error) {
-        console.log("POST makeMove error", error);
-      });
+    // // POST move
+    // axios({
+    //   method: "POST",
+    //   url: "/board",
+    //   data: {
+    //     turn: turn,
+    //     move: move
+    //   },
+    // })
+    //   .then((response) => {
+    //     // console.log("POST makeMove success", response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log("POST makeMove error", error);
+    //   });
   };
 
   const newGame = () => {

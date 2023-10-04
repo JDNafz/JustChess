@@ -26,6 +26,17 @@ const dbLog = (state = [], action) => {
   return state;
 };
 
+const currentGameMoves = (state = [], action) => {
+  if (action.type === "ADD_TO_CURRENT_GAME_MOVES"){
+    console.log("adding to currentGameMoves")
+    return [...state, action.payload]
+  }
+
+  return state;
+}
+
+
+
 // later move these into individual files and import them here:
 const initSelectedPiece = {
   coordinate: "",
@@ -71,6 +82,7 @@ const rootReducer = combineReducers({
   board,
   turn,
   dbLog,
+  currentGameMoves, //same thing as dbLog
 });
 
 export default rootReducer;
