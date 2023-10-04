@@ -6,17 +6,17 @@ function* makeMove(action) {
   const newBoard = action.payload.newBoard;
   const move = action.payload.move;
 try {
-  yield put({ type: "SET_BOARD", newBoard});
+  yield put({ type: "SET_BOARD", payload: newBoard});
   yield put({ type: "TURN_STEP"});
   //TODO: Axios call?
   yield put({ type: "ADD_TO_CURRENT_GAME_MOVES"})
-} catch {
+} catch (error) {
   console.log("Error making move", error)
 }
 }
 
 function* movesSagas() {
-  yield takeLatest('MAKE_MOVE', registerUser);
+  yield takeLatest('MAKE_MOVE', makeMove);
 }
 
 export default movesSagas;
