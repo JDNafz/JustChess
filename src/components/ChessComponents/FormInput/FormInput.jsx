@@ -16,15 +16,17 @@ export default function FormInput({ getBoard }) {
   const makeMove = (event) => {
     event.preventDefault();
 
+    const newBoard = makeSimpleMove(start, end, board)
+    dispatch({ type: "MAKE_MOVE", payload: {newBoard: newBoard, move: start + end}})
     //update redux
     //dispatch updatedBoard
-    dispatch({ type: "SET_BOARD", payload: makeSimpleMove(start, end, board) });
+    // dispatch({ type: "SET_BOARD", payload: newBoard });
     //dispatch increment 'turn' reducer
-    dispatch({ type: "TURN_STEP" });
+    // dispatch({ type: "TURN_STEP" });
     // console.log("SMOKE",start, end);
     const move = start + end
 
-    //POST move
+    // POST move
     axios({
       method: "POST",
       url: "/board",

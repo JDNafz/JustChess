@@ -2,6 +2,7 @@ import { defaultBoard } from "../../components/ChessComponents/calculationFuncti
 
 export const board = (state = defaultBoard, action) => {
   if (action.type === "SET_BOARD") {
+    console.log("in set board reducer");
     return action.payload;
   }
   if (action.type === "NEW_GAME") {
