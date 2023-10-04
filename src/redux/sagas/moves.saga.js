@@ -3,10 +3,15 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "REGISTER" actions
 function* makeMove(action) {
+  const newBoard = action.payload.newBoard;
+  const move = action.payload.move;
 try {
-  yield
+  yield put({ type: "SET_BOARD", newBoard});
+  yield put({ type: "TURN_STEP"});
+  //TODO: Axios call?
+  yield put({ type: "ADD_TO_CURRENT_GAME_MOVES"})
 } catch {
-
+  console.log("Error making move", error)
 }
 }
 
@@ -16,9 +21,3 @@ function* movesSagas() {
 
 export default movesSagas;
 
-
-        // type: "MAKE_MOVE",
-        // payload: {
-        //   newBoard: makeSimpleMove(start, end, board),
-        //   move: start + end,
-    
