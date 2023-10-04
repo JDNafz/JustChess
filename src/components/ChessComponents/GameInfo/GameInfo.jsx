@@ -20,11 +20,9 @@ export default function GameInfo({getBoard}) {
 
           {/* using only redux */}
         {currentGameMoves.map((move, index) => {
+          console.log("index:", index);
           return (
-            <>
-            <li key={`dbEntry${index}`}>{move} </li>
-            </>
-
+            <li key={`moveList${index}`}>{move} </li>
           )})}
       </ul>
     </div>

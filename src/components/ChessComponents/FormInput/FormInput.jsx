@@ -16,15 +16,15 @@ export default function FormInput({ getBoard }) {
   const makeMove = (event) => {
     event.preventDefault();
 
-    const newBoard = makeSimpleMove(start, end, board)
-    dispatch({ type: "MAKE_MOVE", payload: {newBoard: newBoard, move: start + end}})
-    //update redux
-    //dispatch updatedBoard
-    // dispatch({ type: "SET_BOARD", payload: newBoard });
-    //dispatch increment 'turn' reducer
-    // dispatch({ type: "TURN_STEP" });
-    // console.log("SMOKE",start, end);
-    const move = start + end
+    dispatch({
+      type: "MAKE_MOVE",
+      payload: {
+        newBoard: makeSimpleMove(start, end, board),
+        move: start + end,
+      },
+    });
+
+    // const move = start + end
 
     // // POST move
     // axios({
@@ -47,14 +47,13 @@ export default function FormInput({ getBoard }) {
     dispatch({ type: "NEW_GAME" });
     // console.log("SMOKE",start, end);
     getBoard();
-    
+
     axios({
       method: "DELETE",
       url: "/board/newGame",
     })
       .then((response) => {
         // console.log("Game has been reset");
-        
       })
       .catch(function (error) {
         console.log("DELETE Error /people error", error);
