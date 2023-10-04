@@ -4,7 +4,7 @@
 
 //move to square obj, once we're only clicking? pass through in reducer
 export default function makeSimpleMove(start, end, board) {
-  console.log("makingSimpleMove!")
+  console.log(`makingSimpleMove ${start} to ${end}!`)
   // const board = store.board;
   // const turn = store.turn;
 
