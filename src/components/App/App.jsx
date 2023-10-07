@@ -17,7 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
+import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Chess from "../Chess/Chess";
 
@@ -77,14 +77,14 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <Route exact path="/login">
+          <Route exact path="/welcome">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/profile" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage />
+              <WelcomePage />
             )}
           </Route>
 
@@ -103,7 +103,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/profile" />
             ) : (
               // Otherwise, show the Landing page
               <LandingPage />
