@@ -14,9 +14,9 @@ import Footer from "../Footer/Footer";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import AboutPage from "../AboutPage/AboutPage";
-import UserPage from "../UserPage/UserPage";
+import UserPage from "../Profile/Profile";
 import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
+import LandingPage from "../WelcomePage/WelcomePage";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Chess from "../Chess/Chess";
@@ -36,19 +36,17 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          {/* <Redirect exact from="/" to="/home" /> */}
+          {/* change the default path from localhost:3000/ to /chess */} 
+          {/* LATER CHANGE THIS TO /welcome for final product if logged in go to chess */}
           <Redirect exact from="/" to="/chess" />
 
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/chess"
           >
             <Chess />
           </Route>
 
-          {/* Visiting localhost:3000/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
             exact
@@ -59,22 +57,14 @@ function App() {
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
+            If the user is not logged in, the ProtectedRoute will show the WelcomePage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/profile"
           >
-            <UserPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
+            <Profile />
           </ProtectedRoute>
 
           <Route exact path="/welcome">
@@ -99,7 +89,7 @@ function App() {
             )}
           </Route>
 
-          <Route exact path="/home">
+          <Route exact path="/welcome">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
