@@ -9,10 +9,6 @@ export default function WelcomePage() {
   const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
-  const onLogin = (event) => {
-    history.push('/login');
-  };
-
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -55,9 +51,8 @@ export default function WelcomePage() {
           <RegisterForm />
 
           <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
+            <button className="btn btn_sizeSm" onClick={ () => history.push('/register')}>
+              Sign Up!
             </button>
           </center>
         </div>
