@@ -9,7 +9,7 @@ Grid
   flex-direction: row;
   flex-wrap: wrap;
   /* defaults to 'flex-start' */
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 }
 
@@ -77,4 +77,12 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.loginDiv {
+  margin: 70px 0 0 30px;
+}
+
+#welcome {
+  font-size: 2.3rem;
 }

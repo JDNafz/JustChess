@@ -6,15 +6,14 @@ import './WelcomePage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 export default function WelcomePage() {
-  const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
 
       <div className="grid">
-        <div className="grid-col grid-col_8">
+        <div className="grid-col grid-col_6">
+      <h1 id="welcome">Welcome <br/> to JustChess</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
@@ -47,7 +46,7 @@ export default function WelcomePage() {
             amet nisi.
           </p>
         </div>
-        <div className="grid-col grid-col_4">
+        <div className="grid-col grid-col_4 loginDiv">
           <RegisterForm />
 
           <center>
