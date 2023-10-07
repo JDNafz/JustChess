@@ -1,5 +1,5 @@
 
-// this was generated from 
+// this was generated from './generateDefaultBoard.js'
 export const defaultBoard = [
   {
     "id":0,

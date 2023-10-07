@@ -19,11 +19,10 @@ export default function Chess() {
 
   //TODO: rename getBoard and /board into getDBLog
   const getBoard = () => {
-    // console.log('turn:', turn);
     axios
       .get("/board")
       .then((res) => {
-        // console.log("DIS", res.data);
+        // console.log("getBoard Function in Chess.jsx", res.data);
         dispatch({ type: "SET_DB_LOG", payload: res.data });
       })
       .catch((error) => {
@@ -49,7 +48,7 @@ export default function Chess() {
 
 //TODO LIST
 
-//start moving pieces on node server without DB
+//start moving pieces in react without DB
 //client just syncs after piece load to sync "STATE"
 
 //move calc comes from client before getting to server

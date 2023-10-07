@@ -15,36 +15,22 @@ export default function WelcomePage() {
         <div className="grid-col grid-col_6">
       <h1 id="welcome">Welcome <br/> to JustChess</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+          JustChess (JC by JD) is exactly what it sounds like, it’s just chess. 
+          A simple two player board game brought to the web to play online, move
+          pieces around the board and capture other pieces until you can capture 
+          the enemy king.
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
+          Chess is a game hundreds of years old. People play chess to be mentally 
+          stimulated, it’s fun to create plans, and adapt to your opponent. Chess 
+          brings people together to talk theory, game plans, compete and generally 
+          connect with others. Planning chess online allows players to forego the 
+          need for a physical board and play remotely from anywhere in the world. 
+          JustChess lets you play online with a computer or your friends and keeps 
+          the game simple and peaceful, without adding too much noise to the experience.
           </p>
 
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
-          </p>
         </div>
         <div className="grid-col grid-col_4 loginDiv">
           <RegisterForm />

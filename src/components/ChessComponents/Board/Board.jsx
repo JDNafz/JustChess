@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import Square from "../Square/Square";
 
+// This component creates the 8x8 grid of pieces mapping through the board Array that contains all piece info.
 export default function Board() {
   const board = useSelector((store) => store.board);
 

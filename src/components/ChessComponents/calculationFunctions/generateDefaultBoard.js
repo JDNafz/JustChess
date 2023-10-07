@@ -1,8 +1,10 @@
 
 
 
-
-export default function getStartingState(){// saveFile module (remove export default)
+// This file is used to create the default board as an array to be ready to access.
+// because of this during development, it can be switched from Reacts ES6
+// saveFile module (remove export default)
+export default function getStartingState(){
     const letters = 'abcdefgh'
     const numbers = '12345678'
     
