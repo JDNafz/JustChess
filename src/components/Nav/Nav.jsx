@@ -10,8 +10,8 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+      <Link to="/welcome">
+        <h2 className="nav-title">JustChess</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -21,8 +21,8 @@ function Nav() {
             <Link className="navLink" to="/Chess">
               Chess
             </Link>
-            <Link className="navLink" to="/login">
-              Login / Register
+            <Link className="navLink" to="/welcome">
+              Login
             </Link>
           </>
         )}
