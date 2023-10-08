@@ -6,7 +6,7 @@ export default function GameInfo() {
   // const dispatch = useDispatch();
   const turn = useSelector((store) => store.turn);
   const dbLog = useSelector((store) => store.dbLog);
-  const currentGameMoves = useSelector((store) => store.currentGameMoves)
+  const gameLog = useSelector((store) => store.gameLog)
 
 //TODO: convert to table instead of list
   return (
@@ -14,7 +14,7 @@ export default function GameInfo() {
       <ul>
         <li>Turn {Math.floor(turn/2)}</li>
 
-        {currentGameMoves.map((move, index) => {
+        {gameLog.moves.map((move, index) => {
           // console.log("index:", index);
           return (
             <li key={`moveList${index}`}>{move} </li>
