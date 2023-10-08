@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
 import { board } from "./board.reducer";
-import { turn } from './turn.reducer';
+import { turn } from "./turn.reducer";
 
 
 const gameLog = (state = {game: 0, moveList: []}, action) => {
