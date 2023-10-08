@@ -15,7 +15,7 @@ export default function Square({ id }) {
   const legalMoves = useSelector((store) => store.legalMoves);
   const selectedPiece = useSelector((store) => store.selectedPiece);
   const board = useSelector((store) => store.board);
-  // const turn = useSelector((store) => store.turn);
+  const gameLog = useSelector((store) => store.gameLog);
   const square = board[id];
 
   const handleClick = () => {
@@ -30,6 +30,7 @@ export default function Square({ id }) {
         payload: {
           newBoard: makeSimpleMove(start, end, board),
           move: start + end,
+          gameLog: gameLog
         },
       });
       dispatch({ type: "DESELECT_PIECE" });

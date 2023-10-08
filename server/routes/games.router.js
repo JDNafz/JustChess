@@ -19,8 +19,8 @@ router.get("/current_game", (req, res) => {
     pool
       .query(query, [id])
       .then((result) => {
-        // console.log("GOT RESULTS", result.rows[0].moves);
-        res.send(result.rows[0].moves);
+        // console.log("GOT RESULTS", result.rows[0]);
+        res.send(result.rows[0]);
       })
       .catch((error) => {
         console.log(`Error making database query ${sqlText}`, error);
@@ -51,11 +51,12 @@ router.post("/new", (req, res) => {
   }
 });
 
-router.put("/", (req, res) => {
+router.put("/moves", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log("in update router");
-    const currentMove = req.body.currentMove;
+    console.log("in update router, here is req.body", req.body);
     const user_id = req.user.id;
+
+    const currentMove = req.body.currentMove;
     const game_id = req.body.game_id;
 
     const updateQuery = ` UPDATE games 

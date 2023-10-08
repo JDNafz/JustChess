@@ -5,13 +5,15 @@ import { board } from "./board.reducer";
 import { turn } from './turn.reducer';
 
 
-const dbLog = (state = [], action) => {
-  if (action.type === "SET_DB_LOG") {
+const gameLog = (state = {game: 0, moveList: []}, action) => {
+  // const game_id = action.payload.id
+  // const moveList = action.payload.moves
+  if (action.type === "SET_GAME_LOG") {
     return action.payload;
   }
   if (action.type === "NEW_GAME") {
     // console.log("turn state",state);
-    return [];
+    return {game: 0, moveList: []};
   }
   return state;
 };
@@ -70,7 +72,7 @@ const rootReducer = combineReducers({
   legalMoves,
   board,
   turn,
-  dbLog,
+  gameLog,
   currentGameMoves, //same thing as dbLog
 });
 
