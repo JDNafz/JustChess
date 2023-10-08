@@ -14,8 +14,9 @@ router.get("/current_game", (req, res) => {
     const id = req.user.id;
 
     const query = ` SELECT "id", "moves" FROM games 
-                  WHERE user_id = $1
-                  LIMIT 1;`;
+                    WHERE user_id = $1
+                    ORDER BY "id" DESC
+                    LIMIT 1;`;
     pool
       .query(query, [id])
       .then((result) => {
@@ -23,7 +24,7 @@ router.get("/current_game", (req, res) => {
         res.send(result.rows[0]);
       })
       .catch((error) => {
-        console.log(`Error making database query ${sqlText}`, error);
+        console.log(`Error games.router/current_game ${query}`, error);
         res.sendStatus(500); // Good server always responds
       });
   }

@@ -15,7 +15,7 @@ try {
   yield put({ type: "SET_BOARD", payload: newBoard});
   yield put({ type: "TURN_STEP"});
   yield axios.put(`/games/moves`, moveData);
-  yield put({ type: "ADD_TO_CURRENT_GAME_MOVES", payload: move})
+  yield put({ type: "FETCH_CURRENT_GAME" })
 } catch (error) {
   console.log("Error making move", error)
 }
