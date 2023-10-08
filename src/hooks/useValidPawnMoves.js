@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 // no default to name the export and force clarity in other areas of project
+
 export function useValidPawnMoves() {
   const board = useSelector((store) => store.board);
 
@@ -27,7 +28,7 @@ export function useValidPawnMoves() {
       return (
         (isValidOneSquareMove || isValidTwoSquareMove) && squareIsNotOccupied
       );
-    }); //end filter
+    });
 
     return nextRowSquares;
   };

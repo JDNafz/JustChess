@@ -13,7 +13,8 @@ import Wb from "./PiecesJSX/wb"
 import Wnr from "./PiecesJSX/wnr"
 import Wnl from "./PiecesJSX/wnl"
 import Wr from "./PiecesJSX/wr"
-import Wp from "./PiecesJSX/wp"
+
+// export Enumerator
 
 export default function Image({piece}){
   // console.log(piece);
