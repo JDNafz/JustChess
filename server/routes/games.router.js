@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
 });
 
 
-router.update("/", (req, res) => {
+router.put("/", (req, res) => {
   console.log("in update router")
 });
 
