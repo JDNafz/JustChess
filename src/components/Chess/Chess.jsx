@@ -8,27 +8,12 @@ import GameInfo from "../ChessComponents/GameInfo/GameInfo";
 import Footer from "../Footer/Footer";
 
 export default function Chess() {
-  const selectedPiece = useSelector((store) => store.selectedPiece);
-  const dispatch = useDispatch();
-  const dbLog = useSelector((store) => store.dbLog);
-  const board = useSelector((store) => store.board);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    getBoard();
-  }, [board]);
+  // const board = useSelector((store) => store.board);
 
-  //TODO: rename getBoard and /board into getDBLog
-  const getBoard = () => {
-    axios
-      .get("/board")
-      .then((res) => {
-        // console.log("getBoard Function in Chess.jsx", res.data);
-        dispatch({ type: "SET_DB_LOG", payload: res.data });
-      })
-      .catch((error) => {
-        console.log("GET /creatures error", error);
-      });
-  };
+  // useEffect(() => {
+  // }, [board]);
 
   return (
     <div id="background">
@@ -37,13 +22,9 @@ export default function Chess() {
       </div>
 
       <div id="gameInfo">
-        <FormInput getBoard={getBoard} />
-        <GameInfo dbLog={dbLog} getBoard={getBoard} />
+        <FormInput />
+        <GameInfo />
       </div>
-
-      {/* <div className="selectedPieceText">
-        Selected Piece: {selectedPiece.piece}
-      </div> */}
       <Footer />
     </div>
   );

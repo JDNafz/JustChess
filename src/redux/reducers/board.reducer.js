@@ -5,7 +5,7 @@ export const board = (state = defaultBoard, action) => {
     // console.log("in set board reducer");
     return action.payload;
   }
-  if (action.type === "NEW_GAME") {
+  if (action.type === "NEW_BOARD") {
     // console.log("turn state",state);
     return defaultBoard;
   }

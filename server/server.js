@@ -27,6 +27,9 @@ app.use('/api/user', userRouter);
 const boardRouter = require('./routes/board.router.js');
 app.use('/board', boardRouter);
 
+const gameRouter = require('./routes/game.router.js');
+app.use('/games', gameRouter)
+
 
 
 // Serve static files

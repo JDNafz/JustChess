@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 // import useReduxStore from "../../../hooks/useReduxStore";
 
-export default function FormInput({ getBoard }) {
+export default function FormInput() {
   const dispatch = useDispatch();
 
   const [start, setStart] = useState(""); //used to take in text inputs
@@ -26,23 +26,11 @@ export default function FormInput({ getBoard }) {
   };
 
 
-  //TODO: move newGame into a Saga
+
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
     // console.log("SMOKE",start, end);
-    getBoard();
-
-    axios({
-      method: "DELETE",
-      url: "/board/newGame",
-    })
-      .then((response) => {
-        // console.log("Game has been reset");
-      })
-      .catch(function (error) {
-        console.log("DELETE Error /people error", error);
-      });
-  };
+  }
 
   return (
     <div id="forms">

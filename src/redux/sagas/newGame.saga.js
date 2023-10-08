@@ -2,12 +2,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 // worker Saga: will be fired on "REGISTER" actions
-function* makeMove(action) {
-  const newBoard = action.payload.newBoard;
-  const move = action.payload.move;
-  // console.log("CURRENT MOVE IN MAKEMOVE: ", payload: move)
+function* newGame(action) {
+
 try {
-  yield put({ type: "SET_BOARD", payload: newBoard});
+  yield put({ type: "NEW_BOARD", });
   yield put({ type: "TURN_STEP"});
   yield axios.UPDATE(`/games/moves/${gameId}`);
   yield put({ type: "ADD_TO_CURRENT_GAME_MOVES", payload: move})
@@ -16,9 +14,6 @@ try {
 }
 }
 
-export default function* movesSagas() {
-  yield takeLatest('MAKE_MOVE', makeMove);
+export default function* newGameSaga() {
+  yield takeLatest('NEW_GAME', newGame);
 }
-
-
-

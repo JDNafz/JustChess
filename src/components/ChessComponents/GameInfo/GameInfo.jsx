@@ -1,27 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function GameInfo({getBoard}) {
+export default function GameInfo() {
+  // const dispatch = useDispatch();
   const turn = useSelector((store) => store.turn);
   const dbLog = useSelector((store) => store.dbLog);
   const currentGameMoves = useSelector((store) => store.currentGameMoves)
-//TODO: convert to table
+
+//TODO: convert to table instead of list
   return (
     <div>
-      <button onClick={getBoard}>Refresh</button>
       <ul>
         <li>Turn {Math.floor(turn/2)}</li>
 
-        {/* TODO need to set this back up to link with the db to trace the game moves.
-        db needs to be refactored anyways though */}
-        {/* {dbLog.map((row) => {
-          return (
-            <li key={`dbEntry${row.id}`}>{row.move} </li>
-          )})} */}
-        
-
-          {/* using only redux */}
         {currentGameMoves.map((move, index) => {
           // console.log("index:", index);
           return (

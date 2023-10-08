@@ -2,18 +2,8 @@ import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
 import { board } from "./board.reducer";
+import { turn } from './turn.reducer';
 
-const turn = (state = 0, action) => {
-  if (action.type === "TURN_STEP") {
-    // console.log("turn state",state);
-    return (state = state + 1);
-  }
-  if (action.type === "NEW_GAME") {
-    // console.log("turn state",state);
-    return 0;
-  }
-  return state;
-};
 
 const dbLog = (state = [], action) => {
   if (action.type === "SET_DB_LOG") {

@@ -10,6 +10,9 @@ CREATE TABLE "user" (
 
 CREATE TABLE "games" (
     "id" SERIAL PRIMARY KEY,
-    "moves" INTEGER,
+    "moves" TEXT ARRAY,
     "user_id" INT REFERENCES "user"(id)
 );
+
+INSERT INTO games ("moves","user_id") 
+VALUES (ARRAY['e2e4','e7e5'],1)
