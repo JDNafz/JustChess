@@ -9,7 +9,7 @@ function* makeMove(action) {
 try {
   yield put({ type: "SET_BOARD", payload: newBoard});
   yield put({ type: "TURN_STEP"});
-  //TODO: Axios call?
+  yield axios.UPDATE(`/games/moves/${gameId}`);
   yield put({ type: "ADD_TO_CURRENT_GAME_MOVES", payload: move})
 } catch (error) {
   console.log("Error making move", error)
