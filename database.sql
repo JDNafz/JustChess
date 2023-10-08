@@ -16,3 +16,4 @@ CREATE TABLE "games" (
 
 INSERT INTO games ("moves","user_id") 
 VALUES (ARRAY['e2e4','e7e5'],1)
+

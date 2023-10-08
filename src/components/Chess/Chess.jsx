@@ -8,12 +8,13 @@ import GameInfo from "../ChessComponents/GameInfo/GameInfo";
 import Footer from "../Footer/Footer";
 
 export default function Chess() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // const board = useSelector((store) => store.board);
 
-  // useEffect(() => {
-  // }, [board]);
+  useEffect(() => {
+    dispatch({ type: "FETCH_CURRENT_GAME"})
+  }, []);
 
   return (
     <div id="background">
