@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
-import useReduxStore from "../../../hooks/useReduxStore";
+// import useReduxStore from "../../../hooks/useReduxStore";
 
 export default function FormInput({ getBoard }) {
   const dispatch = useDispatch();
@@ -23,26 +23,10 @@ export default function FormInput({ getBoard }) {
         move: start + end,
       },
     });
-
-    // const move = start + end
-
-    // // POST move
-    // axios({
-    //   method: "POST",
-    //   url: "/board",
-    //   data: {
-    //     turn: turn,
-    //     move: move
-    //   },
-    // })
-    //   .then((response) => {
-    //     // console.log("POST makeMove success", response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log("POST makeMove error", error);
-    //   });
   };
 
+
+  //TODO: move newGame into a Saga
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
     // console.log("SMOKE",start, end);
@@ -57,20 +41,6 @@ export default function FormInput({ getBoard }) {
       })
       .catch(function (error) {
         console.log("DELETE Error /people error", error);
-      });
-  };
-
-  const loadEvans = () => {
-    axios({
-      method: "DELETE",
-      url: "/board/Evans",
-    })
-      .then((response) => {
-        console.log("Evan's Gambit Loaded");
-        getBoard();
-      })
-      .catch(function (error) {
-        console.log("Error getting Evan's Gambit: ", error);
       });
   };
 

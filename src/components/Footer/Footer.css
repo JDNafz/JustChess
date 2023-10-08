@@ -1,5 +1,18 @@
-footer {
-  margin-top: 80px;
-  padding: 20px;
-  text-align: center;
+.footerContainer {
+  /* display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 1000px; */
+  position: absolute;
+  bottom: 1%;
+  left: 45%;
 }
+
+/* footer { */
+  /* margin-top: 80px;
+  padding: 20px; */
+  /* text-align: center; */
+  /* align-items: flex-end; */
+  /* justify-content: center; */
+/* } */

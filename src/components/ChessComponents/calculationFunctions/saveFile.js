@@ -1,3 +1,5 @@
+//this file is used to create a newfile that contains the starting position
+
 // import getStartingState from "./getStartingState.js";
 const getStartingState = require("./generateDefaultBoard.js")
 

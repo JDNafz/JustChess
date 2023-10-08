@@ -12,6 +12,9 @@ export default function GameInfo({getBoard}) {
       <button onClick={getBoard}>Refresh</button>
       <ul>
         <li>Turn {Math.floor(turn/2)}</li>
+
+        {/* TODO need to set this back up to link with the db to trace the game moves.
+        db needs to be refactored anyways though */}
         {/* {dbLog.map((row) => {
           return (
             <li key={`dbEntry${row.id}`}>{row.move} </li>

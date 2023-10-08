@@ -1,13 +1,9 @@
+//this function returns newBoard after moving the piece that moved.
 
-//this function returns newBoard after moving the pieces.
-//start and end are coordinates
-
-//move to square obj, once we're only clicking? pass through in reducer
+//start and end parameters should be coordinates, not squares.
+//use typescript for this?
 export default function makeSimpleMove(start, end, board) {
-  console.log(`makingSimpleMove ${start} to ${end}!`)
-  // const board = store.board;
-  // const turn = store.turn;
-
+  console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
@@ -27,12 +23,12 @@ function removeStartingPiece(board, start) {
         ...sq,
         piece: null,
       };
-    } //end if
+    }
     return sq;
-  }); //end map
+  });
 
   return [boardAfterRemoval, movingPiece];
-}
+} //end removeStartingPiece
 
 // map over board, replace end coordinate with the piece that is moving.
 function replaceDestination(board, startingPiece, end) {

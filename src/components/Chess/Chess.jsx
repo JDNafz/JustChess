@@ -1,11 +1,11 @@
 import { useState, useEffect, useDebugValue } from "react";
 import Board from "../ChessComponents/Board/Board";
-import Header from "../ChessComponents/Header/Header";
 import axios from "axios";
 import FormInput from "../ChessComponents/FormInput/FormInput";
 import "./Chess.css";
 import { useDispatch, useSelector } from "react-redux";
 import GameInfo from "../ChessComponents/GameInfo/GameInfo";
+import Footer from "../Footer/Footer";
 
 export default function Chess() {
   const selectedPiece = useSelector((store) => store.selectedPiece);
@@ -32,7 +32,6 @@ export default function Chess() {
 
   return (
     <div id="background">
-      <Header />
       <div id="boardAndInput">
         <FormInput getBoard={getBoard} />
         <Board />
@@ -42,6 +41,7 @@ export default function Chess() {
       <div className="selectedPieceText">
         Selected Piece: {selectedPiece.piece}
       </div>
+      <Footer/>
     </div>
   );
 } //end Board
