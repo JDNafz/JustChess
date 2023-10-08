@@ -7,7 +7,7 @@ export default function Board() {
   const board = useSelector((store) => store.board);
 
   return (
-    <div id="boardMargin">
+    <div id="board">
       {board.map((obj) => {
         return <Square key={`sq${obj.id}`} id={obj.id} />;
       })}

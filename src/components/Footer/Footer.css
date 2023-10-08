@@ -1,4 +1,4 @@
-.footerContainer {
+footer {
   /* display:flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -7,6 +7,7 @@
   position: absolute;
   bottom: 1%;
   left: 45%;
+  width: 100%;
 }
 
 /* footer { */

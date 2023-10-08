@@ -2,17 +2,23 @@
  // .square assigned in chess.css
 } */
 
-.coordinate {
-  position: relative;
-  bottom: -25px;
+.square .coordinate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+.pieceImage {
+  height: 55%;
+  width: 55%;
 }
 
 svg {
   position: relative;
-  top: -7px;
-  left: 3px;
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  height: 100%;
   filter: drop-shadow(-1px 3px 2px rgb(24, 24, 24));
 }
 

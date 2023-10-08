@@ -32,16 +32,19 @@ export default function Chess() {
 
   return (
     <div id="background">
-      <div id="boardAndInput">
-        <FormInput getBoard={getBoard} />
+      <div id="playArea">
         <Board />
+      </div>
+
+      <div id="gameInfo">
+        <FormInput getBoard={getBoard} />
         <GameInfo dbLog={dbLog} getBoard={getBoard} />
       </div>
 
-      <div className="selectedPieceText">
+      {/* <div className="selectedPieceText">
         Selected Piece: {selectedPiece.piece}
-      </div>
-      <Footer/>
+      </div> */}
+      <Footer />
     </div>
   );
 } //end Board

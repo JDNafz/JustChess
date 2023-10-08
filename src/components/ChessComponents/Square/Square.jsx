@@ -19,10 +19,10 @@ export default function Square({ id }) {
   const square = board[id];
 
   const handleClick = () => {
-
-
-    const legalMoveMatched = legalMoves.filter((move)=> square.coordinate === move.coordinate)
-    if (legalMoveMatched.length === 1){
+    const legalMoveMatched = legalMoves.filter(
+      (move) => square.coordinate === move.coordinate
+    );
+    if (legalMoveMatched.length === 1) {
       const start = selectedPiece.coordinate;
       const end = square.coordinate;
       dispatch({
@@ -32,36 +32,27 @@ export default function Square({ id }) {
           move: start + end,
         },
       });
-      dispatch({ type: "DESELECT_PIECE"})
+      dispatch({ type: "DESELECT_PIECE" });
       return;
     }
     dispatch({ type: "SELECT_PIECE", payload: square });
     dispatch({ type: "SET_LEGAL_MOVES", payload: getValidPawnMoves(square) });
+  }; 
 
-
-
-
-  }; //end handle click
+  let squareClass = `square ${square.isBlack ? "black" : "white"}`;
+  if (square.coordinate === selectedPiece.coordinate) {
+    squareClass += ' selected';
+  }
 
   return (
     <>
-      {square.coordinate === selectedPiece.coordinate ? (
-        <div
-          className={`square ${square.isBlack ? "black" : "white"} selected`}
-          onClick={handleClick}
-        >
-          <Coordinate coordinate={square.coordinate} />
-          <Image key={`img${square.id}`} piece={square.piece} />
-        </div>
-      ) : (
-        <div
-          className={`square ${square.isBlack ? "black" : "white"} `}
-          onClick={handleClick}
-        >
-          <Coordinate coordinate={square.coordinate} />
-          <Image key={`img${square.id}`} piece={square.piece} />
-        </div>
-      )}
+      <div
+        className={squareClass}
+        onClick={handleClick}
+      >
+        <Coordinate coordinate={square.coordinate} />
+        <Image key={`img${square.id}`} piece={square.piece} />
+      </div>
     </>
   );
 }

@@ -8,11 +8,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <div className='footerContainer'>
-
     <footer>&copy; JD Nafziger, 2023</footer>
-    </div>
-    
     )
 }
 
