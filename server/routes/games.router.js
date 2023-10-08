@@ -17,7 +17,7 @@ router.get("/current_game", (req, res) => {
                   WHERE user_id = $1
                   LIMIT 1;`;
     pool
-      .query(query,[id])
+      .query(query, [id])
       .then((result) => {
         // console.log("GOT RESULTS", result.rows[0].moves);
         res.send(result.rows[0].moves);
@@ -31,28 +31,47 @@ router.get("/current_game", (req, res) => {
 
 router.post("/new", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log('In game/new router \n is authenticated?', req.isAuthenticated());
-    console.log('user', req.user);
-    const id = req.user.id
-    
+    // console.log('In game/new router \n is authenticated?', req.isAuthenticated());
+    // console.log('user', req.user);
+    const id = req.user.id;
+
     const sqlText = ` INSERT INTO games ("user_id") 
                       VALUES ($1);`;
     // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
     // the $1, $2, etc get substituted with the values from the array below
     pool
-    .query(sqlText, [id])
-    .then((result) => {
-      res.sendStatus(201);
-    })
-    .catch((error) => {
-      console.log(`Error making database query ${sqlText}`, error);
-      res.sendStatus(500); // Good server always responds
-    });
+      .query(sqlText, [id])
+      .then((result) => {
+        res.sendStatus(201);
+      })
+      .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500); // Good server always responds
+      });
   }
 });
 
 router.put("/", (req, res) => {
-  console.log("in update router");
+  if (req.isAuthenticated()) {
+    console.log("in update router");
+    const currentMove = req.body.currentMove;
+    const user_id = req.user.id;
+    const game_id = req.body.game_id;
+
+    const updateQuery = ` UPDATE games 
+                          set "moves" = array_append( moves, $1)
+                          WHERE user_id = $2
+                          AND "id" = $3;`
+    pool
+      .query(updateQuery, [currentMove, user_id,game_id])
+      .then((result) => {
+        res.sendStatus(201);
+      })
+      .catch((error) => {
+        console.log(`Error in put router`, error);
+        res.sendStatus(500); // Good server always responds
+      });
+  }
 });
 
 router.delete("/newGame", (req, res) => {
