@@ -10,7 +10,7 @@ export default function GameInfo() {
 
 //TODO: convert to table instead of list
   return (
-    <div>
+    <div id="gameInfo">
       <ul>
         <li>Turn {Math.floor(turn/2)}</li>
 

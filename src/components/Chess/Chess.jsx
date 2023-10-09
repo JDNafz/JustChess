@@ -27,25 +27,22 @@ export default function Chess() {
 
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
-  }
+  };
 
   return (
-    <div id="background">
+    <div id="background" className="container">
       <div id="playArea">
         <Board />
       </div>
-      {/* <div id="gameInfo"> */}
-      {/* <MenuButtons /> */}
+      
       {showInputs && <FormInput />}
       {showGameInfo && <GameInfo />}
 
-      {/* <GameInfo /> */}
       <div className="menuButtons">
         <button onClick={toggleInputs}>{inputsText}</button>
         <button onClick={toggleGameInfo}>{gameInfoText}</button>
         <button onClick={newGame}>New Game</button>
       </div>
-      {/* </div> */}
       <Footer />
     </div>
   );

@@ -27,7 +27,7 @@ export default function FormInput() {
 
 
   return (
-    <div id="forms">
+    <div id="formInputs">
       <form onSubmit={makeMove}>
         <label id="moveFrom">Move From:</label>
         <input id="pieceOne" onChange={(e) => setStart(e.target.value)} />
