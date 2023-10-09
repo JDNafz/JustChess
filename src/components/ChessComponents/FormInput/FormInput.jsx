@@ -11,7 +11,6 @@ export default function FormInput() {
   const [end, setEnd] = useState(""); //used to take in text inputs
 
   const board = useSelector((store) => store.board);
-  const turn = useSelector((store) => store.turn);
 
   const makeMove = (event) => {
     event.preventDefault();
@@ -27,11 +26,6 @@ export default function FormInput() {
 
 
 
-  const newGame = () => {
-    dispatch({ type: "NEW_GAME" });
-    // console.log("SMOKE",start, end);
-  }
-
   return (
     <div id="forms">
       <form onSubmit={makeMove}>
@@ -39,13 +33,10 @@ export default function FormInput() {
         <input id="pieceOne" onChange={(e) => setStart(e.target.value)} />
         <label id="moveTo">Move to:</label>
         <input id="pieceTwo" onChange={(e) => setEnd(e.target.value)} />
-        <button id="makeMove" type="submit">
+        <button id="makeMove">
           Make Move
         </button>
       </form>
-      <button id="newGame" onClick={newGame}>
-        New Game
-      </button>
       {/* <button id="EvansGambit" onClick={loadEvans}>Load Evan's Gambit</button> TODO: */}
     </div>
   );

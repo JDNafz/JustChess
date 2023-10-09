@@ -35,7 +35,8 @@ html {
 
 #background {
   display: flex;
-  flex-flow: column; /* chess grid */
+  flex-flow: row; /* chess grid */
+  margin: auto;
   background: rgb(157, 175, 141);
   width: 100%;
   min-height: 100vh;
@@ -76,7 +77,11 @@ form,
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 0 5px 0 0; /* border: 2px red solid; */
+}
+.menuButtons{
+  display: flex;
+  min-width: 120px;
+  flex-flow: column nowrap;
 }
 
 #newGame,

@@ -9,23 +9,43 @@ import Footer from "../Footer/Footer";
 
 export default function Chess() {
   const dispatch = useDispatch();
-
-  // const board = useSelector((store) => store.board);
+  const [showInputs, setShowInputs] = useState(false);
+  const [showGameInfo, setShowGameInfo] = useState(false);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_CURRENT_GAME"})
+    dispatch({ type: "FETCH_CURRENT_GAME" });
   }, []);
+
+  const toggleInputs = () => {
+    setShowInputs((prev) => !prev);
+  };
+  const toggleGameInfo = () => {
+    setShowGameInfo((prev) => !prev);
+  };
+  const inputsText = showInputs ? "Hide Inputs" : "Show Inputs";
+  const gameInfoText = showGameInfo ? "Hide Move List" : "Show Move List";
+
+  const newGame = () => {
+    dispatch({ type: "NEW_GAME" });
+  }
 
   return (
     <div id="background">
       <div id="playArea">
         <Board />
       </div>
+      {/* <div id="gameInfo"> */}
+      {/* <MenuButtons /> */}
+      {showInputs && <FormInput />}
+      {showGameInfo && <GameInfo />}
 
-      <div id="gameInfo">
-        <FormInput />
-        <GameInfo />
+      {/* <GameInfo /> */}
+      <div className="menuButtons">
+        <button onClick={toggleInputs}>{inputsText}</button>
+        <button onClick={toggleGameInfo}>{gameInfoText}</button>
+        <button onClick={newGame}>New Game</button>
       </div>
+      {/* </div> */}
       <Footer />
     </div>
   );

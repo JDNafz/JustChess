@@ -26,6 +26,12 @@ const currentGameMoves = (state = [], action) => {
   return state;
 }
 
+const showInputs = (state = false, action) => {
+  if (action.type === "TOGGLE_INPUT_MENU") {
+    return !state
+  }
+  return state
+}
 
 
 // later move these into individual files and import them here:
@@ -74,6 +80,7 @@ const rootReducer = combineReducers({
   turn,
   gameLog,
   currentGameMoves, //same thing as dbLog
+  showInputs,
 });
 
 export default rootReducer;
