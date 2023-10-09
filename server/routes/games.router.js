@@ -20,7 +20,7 @@ router.get("/current_game", (req, res) => {
     pool
       .query(query, [id])
       .then((result) => {
-        // console.log("GOT RESULTS", result.rows[0]);
+        console.log("GOT RESULTS", result.rows[0]);
         res.send(result.rows[0]);
       })
       .catch((error) => {
@@ -54,12 +54,12 @@ router.post("/new", (req, res) => {
 
 router.put("/moves", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log("in update router, here is req.body", req.body);
     const user_id = req.user.id;
-
-    const currentMove = req.body.currentMove;
     const game_id = req.body.game_id;
-
+    const currentMove = req.body.currentMove;
+    
+    console.log(`in update router, user id: ${user_id}, game_id: ${game_id}, currentMove: ${currentMove}`);
+    
     const updateQuery = ` UPDATE games 
                           set "moves" = array_append( moves, $1)
                           WHERE user_id = $2

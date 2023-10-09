@@ -5,26 +5,30 @@ import { board } from "./board.reducer";
 import { turn } from "./turn.reducer";
 
 
-const gameLog = (state = {game: 0, moves: []}, action) => {
+const gameLog = (state = {id: 0, moves: []}, action) => {
   // const game_id = action.payload.id
   // const moveList = action.payload.moves
   if (action.type === "SET_GAME_LOG") {
+    if (action.payload.moves == null){
+      console.log("IT WAS NULL");
+      return {id: action.payload.id, moves: []};
+    }
     return action.payload;
   }
   if (action.type === "NEW_GAME") {
     // console.log("turn state",state);
-    return {game: 0, moves: []};
+    return {id: 0, moves: []};
   }
   return state;
 };
 
-const currentGameMoves = (state = [], action) => {
-  if (action.type === "ADD_TO_CURRENT_GAME_MOVES"){
-    return [...state, action.payload]
-  }
+// const currentGameMoves = (state = [], action) => {
+//   if (action.type === "ADD_TO_CURRENT_GAME_MOVES"){
+//     return [...state, action.payload]
+//   }
 
-  return state;
-}
+//   return state;
+// }
 
 const showInputs = (state = false, action) => {
   if (action.type === "TOGGLE_INPUT_MENU") {
@@ -79,7 +83,7 @@ const rootReducer = combineReducers({
   board,
   turn,
   gameLog,
-  currentGameMoves, //same thing as dbLog
+  // currentGameMoves, //same thing as dbLog
   showInputs,
 });
 

@@ -10,6 +10,11 @@ export default function GameInfo() {
   const gameLog = useSelector((store) => store.gameLog);
 
   //TODO: convert to table instead of list
+  // const moveList = gameLog
+
+// const output = gameLog.moves.map();
+
+
   return (
     <div id="gameInfo">
       <table>
