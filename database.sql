@@ -1,4 +1,4 @@
-
+-- database name is chess-app 
 ---
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,

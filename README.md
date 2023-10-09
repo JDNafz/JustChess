@@ -16,11 +16,10 @@ I created a functional survey that you click through each prompt one at a time. 
 
 To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https://protected-headland-20056-bc39f8c233d3.herokuapp.com/#/)
 
-## Demo
-
-example as of 10.1.23: | |
+## Demo as of 10.1.23: 
+.| |
 :-------------------------:|:----------------------:
-
+![Chess Demo](/public/Chess_Demo_10.1.23.gif)
 
 
 ### Prerequisites
@@ -30,11 +29,12 @@ Link to software that is required to install the app (e.g. node).
 - [Node.js](https://nodejs.org/en/)
 - [Postgres](https://www.postgresql.org/download/)
 - [Postico](https://eggerapps.at/postico/v1.php)or [PgAdmin](https://www.postgresql.org/download/) (optionally included in Postgres installation)
+- 
 
 ## Local Installation
 
-1. Create a database named `prime_feedback`,
-2. The queries in the `data.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly.
+1. Create a database named `chess-app`,
+2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly.
 3. Open up your code editor of choice and run an `npm install`
 4. Set your connection point to local-pool to connect ot your own database.
 
@@ -48,12 +48,12 @@ Link to software that is required to install the app (e.g. node).
 
 How does someone use this application? Tell a user story here.
 
-1. A user may want a place to record their feelings and understanding of new material learned today.
-2. This web app is a place to fill in a rating to log or journal their experiences daily.
-3. User may type in a number between zero and five to answer the questions
-4. To view all the entries users may hit the 'a' key while on the submit success page to view the admin page.
-5. From the admin page, individual entries may be removed as well.
-6. To return to the survey from the admin page, user may hit the "Alt" key.
+1. *readme to be updated later
+2. 
+3. 
+4. 
+5. 
+6. 
 
 ## Built With
 
@@ -61,7 +61,12 @@ How does someone use this application? Tell a user story here.
 - Express
 - React
 - Redux
+- Sagas
+- Material UI
+- Tailwind  ----------- TBD
 - Node.js
+- HTML 
+- CSS
 
 ## License
 
@@ -71,7 +76,7 @@ How does someone use this application? Tell a user story here.
 
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality.
 
-Thanks to my Instructor Andrew Harasymiw, student life Manager Megan Mikhelson, and code coach Kevin Burk
+Thanks to my Instructor Andrew Harasymiw especially for help thinking through database design of base goals and stretch goals(more to come after I get done with Prime). Thank you to my student life Manager Megan Mikhelson for checking in on me and my cohort and supporting us along the way. Lastly thanks to my code coach Kevin Burk for helping me breakthrough the custom hooks.
 
 
 
