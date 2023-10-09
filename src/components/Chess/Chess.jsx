@@ -30,7 +30,7 @@ export default function Chess() {
   };
 
   return (
-    <div id="background" className="container">
+    <div id="background">
       <div id="playArea">
         <Board />
       </div>
