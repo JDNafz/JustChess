@@ -1,18 +1,12 @@
-## Chess Solo Project for Prime Digital Academy
+## Chess Solo Project
 
-this is a big work in progress, if you're seeing this, I probably asked you for help looking over my code.
-
-# To start things up run:
-- `npm install`
-- `npm run server`
-- `npm run client` (in a separate terminal window)
-
-server and client should refresh automatically on any changes made.
-
+this is a big work in progress, over the next two weeks (October 9th until October 23rd), this repo will be undergoing lots of changes! Check back in to see the progress!
 
 ---
 
-# Feedback Form
+# JustChess
+
+JC by JD
 
 ## Description
 
@@ -24,9 +18,10 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https:
 
 ## Demo
 
-example: | |
+example as of 10.1.23: | |
 :-------------------------:|:----------------------:
-![example gif](public/images/feedback.gif)
+
+
 
 ### Prerequisites
 
