@@ -16,6 +16,7 @@ try {
   yield put({ type: "TURN_STEP"});
   yield axios.put(`/games/moves`, moveData);
   yield put({ type: "FETCH_CURRENT_GAME" })
+  yield put({ type: "DESELECT_PIECE" });
 } catch (error) {
   console.log("Error making move", error)
 }

@@ -33,7 +33,6 @@ export default function Square({ id }) {
           gameLog: gameLog
         },
       });
-      dispatch({ type: "DESELECT_PIECE" });
       return;
     }
     dispatch({ type: "SELECT_PIECE", payload: square });

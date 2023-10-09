@@ -32,8 +32,6 @@ export default function GameInfo() {
       <ul>
         {/* <li>Turn {Math.floor(turn/2)}</li> */}
 
-        {/* TODO: make into table iterating over two at a time: */}
-        {/* https://stackoverflow.com/questions/49491452/map-an-array-by-every-two-elements */}
         {gameLog.moves.map((move, index) => {
           // console.log("index:", index);
           return <li key={`moveList${index}`}>{move} </li>;
