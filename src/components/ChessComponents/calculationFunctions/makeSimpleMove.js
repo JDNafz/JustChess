@@ -12,7 +12,7 @@ export default function makeSimpleMove(start, end, board) {
 
 // map over board, set start to null return [board, piece name]
 function removeStartingPiece(board, start) {
-  console.log("THIS IS board:", board);
+  // console.log("THIS IS board:", board);
   let movingPiece;
   const boardAfterRemoval = board.map((sq) => {
     if (sq.coordinate === start) {
