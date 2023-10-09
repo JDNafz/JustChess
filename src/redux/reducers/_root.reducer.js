@@ -5,7 +5,7 @@ import { board } from "./board.reducer";
 import { turn } from "./turn.reducer";
 
 
-const gameLog = (state = {game: 0, moveList: []}, action) => {
+const gameLog = (state = {game: 0, moves: []}, action) => {
   // const game_id = action.payload.id
   // const moveList = action.payload.moves
   if (action.type === "SET_GAME_LOG") {
@@ -13,7 +13,7 @@ const gameLog = (state = {game: 0, moveList: []}, action) => {
   }
   if (action.type === "NEW_GAME") {
     // console.log("turn state",state);
-    return {game: 0, moveList: []};
+    return {game: 0, moves: []};
   }
   return state;
 };
