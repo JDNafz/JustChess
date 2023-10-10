@@ -34,11 +34,8 @@ Link to software that is required to install the app (e.g. node).
 1. Create a database named `chess-app`,
 2. The queries in the `database.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly.
 3. Open up your code editor of choice and run an `npm install`
-4. Set your connection point to local-pool to connect ot your own database.
-
-   > line 3 _comment this one out_ //neon database pool config
-
-   > line 4 _use this line_ //local pool config
+4. Set your connection point to the local-pool to connect ot your own database.
+    - go to ```/server/modules/pool.js``` and comment out the code in favor of the currently commented out code.
 
 5. Run `npm run server` and `npm run client` in two terminal windows.
 
