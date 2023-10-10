@@ -4,7 +4,8 @@ const pg = require('pg');
 const pool = new pg.Pool({
     host: 'localhost',
     port: 5432,
-    database: 'chess-app', 
+    // database: 'chess-app', 
+    database: 'chess2',
 });
 
 module.exports = pool;
@@ -43,6 +44,36 @@ module.exports = pool;
 //         port: 5432,
 //         database: 'prime_app',   // 	💥 Change this to the name of your database!
 //     });
+// }
+
+// module.exports = pool;
+
+
+
+
+// JD NEON ATTEMPT
+// const pg = require("pg");
+// let pool;
+// const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+
+// if (process.env.DATABASE_URL) {
+//   pool = new pg.Pool({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: {
+//       rejectUnauthorized: false,
+//     },
+//   });
+// } else {
+//   pool = new pg.Pool({
+//     host: PGHOST,
+//     port: 5432,
+//     database: PGDATABASE,
+//     user: PGUSER,
+//     password: PGPASSWORD,
+//     ssl: {
+//       rejectUnauthorized: false,
+//     },
+//   });
 // }
 
 // module.exports = pool;

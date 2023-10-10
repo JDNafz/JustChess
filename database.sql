@@ -5,7 +5,7 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "bio" VARCHAR(600),
-    "saved_games" INTEGER ARRAY
+    "saved_games" integer[]
 );
 
 CREATE TABLE "games" (
