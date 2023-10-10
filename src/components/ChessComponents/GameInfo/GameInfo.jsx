@@ -11,7 +11,7 @@ export default function GameInfo() {
   const tableContent = moves.map((move, idx) => {
     if (idx === moves.length - 1 && moves.length % 2 === 1) {
       return (
-        <tr>
+        <tr key={`move${idx}`}>
           <td>{idx/2 + 1}</td>
           <td>{move}</td>
           <td>  </td>
