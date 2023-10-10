@@ -5,10 +5,10 @@ table {
 }
 
 th, td {
-  outline: 1px solid black;
+  border: 1px solid black;
   padding: 10px;
   text-align: left;
-  width:80px;
+  width:70px
 }
 
 th {

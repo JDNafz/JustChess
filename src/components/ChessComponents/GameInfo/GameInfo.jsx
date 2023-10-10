@@ -4,9 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "./gameInfo.css";
 
 export default function GameInfo() {
-  // const dispatch = useDispatch();
-  const turn = useSelector((store) => store.turn);
-  const dbLog = useSelector((store) => store.dbLog);
   const gameLog = useSelector((store) => store.gameLog);
 
   //TODO: convert to table instead of list
@@ -49,14 +46,6 @@ export default function GameInfo() {
         {tableContent}
         </tbody>
       </table>
-
-      <ul>
-{/* 
-        {gameLog.moves.map((move, index) => {
-          // console.log("index:", index);
-          return <li key={`moveList${index}`}>{move} </li>;
-        })} */}
-      </ul>
     </div>
   );
 }
