@@ -29,4 +29,17 @@ Hooks into pure fn.... if you need state-ish value
 
 custom hook > to use in redux      has access to redux state  >>>        give 1 or to options for args 
 
-make parent custom hook > child util fn's compile into parent, spit out valid or not  -->
+make parent custom hook > child util fn's compile into parent, spit out valid or not 
+
+
+https://www.npmjs.com/package/@ninjapixel/chess Option for easy moves, gameOver, etc. 
+Maybe dig through the code and steal pieces?
+.inCheck()
+.inCheckmate()
+.inDraw();
+.inStalemate();
+.inInsufficientMaterial()
+
+Contribute to @ninjapixel/chess after project?
+
+-->
