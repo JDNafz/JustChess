@@ -22,13 +22,6 @@ const gameLog = (state = {id: 0, moves: []}, action) => {
   return state;
 };
 
-// const currentGameMoves = (state = [], action) => {
-//   if (action.type === "ADD_TO_CURRENT_GAME_MOVES"){
-//     return [...state, action.payload]
-//   }
-
-//   return state;
-// }
 
 const showInputs = (state = false, action) => {
   if (action.type === "TOGGLE_INPUT_MENU") {
