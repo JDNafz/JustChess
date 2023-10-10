@@ -59,8 +59,8 @@ html,body
 #board {
   border: 5px rgb(144, 108, 42) solid;
   border-radius: 2%;
-  height: 500px;
-  width: 500px;
+  height: 700px;
+  width: 700px;
   display: flex;
   flex-wrap: wrap-reverse;
 }
