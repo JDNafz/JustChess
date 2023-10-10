@@ -11,6 +11,7 @@ export default function Chess() {
   const dispatch = useDispatch();
   const [showInputs, setShowInputs] = useState(false);
   const [showGameInfo, setShowGameInfo] = useState(true);
+  const gameMode = useSelector((store)=> store.gameMode);
 
   useEffect(() => {
     dispatch({ type: "FETCH_CURRENT_GAME" });
@@ -28,6 +29,8 @@ export default function Chess() {
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
   };
+  const legalPlay = gameMode === 1? "greenButton": "";
+  const freePlay = gameMode === 0? "greenButton": "";
 
   return (
     <div id="background">
@@ -42,6 +45,9 @@ export default function Chess() {
         <button onClick={toggleInputs}>{inputsText}</button>
         <button onClick={toggleGameInfo}>{gameInfoText}</button>
         <button onClick={newGame}>New Game</button>
+        <button className={freePlay} onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 0})}>Free Play</button>
+        <button className={legalPlay} onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 1})}>Legal Play</button>
+      
       </div>
       <Footer />
     </div>

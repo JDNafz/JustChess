@@ -6,6 +6,7 @@ import { turn } from "./turn.reducer";
 import { legalMoves } from "./legalMoves.reducer";
 import { gameLog } from "./gameLog.reducer";
 import { selectedPiece } from "./selectedPiece.reducer";
+import { gameMode } from "./gameMode.reducer";
 
 // combine all imported reducers
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   board,
   turn,
   gameLog,
+  gameMode,
 });
 
 export default rootReducer;

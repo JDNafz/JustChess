@@ -32,6 +32,11 @@ html {
 #inputs input {
   width: 90px;
 }
+.greenButton {
+  background-color: rgb(150, 202, 150);
+}
+
+
 
 #background {
   display: flex;
