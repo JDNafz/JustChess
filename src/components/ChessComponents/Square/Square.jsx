@@ -16,35 +16,57 @@ export default function Square({ id }) {
   const selectedPiece = useSelector((store) => store.selectedPiece);
   const board = useSelector((store) => store.board);
   const gameLog = useSelector((store) => store.gameLog);
+  const gameMode = useSelector((store) => store.gameMode);
   const square = board[id];
+  
+  const legalPlayClick = () => {
+    console.log("LEGAL PLAY MODE");
+    const selectedPieceInfo = {
+      square: square,
+      validMoves: getValidPawnMoves(square),
+    };
+    const noSelectedPiece = selectedPiece.coordinate === "";
+    const clickedAPiece = square.piece !== null;
+    // console.log("\n\n\n Clicked a piece \n\n\n", clickedAPiece);
 
-  const handleClick = () => {
-    if (square !== selectedPiece) {
-      const foundLegalMove = legalMoves.filter(
-        (move) => square.coordinate === move.coordinate
-      );
-      if (foundLegalMove.length === 1) {
-        const start = selectedPiece.coordinate;
-        const end = square.coordinate;
-        dispatch({
-          type: "MAKE_MOVE",
-          payload: {
-            newBoard: makeSimpleMove(start, end, board),
-            move: start + end,
-            gameLog: gameLog,
-          },
-        });
+    if (noSelectedPiece) {
+      if (clickedAPiece) {
+        dispatch({ type: "SELECT_PIECE", payload: selectedPieceInfo });
       } else {
-        dispatch({ type: "SELECT_PIECE", payload: square });
-        dispatch({
-          type: "SET_LEGAL_MOVES",
-          payload: getValidPawnMoves(square),
-        });
       }
     } else {
-      dispatch({ type: "DESELECT_PIECE" });
+      if (square !== selectedPiece) {
+        const foundLegalMove = legalMoves.filter(
+          (move) => square.coordinate === move.coordinate
+        );
+        // tryToMakeMove(foundLegalMove, selectedPiece,square)
+        if (foundLegalMove.length === 1) {
+          const start = selectedPiece.coordinate;
+          const end = square.coordinate;
+          dispatch({
+            type: "MAKE_MOVE",
+            payload: {
+              newBoard: makeSimpleMove(start, end, board),
+              move: start + end,
+              gameLog: gameLog,
+            },
+          });
+        } else {
+          dispatch({
+            type: "SELECT_PIECE",
+            payload: selectedPieceInfo,
+          });
+        }
+      } else {
+        dispatch({ type: "DESELECT_PIECE" });
+      }
     }
   };
+
+  const freePlayClick = () => {
+    console.log("Free play MODE");
+  }
+  const handleClick = gameMode === 0? freePlayClick : legalPlayClick;
 
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
   if (square.coordinate === selectedPiece.coordinate) {

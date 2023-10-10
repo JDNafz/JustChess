@@ -42,6 +42,9 @@ export default function Chess() {
         <button onClick={toggleInputs}>{inputsText}</button>
         <button onClick={toggleGameInfo}>{gameInfoText}</button>
         <button onClick={newGame}>New Game</button>
+        <button onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 0})}>Free Play</button>
+        <button onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 1})}>Legal Play</button>
+      
       </div>
       <Footer />
     </div>
