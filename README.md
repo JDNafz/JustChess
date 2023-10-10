@@ -10,11 +10,9 @@ JC by JD
 
 ## Description
 
-_Duration: 2 Day Sprint_
+It's a chess App in progress, current version is deployed check, it out! (must be logged in to record moves 10/10/2023)
 
-I created a functional survey that you click through each prompt one at a time. It takes in the users input and submits it to a database at the end of the survey. There is also an admin page, which allows the admin to view all of the survey submissions and delete any that are not needed anymore.
-
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https://protected-headland-20056-bc39f8c233d3.herokuapp.com/#/)
+To see the current site progress, please visit: [DEPLOYED VERSION OF APP](https://chess-production-0c9da90cf130.herokuapp.com/#/welcome)
 
 ## Demo as of 10.1.23: 
 .| |
