@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import movesSaga from './moves.saga';
 import gameSaga from './game.saga';
 import selectPieceSaga from './selectPiece.saga';
+import saveGameSaga from './saveGame.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     movesSaga(),
     gameSaga(),
     selectPieceSaga(),
+    saveGameSaga(),
   ]);
 }
