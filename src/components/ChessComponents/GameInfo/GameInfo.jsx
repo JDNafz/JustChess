@@ -34,6 +34,7 @@ export default function GameInfo() {
 
   return (
     <div id="gameInfo">
+      <p>Currently only working when logged in*</p>
       <table>
         <thead>
           <tr>

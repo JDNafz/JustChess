@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer";
 export default function Chess() {
   const dispatch = useDispatch();
   const [showInputs, setShowInputs] = useState(false);
-  const [showGameInfo, setShowGameInfo] = useState(true);
+  const [showGameInfo, setShowGameInfo] = useState(false);
   const gameMode = useSelector((store)=> store.gameMode);
 
   useEffect(() => {
