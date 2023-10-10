@@ -64,15 +64,23 @@ export default function Square({ id }) {
   };
 
   const freePlayClick = () => {
-    console.log("Free play MODE");
+    // if ()
   }
-  const handleClick = gameMode === 0? freePlayClick : legalPlayClick;
+  
+
+
+
+
+
+
+
+
 
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
   if (square.coordinate === selectedPiece.coordinate) {
     squareClass += " selected";
   }
-
+  const handleClick = gameMode === 0? freePlayClick : legalPlayClick;
   return (
     <>
       <div className={squareClass} onClick={handleClick}>
