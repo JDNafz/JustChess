@@ -11,6 +11,29 @@ export default function GameInfo() {
 
   //TODO: convert to table instead of list
   const moves = gameLog.moves;
+  const tableContent = moves.map((move, idx) => {
+    if (idx === moves.length - 1 && moves.length % 2 === 1) {
+      return (
+        <tr>
+          <td>{idx/2 + 1}</td>
+          <td>{move}</td>
+          <td>  </td>
+        </tr>
+      );
+    } else {
+      if (idx % 2 === 0) {
+        return (
+          <tr key={`move${idx}`}>
+            <td>{idx/2 + 1}</td>
+            <td>{move}</td>
+            <td>{moves[idx + 1]}</td>
+          </tr>
+        );
+      }
+    }
+  })
+
+
 
   return (
     <div id="gameInfo">
@@ -18,47 +41,21 @@ export default function GameInfo() {
         <thead>
           <tr>
             <th>Turn</th>
-            <th></th>
-            <th></th>
+            <th> </th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>66</td>
-            <td>e2e4</td>
-            <td>e7e5</td>
-          </tr>
-          {moves.map((move, idx) => {
-            if (idx === moves.length - 1 && moves.length % 2 === 1) {
-              return (
-                <tr>
-                  <td>turn</td>
-                  <td>{move}</td>
-                  <td>  </td>
-                </tr>
-              );
-            } else {
-              if (idx % 2 === 0) {
-                return (
-                  <tr key={`move${idx}`}>
-                    <td>turn</td>
-                    <td>{move}</td>
-                    <td>{moves[idx + 1]}</td>
-                  </tr>
-                );
-              }
-            }
-          })}
+        {tableContent}
         </tbody>
       </table>
 
       <ul>
-        {/* <li>Turn {Math.floor(turn/2)}</li> */}
-
+{/* 
         {gameLog.moves.map((move, index) => {
           // console.log("index:", index);
           return <li key={`moveList${index}`}>{move} </li>;
-        })}
+        })} */}
       </ul>
     </div>
   );
