@@ -18,20 +18,22 @@ export default function Square({ id }) {
   const gameLog = useSelector((store) => store.gameLog);
   const gameMode = useSelector((store) => store.gameMode);
   const square = board[id];
-  
+
   const legalPlayClick = () => {
     console.log("LEGAL PLAY MODE");
-    const selectedPieceInfo = {
-      square: square,
-      validMoves: getValidPawnMoves(square),
-    };
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
     // console.log("\n\n\n Clicked a piece \n\n\n", clickedAPiece);
 
     if (noSelectedPiece) {
       if (clickedAPiece) {
-        dispatch({ type: "SELECT_PIECE", payload: selectedPieceInfo });
+        dispatch({
+          type: "SELECT_PIECE",
+          payload: {
+            square: square,
+            validMoves: getValidPawnMoves(square),
+          },
+        });
       } else {
       }
     } else {
@@ -54,7 +56,10 @@ export default function Square({ id }) {
         } else {
           dispatch({
             type: "SELECT_PIECE",
-            payload: selectedPieceInfo,
+            payload: {
+              square: square,
+              validMoves: getValidPawnMoves(square),
+            },
           });
         }
       } else {
@@ -64,23 +69,14 @@ export default function Square({ id }) {
   };
 
   const freePlayClick = () => {
-    // if ()
-  }
-  
-
-
-
-
-
-
-
-
+    console.log("Free play MODE");
+  };
 
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
   if (square.coordinate === selectedPiece.coordinate) {
     squareClass += " selected";
   }
-  const handleClick = gameMode === 0? freePlayClick : legalPlayClick;
+  const handleClick = gameMode === 0 ? freePlayClick : legalPlayClick;
   return (
     <>
       <div className={squareClass} onClick={handleClick}>
