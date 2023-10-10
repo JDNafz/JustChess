@@ -69,7 +69,25 @@ export default function Square({ id }) {
   };
 
   const freePlayClick = () => {
+    const noSelectedPiece = selectedPiece.coordinate === "";
+    const clickedAPiece = square.piece !== null;
     console.log("Free play MODE");
+    if (noSelectedPiece){
+      if (clickedAPiece) {
+        dispatch({ type:"SELECT_PIECE", payload: {square: square}})
+      }
+    } else {
+      const start = selectedPiece.coordinate;
+          const end = square.coordinate;
+          dispatch({
+            type: "MAKE_MOVE",
+            payload: {
+              newBoard: makeSimpleMove(start, end, board),
+              move: start + end,
+              gameLog: gameLog,
+            },
+          });
+    }
   };
 
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
