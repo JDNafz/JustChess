@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './gameInfo.css';
+import "./gameInfo.css";
 
 export default function GameInfo() {
   // const dispatch = useDispatch();
@@ -10,10 +10,7 @@ export default function GameInfo() {
   const gameLog = useSelector((store) => store.gameLog);
 
   //TODO: convert to table instead of list
-  // const moveList = gameLog
-
-// const output = gameLog.moves.map();
-
+  const moves = gameLog.moves;
 
   return (
     <div id="gameInfo">
@@ -31,6 +28,27 @@ export default function GameInfo() {
             <td>e2e4</td>
             <td>e7e5</td>
           </tr>
+          {moves.map((move, idx) => {
+            if (idx === moves.length - 1 && moves.length % 2 === 1) {
+              return (
+                <tr>
+                  <td>turn</td>
+                  <td>{move}</td>
+                  <td>  </td>
+                </tr>
+              );
+            } else {
+              if (idx % 2 === 0) {
+                return (
+                  <tr key={`move${idx}`}>
+                    <td>turn</td>
+                    <td>{move}</td>
+                    <td>{moves[idx + 1]}</td>
+                  </tr>
+                );
+              }
+            }
+          })}
         </tbody>
       </table>
 
