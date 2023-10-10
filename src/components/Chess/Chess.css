@@ -29,9 +29,7 @@ html,body
 #inputs input {
   width: 90px;
 }
-.greenButton {
-  background-color: rgb(150, 202, 150);
-}
+
 
 
 #background {
@@ -72,12 +70,7 @@ form,
   justify-content: flex-start;
   align-items: flex-start;
 }
-.menuButtons{
-  display: flex;
-  min-width: 120px;
-  flex-flow: column nowrap;
-  padding: 30px;
-}
+
 #gameInfo {
   padding-top: 30px;
 }

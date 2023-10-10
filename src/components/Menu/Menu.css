@@ -1,0 +1,36 @@
+
+
+.hamburgerMenu {
+  padding-top: 20px;
+  padding-right: 20px;
+  width: 140px;
+  min-width: 140px;
+  max-width: 140px;
+}
+
+.hamburgerMenu * {
+  width: 100%;
+}
+
+.menuList {
+  padding: 60px;
+  width:180px;
+  /* background-color: rgb(120, 133, 120); */
+  margin: 50px;
+  overflow: hidden;
+}
+.menuList * {
+  width: 100%;
+}
+
+.menuButtons {
+  display: flex;
+  min-width: 120px;
+  flex-flow: column nowrap;
+  padding: 30px;
+  
+}
+
+.greenButton {
+  background-color: rgb(150, 202, 150);
+}
