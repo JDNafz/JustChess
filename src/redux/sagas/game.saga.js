@@ -18,6 +18,7 @@ function* fetchCurrentGame(action) {
     const currentMoves = yield axios.get(`/games/current_game`);
     // console.log("GOT CURRENT MOVES BACK", currentMoves.data)
     yield put({ type: "SET_GAME_LOG", payload: currentMoves.data });
+    yield put({ type: "FETCH_SAVED_GAMES" });
   } catch {
     console.log("Error getting current Game");
   }
