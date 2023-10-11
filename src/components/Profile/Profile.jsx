@@ -42,6 +42,7 @@ function UserPage() {
           </div>
         </div>
       </div>
+      <h1 className="text-center text-red "> HELLO WORLD</h1>
       <div className="table">
         <div className="profile-tabs">
           <button

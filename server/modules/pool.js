@@ -5,7 +5,7 @@ const pool = new pg.Pool({
     host: 'localhost',
     port: 5432,
     // database: 'chess-app', 
-    database: 'chess2',
+    database: 'chess-app',
 });
 
 module.exports = pool;
