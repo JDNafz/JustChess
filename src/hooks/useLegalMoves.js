@@ -21,7 +21,6 @@ export function useLegalMoves() {
 
     const piece = square.piece.slice(1,2);
     console.log("PIECE:", piece);
-
     return pieceMoves[piece];
   };
   return { getLegalMoves };

@@ -1,13 +1,14 @@
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // no default to name the export and force clarity in other areas of project
 
-const makeAllMoves = require("../../server/modules/makeAllMoves");
 
-const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
+//used for writing the code in ES5 with node for testing
+// const makeAllMoves = require("../../server/modules/makeAllMoves");
+
+// const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
 // console.log(board)
 
-// export
-function useRook() {
+export function useRook() {
   // const board = useSelector((store) => store.board);
 
   const getRookMoves = (sP) => {
