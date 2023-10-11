@@ -12,7 +12,7 @@ module.exports = pool;
 
 // ------------------------------------------------------------------
 
-// JD NEON CONNECTED
+// CONNECT TO NEON
 
 // const pg = require("pg");
 // let pool;

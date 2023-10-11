@@ -16,7 +16,8 @@ export default function Chess() {
  
 
   return (
-    <div id="background">
+    <div className="background bg-red-500">
+      <h1 className="text-center">HELLO</h1>
       <div id="playArea">
         <Board />
       </div>

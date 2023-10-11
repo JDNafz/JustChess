@@ -19,7 +19,8 @@ import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Chess from "../Chess/Chess";
 
-import "./App.css";
+// import "./App.css";
+import "../../input.css";
 
 function App() {
   const dispatch = useDispatch();

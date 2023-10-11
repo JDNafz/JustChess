@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       //custom css starts here
-      
+      varColors: {
+        var1: "rgb"
+      }
     },
   },
   plugins: [],
