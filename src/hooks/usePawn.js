@@ -4,24 +4,24 @@ import { useSelector } from "react-redux";
 export function usePawn() {
   const board = useSelector((store) => store.board);
 
-  const getPawnMoves = (selectedPawn) => {
-    const pieceColor = selectedPawn.piece[0];
+  const getPawnMoves = (selectedPiece) => {
+    const pieceColor = selectedPiece.piece[0];
     const isStartingRow =
-      (pieceColor === "w" && selectedPawn.y === 1) ||
-      (pieceColor === "b" && selectedPawn.y === 6);
+      (pieceColor === "w" && selectedPiece.y === 1) ||
+      (pieceColor === "b" && selectedPiece.y === 6);
     // console.log(isStartingRow);
     const nextMoveYOne =
-      pieceColor === "w" ? selectedPawn.y + 1 : selectedPawn.y - 1;
+      pieceColor === "w" ? selectedPiece.y + 1 : selectedPiece.y - 1;
     const nextMoveYTwo = isStartingRow
       ? pieceColor === "w"
-        ? selectedPawn.y + 2
-        : selectedPawn.y - 2
+        ? selectedPiece.y + 2
+        : selectedPiece.y - 2
       : null;
 
     const nextRowSquares = board.filter((square) => {
-      const isOnSameX = square.x === selectedPawn.x;
+      const isOnSameX = square.x === selectedPiece.x;
       const isValidOneSquareMove =
-        square.x === selectedPawn.x && square.y === nextMoveYOne;
+        square.x === selectedPiece.x && square.y === nextMoveYOne;
       const isValidTwoSquareMove =
         nextMoveYTwo && isOnSameX && square.y === nextMoveYTwo;
       const squareIsNotOccupied = !square.piece;

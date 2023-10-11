@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
 // no default to name the export and force clarity in other areas of project
 
-export function useRook() {
+export function useKnight() {
   const board = useSelector((store) => store.board);
 
-  const getRookMoves = (selectedPiece) => {
+  const getKnightMoves = (selectedPiece) => {
     console.log("Searching for valid ROOK MOVES");
     board.map((square) => {
       return square.coordinate;
     });
     return squares;
   };
-  return { getRookMoves };
 }
+return { getKnightMoves };
