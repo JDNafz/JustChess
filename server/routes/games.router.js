@@ -20,8 +20,10 @@ router.get("/current_game", (req, res) => {
     pool
       .query(query, [id])
       .then((result) => {
-        // console.log("GOT RESULTS", result.rows[0]);
-        res.send(result.rows[0]);
+        const gameLog = result[0]
+        const board = makeAllMoves(gameLog);
+        
+        res.send({gameLog,board});
       })
       .catch((error) => {
         console.log(`Error games.router/current_game ${query}`, error);
