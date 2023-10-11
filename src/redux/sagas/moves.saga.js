@@ -6,7 +6,7 @@ function* makeMove(action) {
   const newBoard = action.payload.newBoard;
   const move = action.payload.move;
   const game_id = action.payload.gameLog.id;
-  console.log("GAME ID: ", game_id)
+  // console.log("GAME ID: ", game_id)
   const moveData = {
     currentMove: move,
     game_id: game_id
