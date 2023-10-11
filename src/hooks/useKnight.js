@@ -5,11 +5,11 @@ export function useKnight() {
   const board = useSelector((store) => store.board);
 
   const getKnightMoves = (selectedPiece) => {
-    console.log("Searching for valid ROOK MOVES");
-    board.map((square) => {
+    console.log("Searching for valid Knight Moves");
+    const squares = board.map((square) => {
       return square.coordinate;
     });
     return squares;
   };
+  return { getKnightMoves };
 }
-return { getKnightMoves };

@@ -9,16 +9,18 @@ export function useLegalMoves() {
   const { getKnightMoves } = useKnight();
 
   const getLegalMoves = (square) => {
-    const piece = square.piece.slice(1);
-    console.log("PIECE:", piece);
     const pieceMoves = {
       p: getPawnMoves(square),
       r: getRookMoves(square),
-      n: getKnightMoves(square),
-      b: getBishopMoves(square),
-      q: getQueenMoves(square),
-      k: getKingMoves(square),
+      n: getPawnMoves(square),
+      b: getPawnMoves(square),
+      q: getPawnMoves(square),
+      k: getPawnMoves(square),
     };
+
+
+    const piece = square.piece.slice(1,2);
+    console.log("PIECE:", piece);
 
     return pieceMoves[piece];
   };

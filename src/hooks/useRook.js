@@ -6,7 +6,7 @@ export function useRook() {
 
   const getRookMoves = (selectedPiece) => {
     console.log("Searching for valid ROOK MOVES");
-    board.map((square) => {
+    const squares = board.map((square) => {
       return square.coordinate;
     });
     return squares;
