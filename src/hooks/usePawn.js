@@ -7,11 +7,16 @@ export function usePawn() {
   const getPawnMoves = (selectedPiece) => {
     const pieceColor = selectedPiece.piece[0];
     const isStartingRow =
+      // white starts in row 2 (indexed at 1)
       (pieceColor === "w" && selectedPiece.y === 1) ||
+      //black starts in row 7(indexed at 6)
       (pieceColor === "b" && selectedPiece.y === 6);
-    // console.log(isStartingRow);
+
+    //if piece is white next move to sq to examine is y + 1
+    // if black => y - 1
     const nextMoveYOne =
       pieceColor === "w" ? selectedPiece.y + 1 : selectedPiece.y - 1;
+    //or + 2 or - 2
     const nextMoveYTwo = isStartingRow
       ? pieceColor === "w"
         ? selectedPiece.y + 2
