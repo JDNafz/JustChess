@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 
 export function usePawn() {
   const board = useSelector((store) => store.board);
-
+  
   const getPawnMoves = (selectedPiece) => {
+    
     const pieceColor = selectedPiece.piece[0];
     const isStartingRow =
       // white starts in row 2 (indexed at 1)
