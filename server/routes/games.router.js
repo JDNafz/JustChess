@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool.js");
 const { authenticate } = require("passport");
-
+const makeAllMoves = require('../modules/makeAllMoves.js');
 // const checkState = require("../modules/checkState.js");
 // let newestBoard = startingBoard
 
@@ -20,9 +20,10 @@ router.get("/current_game", (req, res) => {
     pool
       .query(query, [id])
       .then((result) => {
-        const gameLog = result[0]
-        const board = makeAllMoves(gameLog);
-        
+        const gameLog = result.rows[0]
+        // console.log("SMOKE",gameLog)
+        const board = makeAllMoves(gameLog.moves);
+        // console.log("all calcs done currentBoard:", board);
         res.send({gameLog,board});
       })
       .catch((error) => {
