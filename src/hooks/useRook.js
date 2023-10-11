@@ -6,17 +6,10 @@ export function useValidRookMoves() {
 
   const getRookMoves = (selectedPawn) => {
     console.log("Searching for valid ROOK MOVES")
-  
-  
+    board.map((square)=>{
+      return square.coordinate
+    })
+    return squares;
   }
   return { getRookMoves };
 }
-
-// coordinate: "d2";
-// id: 12;
-// isBlack: false;
-// piece: "wp";
-// underAttackFromBlack: false;
-// underAttackFromWhite: false;
-// x: 3;
-// y: 1;
