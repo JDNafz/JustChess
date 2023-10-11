@@ -1,10 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 // no default to name the export and force clarity in other areas of project
 
 export function useValidPawnMoves() {
   const board = useSelector((store) => store.board);
 
   const getValidPawnMoves = (selectedPawn) => {
+    console.log("GETTING PAWN MOVES");
     const pieceColor = selectedPawn.piece[0];
     const isStartingRow =
       (pieceColor === "w" && selectedPawn.y === 1) ||

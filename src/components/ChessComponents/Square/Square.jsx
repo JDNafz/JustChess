@@ -3,14 +3,14 @@ import Image from "../Image/Image";
 import Coordinate from "../Coordinate/Coordinate";
 
 import "./Square.css";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 import { useValidPawnMoves } from "../../../hooks/useValidPawnMoves";
-// import { getLegalMoves } from "../../../redux/sagas/getLegalMoves";
+import useLegalMoves from "../../../hooks/useLegalMoves"
 
 export default function Square({ id }) {
-  const { getValidPawnMoves } = useValidPawnMoves();
+  // const { getValidPawnMoves } = useValidPawnMoves();
+
   const dispatch = useDispatch();
   const legalMoves = useSelector((store) => store.legalMoves);
   const selectedPiece = useSelector((store) => store.selectedPiece);
@@ -31,7 +31,7 @@ export default function Square({ id }) {
           type: "SELECT_PIECE",
           payload: {
             square: square,
-            validMoves: getValidPawnMoves(square),
+            validMoves: useLegalMoves(square),
           },
         });
       } else {
