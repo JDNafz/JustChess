@@ -3,7 +3,7 @@
 
 const makeAllMoves = require("../../server/modules/makeAllMoves");
 
-const board = makeAllMoves(["a2e5"]);
+const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
 // console.log(board)
 
 // export
@@ -11,7 +11,7 @@ function useRook() {
   // const board = useSelector((store) => store.board);
 
   const getRookMoves = (sP) => {
-    console.log("ROOK MOVES");
+    // console.log("ROOK MOVES");
 
     //v1 gives everything above(y+) of sP
     const vector1 = board.filter((sq) => {
@@ -32,25 +32,22 @@ function useRook() {
     const validMoves = [];
     const pieceColor = sP.piece[0];
 
-    //check y+ for pieces add valid sqs to validMoves
-    // for (let i = 0; i < vector1.length; i++){
-    //   // console.log(vector1[i].coordinate)
-
-    //   //if sq is empty add to valid moves
-    //   if ( vector1[i].piece === null ){
-    //     validMoves.push(vector1[i])
-    //   } else {
-    //     //if piece is a different color add it to valid moves
-    //     if (pieceColor !== vector1[i].piece[0]){
-    //       validMoves.push(vector1[i])
-    //     }
-    //     break;//a piece has been found, stop looking, rook can't jump over other pieces.
-    //   }
-    // }
+    //for loops check each vector for pieces in the way and if to include the squares in possible moves
+    //check y+ 
+    for (let i = 0; i < vector1.length; i++){
+      //if sq is empty add to valid moves
+      if ( vector1[i].piece === null ){
+        validMoves.push(vector1[i])
+      } else {
+        //if piece is a different color add it to valid moves
+        if (pieceColor !== vector1[i].piece[0]){
+          validMoves.push(vector1[i])
+        }
+        break;//a piece has been found, stop looking, rook can't jump over other pieces.
+      }
+    }
     //check for y-
-    for (let i = 0; i < vector2.length; i++){
-      console.log(vector2[i].coordinate)
-
+    for (let i = vector2.length-1; i >= 0; i--){
       //if sq is empty add to valid moves
       if ( vector2[i].piece === null ){
         validMoves.push(vector2[i])
@@ -58,11 +55,38 @@ function useRook() {
         //if piece is a different color add it to valid moves
         if (pieceColor !== vector2[i].piece[0]){
           validMoves.push(vector2[i])
+          console.log("I hit a piece i'll add it")
         }
         break;//a piece has been found, stop looking, rook can't jump over other pieces.
       }
     }
-
+    //check for x+
+    for (let i = 0; i < vector4.length; i++){
+      //if sq is empty add to valid moves
+      if ( vector4[i].piece === null ){
+        validMoves.push(vector4[i])
+      } else {
+        //if piece is a different color add it to valid moves
+        if (pieceColor !== vector4[i].piece[0]){
+          validMoves.push(vector4[i])
+        }
+        break;//a piece has been found, stop looking, rook can't jump over other pieces.
+      }
+    }
+    // check for x-
+    for (let i = vector3.length-1; i >= 0; i--){
+      //if sq is empty add to valid moves
+      if ( vector3[i].piece === null ){
+        validMoves.push(vector3[i])
+      } else {
+        //if piece is a different color add it to valid moves
+        if (pieceColor !== vector3[i].piece[0]){
+          validMoves.push(vector3[i])
+          console.log("I hit a piece i'll add it")
+        }
+        break;//a piece has been found, stop looking, rook can't jump over other pieces.
+      }
+    }
 
     // console.log("valid moves:", validMoves)
     return validMoves;
