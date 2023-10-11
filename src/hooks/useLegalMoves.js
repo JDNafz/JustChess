@@ -1,10 +1,10 @@
-import { useValidPawnMoves } from "./useValidPawnMoves";
+import { usePawn } from "./usePawn";
 
 
 
 //this function runs when a square is clicked in square.jsx(handleClick)
 export function useLegalMoves() {
-  const { getValidPawnMoves } = useValidPawnMoves();
+  const { getPawnMoves } = usePawn();
 
 
 
@@ -13,7 +13,7 @@ export function useLegalMoves() {
     const piece = square.piece.slice(1);
     console.log("PIECE:", piece)
     const pieceMoves = {
-      p : getValidPawnMoves(square),
+      p : getPawnMoves(square),
       rook : "ROOK",
     }
     
