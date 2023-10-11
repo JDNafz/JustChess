@@ -13,7 +13,7 @@ function checkState(data){
     const turn = row.turn
 
     currentTurn = turn;
-    console.log(`CheckState.js: (Move: ${move} Turn: ${turn})`); 
+    // console.log(`CheckState.js: (Move: ${move} Turn: ${turn})`); 
     if (turn === 0 ){  // if turn is 0 give back starting board
       currentBoard = startingBoard 
     } else{

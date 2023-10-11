@@ -80,7 +80,7 @@ router.put("/moves", (req, res) => {
 });
 
 router.delete("/newGame", (req, res) => {
-  console.log("in delete router");
+  // console.log("in delete router");
 });
 
 module.exports = router;

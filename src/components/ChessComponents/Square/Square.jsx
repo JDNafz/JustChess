@@ -20,7 +20,7 @@ export default function Square({ id }) {
   const square = board[id];
 
   const legalPlayClick = () => {
-    console.log("LEGAL PLAY MODE");
+    // console.log("LEGAL PLAY MODE");
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
     // console.log("\n\n\n Clicked a piece \n\n\n", clickedAPiece);
@@ -71,7 +71,7 @@ export default function Square({ id }) {
   const freePlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
-    console.log("Free play MODE");
+    // console.log("Free play MODE");
     if (noSelectedPiece){
       if (clickedAPiece) {
         dispatch({ type:"SELECT_PIECE", payload: {square: square}})

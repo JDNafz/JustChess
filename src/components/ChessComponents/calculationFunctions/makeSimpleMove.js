@@ -3,7 +3,7 @@
 //start and end parameters should be coordinates, not squares.
 //use typescript for this?
 export default function makeSimpleMove(start, end, board) {
-  console.log(`makingSimpleMove ${start} to ${end}!`);
+  // console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
