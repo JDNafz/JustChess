@@ -10,7 +10,6 @@ const initSelectedPiece = {
 };
 export const selectedPiece = (state = initSelectedPiece, action) => {
   if (action.type === "SELECT_PIECE") {
-    console.log ("HERE",action.payload)
     return action.payload.square;
   }
   if (action.type === "DESELECT_PIECE" || action.type === "TURN_STEP") {

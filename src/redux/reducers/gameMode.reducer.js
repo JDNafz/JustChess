@@ -1,4 +1,4 @@
-export const gameMode = (state = 0, action) => {
+export const gameMode = (state = 1, action) => {
   if (action.type === "SET_GAME_MODE") {
     return action.payload;
   }

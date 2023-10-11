@@ -8,7 +8,7 @@ export default function Menu() {
   const dispatch = useDispatch();
   const [showInputs, setShowInputs] = useState(false);
   const [showGameInfo, setShowGameInfo] = useState(false);
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const gameMode = useSelector((store) => store.gameMode);
   const user = useSelector((store) => store.user);

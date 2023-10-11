@@ -5,7 +5,6 @@ export function useValidPawnMoves() {
   const board = useSelector((store) => store.board);
 
   const getValidPawnMoves = (selectedPawn) => {
-    console.log("GETTING PAWN MOVES");
     const pieceColor = selectedPawn.piece[0];
     const isStartingRow =
       (pieceColor === "w" && selectedPawn.y === 1) ||

@@ -1,15 +1,14 @@
 // import getPiece from "../../modules/getPiece";
+import { useDispatch, useSelector } from "react-redux";
+import { useLegalMoves } from "../../../hooks/useLegalMoves"
 import Image from "../Image/Image";
 import Coordinate from "../Coordinate/Coordinate";
-
-import "./Square.css";
-import { useDispatch, useSelector } from "react-redux";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
-import { useValidPawnMoves } from "../../../hooks/useValidPawnMoves";
-import useLegalMoves from "../../../hooks/useLegalMoves"
+import "./Square.css";
+
 
 export default function Square({ id }) {
-  // const { getValidPawnMoves } = useValidPawnMoves();
+  const { getLegalMoves } = useLegalMoves();
 
   const dispatch = useDispatch();
   const legalMoves = useSelector((store) => store.legalMoves);
@@ -20,10 +19,8 @@ export default function Square({ id }) {
   const square = board[id];
 
   const legalPlayClick = () => {
-    // console.log("LEGAL PLAY MODE");
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
-    // console.log("\n\n\n Clicked a piece \n\n\n", clickedAPiece);
 
     if (noSelectedPiece) {
       if (clickedAPiece) {
@@ -31,11 +28,10 @@ export default function Square({ id }) {
           type: "SELECT_PIECE",
           payload: {
             square: square,
-            validMoves: useLegalMoves(square),
+            validMoves: getLegalMoves(square),
           },
         });
-      } else {
-      }
+      } 
     } else {
       if (square !== selectedPiece) {
         const foundLegalMove = legalMoves.filter(
@@ -58,7 +54,7 @@ export default function Square({ id }) {
             type: "SELECT_PIECE",
             payload: {
               square: square,
-              validMoves: getValidPawnMoves(square),
+              validMoves: getLegalMoves(square),
             },
           });
         }
