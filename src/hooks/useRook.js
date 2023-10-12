@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
 
 export function useRook() {
-  // const board = useSelector((store) => store.board);
+  const board = useSelector((store) => store.board);
 
   const getRookMoves = (sP) => {
     // console.log("ROOK MOVES");
@@ -91,7 +91,7 @@ export function useRook() {
   return { getRookMoves };
 }
 
-const { getRookMoves } = useRook();
+
 
 const example = {
   id: 36,
