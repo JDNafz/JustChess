@@ -10,7 +10,14 @@ JC by JD
 
 ## Description
 
-It's a chess App in progress, current version is deployed check, it out! (must be logged in to record moves 10/10/2023)
+It's a chess App in progress, current version is [deployed](https://chess-production-0c9da90cf130.herokuapp.com/#/welcome) check, it out! 
+
+(```must be logged in``` to record moves 10/10/2023)
+
+ 
+    updates: 
+        - Legal Pawn Moves
+        - Legal Rook Moves
 
 To see the current site progress, please visit: [DEPLOYED VERSION OF APP](https://chess-production-0c9da90cf130.herokuapp.com/#/welcome)
 
