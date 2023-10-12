@@ -4,8 +4,8 @@ const pg = require('pg');
 const pool = new pg.Pool({
     host: 'localhost',
     port: 5432,
-    database: 'chess-app', 
-    // database: 'chess2',
+    // database: 'chess-app', 
+    database: 'chess2',
 });
 
 module.exports = pool;

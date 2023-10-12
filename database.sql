@@ -19,14 +19,16 @@
 
 
 ------------------------------------
-Refactor
+-- Refactor
+
+
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username VARCHAR(80) UNIQUE NOT NULL,
     password VARCHAR(1000) NOT NULL,
-    bio VARCHAR(600)
+    bio VARCHAR(600),
+    image VARCHAR(1000)
 );
-
 CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     moves TEXT[]

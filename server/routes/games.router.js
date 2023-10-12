@@ -16,7 +16,7 @@ router.get("/current_game", (req, res) => {
     const query = ` SELECT "id", "moves" FROM games 
                     WHERE user_id = $1
                     ORDER BY "id" DESC
-                    LIMIT 1;`;
+                    LIMIT 1;`; //TODO: fix with JOIN
     pool
       .query(query, [id])
       .then((result) => {
