@@ -14,6 +14,7 @@ export default function GameInfo() {
           <td>{move}</td>
           <td>  </td>
         </tr>
+
       );
     } else {
       if (idx % 2 === 0) {
