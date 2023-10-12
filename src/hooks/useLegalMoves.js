@@ -6,7 +6,7 @@ import { useRook } from "./useRook";
 export function useLegalMoves() {
   const { getPawnMoves } = usePawn();
   const { getRookMoves } = useRook();
-  const { getKnightMoves } = useKnight();
+  // const { getKnightMoves } = useKnight();
 
   const getLegalMoves = (square) => {
     // const pieceMoves = {

@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import './GameInfoTheUnCursed.css'
 
 export default function GameInfo() {
