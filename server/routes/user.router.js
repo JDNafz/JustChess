@@ -47,9 +47,9 @@ router.post("/logout", (req, res) => {
   res.sendStatus(200);
 });
 
-router.put("/save_game", (req, res) => {
+router.post("/save_game", (req, res) => {
   const user_id = req.body.user_id;
-  const game_id = [req.body.game_id];
+  const game_id = req.body.game_id;
   // console.log("I FOUND THE user and game IDs:", user_id, game_id);
   query = ` INSERT INTO saved_game (user_id,game_id)
             VALUES ($1,$2)`;
