@@ -8,7 +8,7 @@ function* saveGame(action) {
   const game_id = action.payload.game_id;
   // console.log(`\n\n\n user_id: ${user_id}, game_id:${game_id} \n\n\n in Save game Saga`)
   try {
-    yield axios.put('/api/user/save_game',{user_id,game_id});
+    yield axios.post('/api/user/save_game',{user_id,game_id});
     yield put({ type: 'FETCH_SAVED_GAMES'});
   } catch (error) {
     console.log('Error saving game Saga:', error);
@@ -17,7 +17,7 @@ function* saveGame(action) {
 
 function* fetchSavedGames(){
   try{
-    const returned = yield axios.get('/api/user/saved_games');
+    const returned = yield axios.get('/api/user/saved_game');
     // console.log("Got back saved List from the server", returned.data);
     yield put({ type: "SET_SAVED_GAMES", payload: returned.data })
   } catch (error) {

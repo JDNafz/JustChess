@@ -51,9 +51,8 @@ router.put("/save_game", (req, res) => {
   const user_id = req.body.user_id;
   const game_id = [req.body.game_id];
   // console.log("I FOUND THE user and game IDs:", user_id, game_id);
-  query = ` UPDATE "user" 
-            SET saved_games = saved_games || $2
-            WHERE "id" = $1;`;
+  query = ` INSERT INTO saved_game (user_id,game_id)
+            VALUES ($1,$2)`;
   pool
     .query(query, [user_id, game_id])
     .then(() => res.sendStatus(201))
@@ -63,20 +62,25 @@ router.put("/save_game", (req, res) => {
     });
 });
 
-router.get("/saved_games", (req, res) => {
+router.get("/saved_game", (req, res) => {
   if (req.isAuthenticated()) {
     // console.log("/current_game GET route");
     // console.log("is authenticated?", req.isAuthenticated());
     // console.log("user id:", req.user.id);
     const id = req.user.id;
     // console.log("I FOUND THE user and game IDs:", user_id, game_id);
-    query = ` select saved_games from"user" 
-            WHERE "id" = $1;`;
+    query = ` SELECT game.id, "moves" FROM game
+              JOIN saved_game
+                ON game.id = saved_game.game_id
+              JOIN "user"
+                ON "user".id = saved_game.user_id
+              WHERE "user".id = $1
+              ORDER BY game.id DESC;`;
     pool
       .query(query, [id])
       .then((result) => {
-        // console.log(" RES BACK FROM SERVER", result.rows[0].saved_games);
-        res.send(result.rows[0].saved_games);
+        // console.log(" RES BACK FROM SERVER", result.rows);
+        res.send(result.rows);
       })
       .catch((err) => {
         console.log("Error Saving game: ", err);
