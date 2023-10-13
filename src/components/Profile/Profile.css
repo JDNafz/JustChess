@@ -52,16 +52,16 @@
   font-size: 16px;
   border: none;
   border-radius: 20% 20% 0% 0%;
-  background-color: #d1d1d1;
+  background-color: #afafaf;
 }
 
 .profile-tabs button.active {
-  background-color: #ebebeb;
+  background-color: #e7e7e7;
 }
 
 .profile-content {
   padding: 20px;
-  background-color: rgb(226, 226, 226);
+  background-color: #dfdddd;
   width: 500px;
 
 }
@@ -85,3 +85,6 @@
 }
 
 
+.historyList{
+  padding: 15px 25px;
+}

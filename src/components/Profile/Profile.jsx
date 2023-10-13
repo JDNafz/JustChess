@@ -10,6 +10,7 @@ function UserPage() {
   const [bio, setBio] = useState("Bio");
   const dispatch = useDispatch();
   const savedGameList = useSelector((store) => store.savedGameList);
+  const recentGamesList = useSelector((store) => store.recentGamesList);
 
   useEffect(() => {
     dispatch({ type: "FETCH_SAVED_GAMES" });
@@ -25,7 +26,6 @@ function UserPage() {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
-  
 
   return (
     <div className="profile-page">
@@ -66,20 +66,25 @@ function UserPage() {
         <div className="profile-content">
           {selectedTab === "tab1" ? (
             <div>
-              {savedGameList.map((game, idx) => {
+              {recentGamesList.map((game, idx) => {
                 return (
-                  <div key={`game_id${game.id}`}>
-                    <li>{idx+1}</li>
-                    <li> {game.moves} </li>
+                  <div key={`game_id${game.id}`} className="historyList">
+                    <div> Game {idx + 1}</div>
+                    <div> Move order: {game.moves} </div>
                   </div>
                 );
               })}
             </div>
           ) : (
             <ul>
-              <li>List Item A</li>
-              <li>List Item B</li>
-              {/* Add more list items as needed */}
+              {savedGameList.map((game, idx) => {
+                return (
+                  <div key={`game_id${game.id}`} className="historyList">
+                    <div> Game {idx + 1}</div>
+                    <div> Move order: {game.moves} </div>
+                  </div>
+                );
+              })}
             </ul>
           )}
         </div>
