@@ -14,16 +14,16 @@ export default function WelcomePage() {
     <div className="container">
       <div className="grid">
         <div className="grid-col grid-col_6">
-          <h1 id="welcome">
+          <h1 className="welcome">
             Welcome <br /> to JustChess
           </h1>
-          <p>
+          <p className="welcomeParagraph">
             JustChess (JC by JD) is exactly what it sounds like, it’s just
             chess. A simple two player board game brought to the web to play
             online, move pieces around the board and capture other pieces until
             you can capture the enemy king.
           </p>
-          <p>
+          <p className="welcomeParagraph">
             Chess is a game hundreds of years old. People play chess to be
             mentally stimulated, it’s fun to create plans, and adapt to your
             opponent. Chess brings people together to talk theory, game plans,

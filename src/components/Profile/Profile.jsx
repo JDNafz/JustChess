@@ -63,15 +63,12 @@ function UserPage() {
             <div>
               {savedGameList.map((game, idx) => {
                 return (
-                  <div key={`savedGame${idx}`}>
-                    <li>game</li>
-                    <li> move list: e2e4 </li>
+                  <div key={`game_id${game.id}`}>
+                    <li>{idx+1}</li>
+                    <li> {game.moves} </li>
                   </div>
                 );
               })}
-              <li>List Item 1</li>
-              <li>List Item 2</li>
-              {/* Add more list items as needed */}
             </div>
           ) : (
             <ul>
