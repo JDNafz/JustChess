@@ -29,10 +29,14 @@ svg {
 }
 
 .legalMove {
-  background-color: rgba(84, 231, 241, 0.678);
+  background-color: rgb(145, 193, 231);
+}  
+
+.highlightLast {
+  background-color: rgb(150, 150, 150);
 }
+
 
 .selected {
-  background-color: rgba(0, 222, 252, 0.021);
-}
-
+  background-color: rgba(0, 223, 252, 0);
+}  
