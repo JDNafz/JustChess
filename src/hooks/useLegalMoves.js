@@ -1,4 +1,5 @@
 // import { useKnight } from "./useKnight";
+import { useKnight } from "./useKnight";
 import { usePawn } from "./usePawn";
 import { useRook } from "./useRook";
 
@@ -6,7 +7,7 @@ import { useRook } from "./useRook";
 export function useLegalMoves() {
   const { getPawnMoves } = usePawn();
   const { getRookMoves } = useRook();
-  // const { getKnightMoves } = useKnight();
+  const { getKnightMoves } = useKnight();
 
   const getLegalMoves = (square) => {
     // const pieceMoves = {
@@ -27,7 +28,9 @@ export function useLegalMoves() {
       return getPawnMoves(square)
     } else if( piece === 'r'){
       return getRookMoves(square)
-    } 
+    } else if( piece === 'n'){
+      return getKnightMoves(square)
+    }
     return getPawnMoves(square)
     
 
