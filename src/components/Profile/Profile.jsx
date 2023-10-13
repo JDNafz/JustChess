@@ -1,7 +1,7 @@
 import LogOutButton from "../LogOutButton/LogOutButton";
 import { useDispatch, useSelector } from "react-redux";
 import "./Profile.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function UserPage() {
   const user = useSelector((store) => store.user);
@@ -10,6 +10,10 @@ function UserPage() {
   const [bio, setBio] = useState("Bio");
   const dispatch = useDispatch();
   const savedGameList = useSelector((store) => store.savedGameList);
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_SAVED_GAMES" });
+  }, []);
 
   const handleEditButtonClick = () => {
     if (isEditing) {
@@ -21,6 +25,7 @@ function UserPage() {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+  
 
   return (
     <div className="profile-page">

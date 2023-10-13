@@ -17,9 +17,11 @@ function* saveGame(action) {
 
 function* fetchSavedGames(){
   try{
-    const returned = yield axios.get('/api/user/saved_game');
+    const saved = yield axios.get('/api/user/saved_game');
     // console.log("Got back saved List from the server", returned.data);
-    yield put({ type: "SET_SAVED_GAMES", payload: returned.data })
+    yield put({ type: "SET_SAVED_GAMES", payload: saved.data })
+    const recent = yield axios.get('/api/user/recent_games');
+    yield put({ type: "SET_RECENT_GAMES", payload: recent.data })
   } catch (error) {
     console.log('Error Fetching Saved games (in saga)');
   }

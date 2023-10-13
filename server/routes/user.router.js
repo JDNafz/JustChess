@@ -89,6 +89,35 @@ router.get("/saved_game", (req, res) => {
   }
 });
 
+router.get("/recent_games", (req, res) => {
+  if (req.isAuthenticated()) {
+    // console.log("/current_game GET route");
+    // console.log("is authenticated?", req.isAuthenticated());
+    // console.log("user id:", req.user.id);
+    const id = req.user.id;
+    // console.log("I FOUND THE user and game IDs:", user_id, game_id);
+    query = ` SELECT game.id, "moves" FROM game
+              JOIN user_game
+                ON game.id = user_game.game_id
+              JOIN "user"
+                ON "user".id = user_game.user_id
+              WHERE "user".id = $1
+              ORDER BY game.id DESC
+              LIMIT 20;`;
+    pool
+      .query(query, [id])
+      .then((result) => {
+        // console.log(" RES BACK FROM SERVER", result.rows);
+        res.send(result.rows);
+      })
+      .catch((err) => {
+        console.log("Error getting recent games: ", err);
+        res.sendStatus(500);
+      });
+  }
+});
+
+
 router.put("/delete_saved_game", (req, res) => {
   if (req.isAuthenticated()) {
     const id = req.user.id;
