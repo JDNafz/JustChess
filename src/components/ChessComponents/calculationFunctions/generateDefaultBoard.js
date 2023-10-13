@@ -2,15 +2,16 @@
 
 
 // This file is used to create the default board as an array to be ready to access.
-// because of this during development, it can be switched from Reacts ES6
+// because of this during development, it is an ES5 module use for single use generation of the board in development.
 // saveFile module (remove export default)
-export default function getStartingState(){
+// 
+function getStartingState(){
     const letters = 'abcdefgh'
     const numbers = '12345678'
     
     let state = [];
     let counter = 0;
-    let isBlack=false ;
+    let isBlack=true ;
     let letter;
     let number;
     for (let i=0; i < 8; i++){     // from 1 to 8 => bottom to top
@@ -36,4 +37,4 @@ export default function getStartingState(){
     return state
 }//end getStartingState
 
-// module.exports = getStartingState; // saveFile module
+module.exports = getStartingState; // saveFile module

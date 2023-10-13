@@ -1,6 +1,5 @@
-//this file is used to create a newfile that contains the starting position
+//this file is used to create a new file that contains the starting position
 
-// import getStartingState from "./getStartingState.js";
 const getStartingState = require("./generateDefaultBoard.js")
 
 const fs = require('fs');
@@ -15,13 +14,13 @@ function saveFile(content,fileName){
 }//end saveFile
 
 
-//call the function
-let array = getStartingState();
-// console.log("SMOKE", array);
-let string = '';
-for (let obj of array){
-  string += JSON.stringify(obj);
-} //convert array of obj, into array of string to view
+// //call the function
+// let array = getStartingState();
+// // console.log("SMOKE", array);
+// let string = '';
+// for (let obj of array){
+//   string += JSON.stringify(obj);
+// } //convert array of obj, into array of string to view
 
-saveFile(string,'startingState.JSON');
+saveFile(string,'startingState.js');
 
