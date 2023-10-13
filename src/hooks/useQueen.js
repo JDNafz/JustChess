@@ -2,11 +2,9 @@
 const makeAllMoves = require("../../server/modules/makeAllMoves");
 const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
 
-  function getBishopMoves(selectedPiece){
+  function getQueenMoves(selectedPiece){
     // console.log("Searching for valid Knight Moves");
-    const validMoves = board.map((square) => {
-      return square.coordinate;
-    });
+
 
 
     console.log("valid moves:", validMoves.length)
@@ -26,4 +24,4 @@ const example = {
   isBlack: false,
 };
 
-getBishopMoves(example);
+getQueenMoves(example);
