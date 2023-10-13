@@ -20,7 +20,7 @@ export function useLegalMoves() {
 
 
     const piece = square.piece.slice(1,2);
-    console.log("PIECE:", piece);
+    // console.log("PIECE:", piece);
     
 
     if (piece === "p"){

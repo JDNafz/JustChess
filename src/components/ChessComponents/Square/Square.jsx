@@ -1,11 +1,10 @@
 // import getPiece from "../../modules/getPiece";
 import { useDispatch, useSelector } from "react-redux";
-import { useLegalMoves } from "../../../hooks/useLegalMoves"
+import { useLegalMoves } from "../../../hooks/useLegalMoves";
 import Image from "../Image/Image";
 import Coordinate from "../Coordinate/Coordinate";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 import "./Square.css";
-
 
 export default function Square({ id }) {
   const { getLegalMoves } = useLegalMoves();
@@ -31,7 +30,7 @@ export default function Square({ id }) {
             validMoves: getLegalMoves(square),
           },
         });
-      } 
+      }
     } else {
       if (square !== selectedPiece) {
         const foundLegalMove = legalMoves.filter(
@@ -68,27 +67,33 @@ export default function Square({ id }) {
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
     // console.log("Free play MODE");
-    if (noSelectedPiece){
+    if (noSelectedPiece) {
       if (clickedAPiece) {
-        dispatch({ type:"SELECT_PIECE", payload: {square: square}})
+        dispatch({ type: "SELECT_PIECE", payload: { square: square } });
       }
     } else {
       const start = selectedPiece.coordinate;
-          const end = square.coordinate;
-          dispatch({
-            type: "MAKE_MOVE",
-            payload: {
-              newBoard: makeSimpleMove(start, end, board),
-              move: start + end,
-              gameLog: gameLog,
-            },
-          });
+      const end = square.coordinate;
+      dispatch({
+        type: "MAKE_MOVE",
+        payload: {
+          newBoard: makeSimpleMove(start, end, board),
+          move: start + end,
+          gameLog: gameLog,
+        },
+      });
     }
   };
 
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
   if (square.coordinate === selectedPiece.coordinate) {
     squareClass += " selected";
+  }
+  for (let sq of legalMoves) {
+    if (square.coordinate == sq.coordinate) {
+      console.log("LEGAL MOVE FOUND", square.coordinate);
+      squareClass += " legalMove";
+    }
   }
   const handleClick = gameMode === 0 ? freePlayClick : legalPlayClick;
   return (
@@ -100,16 +105,3 @@ export default function Square({ id }) {
     </>
   );
 }
-
-// square info:
-
-// coordinate: "d4"
-// id: 27
-// isBlack: false
-// piece: null
-// underAttackFromBlack: false
-// underAttackFromWhite: false
-// x: 3
-// y: 3
-
-// -----------------------------------------------

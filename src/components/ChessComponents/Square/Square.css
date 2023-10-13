@@ -1,6 +1,4 @@
-/* .square {
- // .square assigned in chess.css
-} */
+
 
 .square .coordinate {
   position: absolute;
@@ -22,10 +20,19 @@ svg {
   filter: drop-shadow(-1px 3px 2px rgb(24, 24, 24));
 }
 
-.selected {
-  background-color: rgba(0, 222, 252, 0.021) !important;
+.white {
+  background: rgb(247, 208, 164);
+}
+
+.black {
+  background: rgb(199, 141, 83);
 }
 
 .legalMove {
-  background-color: aquamarine;
+  background-color: rgba(84, 231, 241, 0.678);
 }
+
+.selected {
+  background-color: rgba(0, 222, 252, 0.021);
+}
+

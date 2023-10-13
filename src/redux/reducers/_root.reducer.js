@@ -9,6 +9,7 @@ import { selectedPiece } from "./selectedPiece.reducer";
 import { gameMode } from "./gameMode.reducer";
 import { savedGameList } from "./savedGameList.reducer";
 import { recentGamesList } from "./recentGameList.reducer";
+import { highlightLast } from "./highlightLast.reducer";
 
 // combine all imported reducers
 const rootReducer = combineReducers({
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   gameMode,
   savedGameList,
   recentGamesList,
+  highlightLast,
 });
 
 export default rootReducer;
