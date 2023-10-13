@@ -4,7 +4,7 @@ export function useKnight() {
   const board = useSelector((store) => store.board);
 
   const getKnightMoves = (sP) => {
-    console.log("Searching for valid Knight Moves");
+    // console.log("Searching for valid Knight Moves");
     const k8 = [
       [sP.x - 2, sP.y - 1],
       [sP.x - 2, sP.y + 1],
@@ -31,7 +31,7 @@ export function useKnight() {
       }
     });
 
-    console.log("valid moves:", validMoves);
+    // console.log("valid moves:", validMoves);
     return validMoves;
   };
   return { getKnightMoves };

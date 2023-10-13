@@ -4,6 +4,7 @@ import axios from 'axios';
 // worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
   try {
+
     // clear any existing error on the login page
     yield put({ type: 'CLEAR_LOGIN_ERROR' });
 
@@ -20,6 +21,8 @@ function* loginUser(action) {
     // after the user has logged in
     // get the user information from the server
     yield put({ type: 'FETCH_USER' });
+    yield put({ type: "NEW_GAME"})
+
   } catch (error) {
     console.log('Error with user login:', error);
     if (error.response.status === 401) {

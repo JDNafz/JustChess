@@ -14,11 +14,11 @@ function* makeMove(action) {
 try {
   yield put({ type: "SET_BOARD", payload: newBoard});
   yield put({ type: "TURN_STEP"});
+  yield put({ type: "RESET_LEGAL_MOVES"})
+  yield put({ type: "DESELECT_PIECE" });
+  yield put({ type: "HIGHLIGHT_LAST", payload:move })
   yield axios.put(`/games/moves`, moveData);
   yield put({ type: "FETCH_CURRENT_GAME" })
-  yield put({ type: "DESELECT_PIECE" });
-  yield put({ type: "RESET_LEGAL_MOVES"})
-  yield put({ type: "HIGHLIGHT_LAST", payload:move })
 } catch (error) {
   console.log("Error making move", error)
 }
