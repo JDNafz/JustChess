@@ -16,7 +16,9 @@ export default function Square({ id }) {
   const gameLog = useSelector((store) => store.gameLog);
   const gameMode = useSelector((store) => store.gameMode);
   const highlightLast = useSelector((store) => store.highlightLast);
+  const showLegalMoves = useSelector((store)=> store.showLegalMoves);
   const square = board[id];
+
 
   const legalPlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
@@ -86,7 +88,6 @@ export default function Square({ id }) {
     }
   };
 
-
   //create classes for styling squares
   //basic black or white
   let squareClass = `square ${square.isBlack ? "black" : "white"}`;
@@ -95,15 +96,19 @@ export default function Square({ id }) {
     squareClass += " selected";
   }
   //highlight legal moves
-  for (let sq of legalMoves) {
-    if (square.coordinate === sq.coordinate) {
-      squareClass += " legalMove";
+  if (showLegalMoves) {
+    for (let sq of legalMoves) {
+      if (square.coordinate === sq.coordinate) {
+        squareClass += " legalMove";
+      }
     }
   }
   //highlight last move
-  if (square.coordinate === highlightLast[0] || square.coordinate === highlightLast[1]){
+  if (
+    square.coordinate === highlightLast[0] ||
+    square.coordinate === highlightLast[1]
+  ) {
     squareClass += " highlightLast";
-
   }
 
   const handleClick = gameMode === 0 ? freePlayClick : legalPlayClick;
