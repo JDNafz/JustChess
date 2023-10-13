@@ -15,10 +15,10 @@ export default function WelcomePage() {
       <div className="grid">
         <div className="grid-col grid-col_6">
           <h1 className="welcome">
-            Welcome <br /> to JustChess
+            Welcome <br /> to JC by JD
           </h1>
           <p className="welcomeParagraph">
-            JustChess (JC by JD) is exactly what it sounds like, it’s just
+            JustChess (by JD) is exactly what it sounds like, it’s just
             chess. A simple two player board game brought to the web to play
             online, move pieces around the board and capture other pieces until
             you can capture the enemy king.
