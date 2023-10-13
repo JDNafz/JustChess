@@ -16,9 +16,8 @@ export default function Square({ id }) {
   const gameLog = useSelector((store) => store.gameLog);
   const gameMode = useSelector((store) => store.gameMode);
   const highlightLast = useSelector((store) => store.highlightLast);
-  const showLegalMoves = useSelector((store)=> store.showLegalMoves);
+  const showLegalMoves = useSelector((store) => store.showLegalMoves);
   const square = board[id];
-
 
   const legalPlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
@@ -51,7 +50,8 @@ export default function Square({ id }) {
               gameLog: gameLog,
             },
           });
-        } else {
+        // if the second sq clicked is null skip this, and just deselect
+        } else if (square.piece !== null) {
           dispatch({
             type: "SELECT_PIECE",
             payload: {
@@ -60,9 +60,8 @@ export default function Square({ id }) {
             },
           });
         }
-      } else {
-        dispatch({ type: "DESELECT_PIECE" });
       }
+      dispatch({ type: "DESELECT_PIECE" });
     }
   };
 
