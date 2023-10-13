@@ -1,23 +1,36 @@
 // import { useSelector } from "react-redux";
 // no default to name the export and force clarity in other areas of project
 
-// export 
+// export
 // function useKnight() {
-  // const board = useSelector((store) => store.board);
+// const board = useSelector((store) => store.board);
 
 const makeAllMoves = require("../../server/modules/makeAllMoves");
-const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
+const board = makeAllMoves(["a2e5", "e2d2", "e1b1"]);
 
-  function getKnightMoves(selectedPiece){
-    // console.log("Searching for valid Knight Moves");
-    const validMoves = board.map((square) => {
-      return square.coordinate;
-    });
+function getKnightMoves(sP) {
+  console.log("Searching for valid Knight Moves");
+  const k8 = [
+    [sP.x - 2, sP.y - 1],
+    [sP.x - 2, sP.y + 1],
+    [sP.x - 1, sP.y + 2],
+    [sP.x + 1, sP.y + 2],
+    [sP.x + 2, sP.y + 1],
+    [sP.x + 2, sP.y - 1],
+    [sP.x + 1, sP.y - 2],
+    [sP.x - 1, sP.y - 2],
+  ];
+  const validMoves = board.filter((sq) => {
+    for (pair of k8) {
+      if (pair[0] === sq.x && pair[1] === sq.y) {
+        return sq;
+      }
+    }
+  });
 
-
-    console.log("valid moves:", validMoves.length)
-    return validMoves;
-  };
+  console.log("valid moves:", validMoves);
+  return validMoves;
+}
 //   return { getKnightMoves };
 // }
 
