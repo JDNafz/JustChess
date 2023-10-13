@@ -12,8 +12,20 @@ function* selectPiece(action) {
   }
 }
 
+
+function* deselectPiece(action) {
+  try {
+    yield put({ type: "RESET_LEGAL_MOVES"})
+
+
+  } catch (error) {
+    console.log('Error with deselecting highlight logout:', error);
+  }
+}
+
 function* selectPieceSaga() {
   yield takeLatest('SELECT_PIECE', selectPiece);
+  yield takeLatest('DESELECT_PIECE', deselectPiece);
 }
 
 export default selectPieceSaga;
