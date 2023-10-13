@@ -1,4 +1,4 @@
-import { useKnight } from "./useKnight";
+// import { useKnight } from "./useKnight";
 import { usePawn } from "./usePawn";
 import { useRook } from "./useRook";
 

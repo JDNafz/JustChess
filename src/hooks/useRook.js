@@ -1,9 +1,5 @@
 import { useSelector } from "react-redux";
 
-//used for writing the code in ES5 with node for testing
-// const makeAllMoves = require("../../server/modules/makeAllMoves");
-// const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
-
 export function useRook() {
   const board = useSelector((store) => store.board);
 

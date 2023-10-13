@@ -4,5 +4,8 @@ export const highlightLast = (state = [], action) => {
     const end = action.payload.slice(2);
     return [start, end]
     }
+  if (action.type === "RESET_HIGHLIGHT_LAST"){
+    return []
+  }
   return state;
 };
