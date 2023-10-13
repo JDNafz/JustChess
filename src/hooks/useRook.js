@@ -90,29 +90,3 @@ export function useRook() {
   };
   return { getRookMoves };
 }
-
-
-
-const example = {
-  id: 36,
-  coordinate: "e5",
-  x: 4,
-  y: 4,
-  piece: "wr",
-  underAttackFromWhite: false,
-  underAttackFromBlack: false,
-  isBlack: false,
-};
-// const v2 = {
-//   id: 1,
-//   coordinate: "e5",
-//   x: 0,
-//   y: 0,
-//   piece: "wr",
-//   underAttackFromWhite: false,
-//   underAttackFromBlack: false,
-//   isBlack: false,
-// };
-
-// getRookMoves(example);
-// getRookMoves(v2)
