@@ -23,21 +23,35 @@ export function usePawn() {
         : sP.y - 2
       : null;
 
-    const basicMoves = board.filter((sq) => {
+    const basicMoves = board.filter((sq, idx, board) => {
       const isOnSameX = sq.x === sP.x;
-      const squareIsNotOccupied = !sq.piece;
-      const isValidOneSquareMove =
-        sq.x === sP.x && sq.y === nextMoveYOne && squareIsNotOccupied;
+      const isValidOneSquareMove = sq.x === sP.x && sq.y === nextMoveYOne;
       const isValidTwoSquareMove =
-        nextMoveYTwo &&
-        isOnSameX &&
-        sq.y === nextMoveYTwo &&
-        squareIsNotOccupied;
-      if (isValidOneSquareMove) {
-        console.log("MV1", isValidOneSquareMove);
-        return isValidOneSquareMove || isValidTwoSquareMove;
+        nextMoveYTwo && isOnSameX && sq.y === nextMoveYTwo;
+      const squareIsNotOccupied = !sq.piece;
+      return (
+        (isValidOneSquareMove && squareIsNotOccupied) ||
+        (isValidTwoSquareMove && squareIsNotOccupied)
+      );
+    });
+    // console.log("SMOKEY", basicMoves);
+    const fixedMoves = basicMoves.filter((sq, idx, basicMoves) => {
+      let difference;
+      if (basicMoves.length === 1) {
+        difference = sP.y - basicMoves[0].y;
+        if (difference < 0) {
+          difference = difference * -1;
+        }
+        console.log("DIFFY", difference);
+
+        if (difference === 1) {
+          console.log("DIFFY", difference);
+
+          return true;
+        }
+      } else {
+        return true;
       }
-      return isValidOneSquareMove;
     });
 
     //check for attacking
@@ -71,7 +85,7 @@ export function usePawn() {
     });
 
     const attacks = isWhite ? whiteAttacks : blackAttacks;
-    const validMoves = [...basicMoves, ...attacks];
+    const validMoves = [...fixedMoves, ...attacks];
 
     // console.log("POSSIBLE ATTACKS", possibleAttacks);
 
