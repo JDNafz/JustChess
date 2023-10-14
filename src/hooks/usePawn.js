@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 export function usePawn() {
   const board = useSelector((store) => store.board);
+  const gameLog = useSelector((store) => store.gameLog);
+  const moves = gameLog.moves;
 
   const getPawnMoves = (sP) => {
     const pieceColor = sP.piece[0];
@@ -83,12 +85,39 @@ export function usePawn() {
       }
     });
 
+    //en passant
+    if (moves.length > 1) {
+      checkEnPassant(sP, moves, board);
+    }
+    function checkEnPassant(sP, moves, board) {
+      let enPassantAttack;
+      const lastMove = moves[moves.length - 1];
+      const rowOfStart = lastMove.slice(1, 2);
+      const rowOfFinish = lastMove.slice(3);
+      const coordinateOfEnd = lastMove.slice(2);
+
+      const lastSq = board.filter((sq) => sq.coordinate === coordinateOfEnd)[0];
+      const lastPiece = lastSq.piece[1];
+      const movedTwoSquares =
+        (Number(rowOfStart) + Number(rowOfFinish)) % 2 === 0;
+
+      if (lastPiece === "p" && movedTwoSquares) {
+        const yCoordinateToAttack = rowOfStart === "2" ? 2 : 5
+        if (lastSq.x + 1 === sP.x) {
+          enPassantAttack = board.filter((sq) => {
+            return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
+          });
+        } else if (lastSq.x - 1 === sP.x) {
+          enPassantAttack = board.filter((sq) => {
+            return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
+          });
+        }
+      }
+      console.log("EnPassantAttack", enPassantAttack);
+    }
+
     const attacks = isWhite ? whiteAttacks : blackAttacks;
     const validMoves = [...fixedMoves, ...attacks];
-
-    // console.log("POSSIBLE ATTACKS", possibleAttacks);
-
-    // console.log("NEXT", validMoves);
     return validMoves;
   };
 
