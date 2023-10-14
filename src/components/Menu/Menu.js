@@ -48,7 +48,8 @@ export default function Menu() {
       {showGameInfo && <GameInfo />}
       {showMenu && (
         <div className="menuList">
-          {/* <button onClick={toggleInputs}>{inputsText}</button> */}
+          <button onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}> Flip Board </button>
+
           <button onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}> {showLegalMovesText} </button>
 
           <button onClick={toggleGameInfo}>{gameInfoText}</button>

@@ -12,6 +12,7 @@ import { recentGamesList } from "./recentGameList.reducer";
 import { highlightLast } from "./highlightLast.reducer";
 import { showLegalMoves } from "./showLegalMoves.reducer";
 import { isWhiteTurn } from "./isWhiteTurn.reducer";
+import { perspective } from "./perspective.reducer";
 
 // combine all imported reducers
 const rootReducer = combineReducers({
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   highlightLast,
   showLegalMoves,
   isWhiteTurn,
+  perspective,
 });
 
 export default rootReducer;
