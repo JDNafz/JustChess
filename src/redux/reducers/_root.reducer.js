@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
 import { board } from "./board.reducer";
-import { turn } from "./turn.reducer";
+// import { turn } from "./turn.reducer";
 import { legalMoves } from "./legalMoves.reducer";
 import { gameLog } from "./gameLog.reducer";
 import { selectedPiece } from "./selectedPiece.reducer";
@@ -11,6 +11,7 @@ import { savedGameList } from "./savedGameList.reducer";
 import { recentGamesList } from "./recentGameList.reducer";
 import { highlightLast } from "./highlightLast.reducer";
 import { showLegalMoves } from "./showLegalMoves.reducer";
+import { isWhiteTurn } from "./isWhiteTurn.reducer";
 
 // combine all imported reducers
 const rootReducer = combineReducers({
@@ -19,13 +20,14 @@ const rootReducer = combineReducers({
   selectedPiece, // First time clicking a piece selects it
   legalMoves,
   board,
-  turn,
+  // turn,
   gameLog,
   gameMode,
   savedGameList,
   recentGamesList,
   highlightLast,
   showLegalMoves,
+  isWhiteTurn,
 });
 
 export default rootReducer;

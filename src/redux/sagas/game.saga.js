@@ -6,6 +6,7 @@ function* newGame(action) {
     yield put({ type: "RESET_HIGHLIGHT_LAST" });
     yield put({ type: "NEW_BOARD" });
     yield put({ type: "RESET_TURN" });
+  yield put({ type: "DESELECT_PIECE" });
     yield put({ type: "RESET_LEGAL_MOVES" });
     yield axios.post(`/games/new`);
     yield put({ type: "FETCH_CURRENT_GAME" });

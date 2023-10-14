@@ -12,7 +12,7 @@ export const selectedPiece = (state = initSelectedPiece, action) => {
   if (action.type === "SELECT_PIECE") {
     return action.payload.square;
   }
-  if (action.type === "DESELECT_PIECE" || action.type === "TURN_STEP") {
+  if (action.type === "DESELECT_PIECE") {
     return initSelectedPiece;
   }
   return state;

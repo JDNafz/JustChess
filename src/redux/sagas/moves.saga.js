@@ -13,7 +13,7 @@ function* makeMove(action) {
   }
 try {
   yield put({ type: "SET_BOARD", payload: newBoard});
-  yield put({ type: "TURN_STEP"});
+  yield put({ type: "TOGGLE_TURN"});
   yield put({ type: "RESET_LEGAL_MOVES"})
   yield put({ type: "DESELECT_PIECE" });
   yield put({ type: "HIGHLIGHT_LAST", payload:move })

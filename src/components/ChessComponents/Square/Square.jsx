@@ -7,16 +7,18 @@ import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 import "./Square.css";
 
 export default function Square({ id }) {
+  const dispatch = useDispatch();
   const { getLegalMoves } = useLegalMoves();
 
-  const dispatch = useDispatch();
-  const legalMoves = useSelector((store) => store.legalMoves);
-  const selectedPiece = useSelector((store) => store.selectedPiece);
   const board = useSelector((store) => store.board);
   const gameLog = useSelector((store) => store.gameLog);
   const gameMode = useSelector((store) => store.gameMode);
+  const isWhiteTurn = useSelector((store) => store.isWhiteTurn);
+  const legalMoves = useSelector((store) => store.legalMoves);
+  const selectedPiece = useSelector((store) => store.selectedPiece);
   const highlightLast = useSelector((store) => store.highlightLast);
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
+
   const square = board[id];
 
   const legalPlayClick = () => {
@@ -25,13 +27,15 @@ export default function Square({ id }) {
 
     if (noSelectedPiece) {
       if (clickedAPiece) {
-        dispatch({
-          type: "SELECT_PIECE",
-          payload: {
-            square: square,
-            validMoves: getLegalMoves(square),
-          },
-        });
+        const isWhite = square.piece[0] === "w";
+        if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite))
+          dispatch({
+            type: "SELECT_PIECE",
+            payload: {
+              square: square,
+              validMoves: getLegalMoves(square),
+            },
+          });
       }
     } else {
       if (square !== selectedPiece) {
@@ -50,7 +54,7 @@ export default function Square({ id }) {
               gameLog: gameLog,
             },
           });
-        // if the second sq clicked is null skip this, and just deselect
+          // if the second sq clicked is null skip this, and just deselect
         } else if (square.piece !== null) {
           dispatch({
             type: "SELECT_PIECE",
