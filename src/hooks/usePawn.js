@@ -35,6 +35,9 @@ export function usePawn() {
       );
     });
     // console.log("SMOKEY", basicMoves);
+
+    //bug where basicMoves was returning hopping over a piece to go to the second row.
+    //This fixes that. TODO: Refactoring pawn movement calc would be great later
     const fixedMoves = basicMoves.filter((sq, idx, basicMoves) => {
       let difference;
       if (basicMoves.length === 1) {
@@ -42,11 +45,7 @@ export function usePawn() {
         if (difference < 0) {
           difference = difference * -1;
         }
-        console.log("DIFFY", difference);
-
         if (difference === 1) {
-          console.log("DIFFY", difference);
-
           return true;
         }
       } else {
