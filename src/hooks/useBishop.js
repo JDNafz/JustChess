@@ -69,10 +69,10 @@ export function useBishop() {
 
     // console.log("v4:",vector4);
     const validMoves = [];
-    validMoves.push(...checkVector(vector1));
-    validMoves.push(...checkVector(vector2));
-    validMoves.push(...checkVector(vector3));
-    validMoves.push(...checkVector(vector4));
+    validMoves.push(...checkVector(vector1,pieceColor));
+    validMoves.push(...checkVector(vector2,pieceColor));
+    validMoves.push(...checkVector(vector3,pieceColor));
+    validMoves.push(...checkVector(vector4,pieceColor));
 
     //  console.log(validMoves);
 
