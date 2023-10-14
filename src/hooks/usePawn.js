@@ -86,11 +86,11 @@ export function usePawn() {
     });
 
     //en passant
+    let enPassantAttack;
     if (moves.length > 1) {
       checkEnPassant(sP, moves, board);
     }
     function checkEnPassant(sP, moves, board) {
-      let enPassantAttack;
       const lastMove = moves[moves.length - 1];
       const rowOfStart = lastMove.slice(1, 2);
       const rowOfFinish = lastMove.slice(3);
@@ -113,12 +113,14 @@ export function usePawn() {
           });
         }
       }
-      console.log("EnPassantAttack", enPassantAttack);
+      // console.log("EnPassantAttack", enPassantAttack);
     }
 
     const attacks = isWhite ? whiteAttacks : blackAttacks;
     const validMoves = [...fixedMoves, ...attacks];
-    return validMoves;
+
+    //pass enPassant in as an array to maintain data shape( need for castling special moves)
+    return [validMoves, enPassantAttack];
   };
 
   return { getPawnMoves };
