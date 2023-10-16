@@ -31,3 +31,7 @@ body {
 .welcomeParagraph {
   font-size: 1.7rem;
 }
+
+.loginDiv {
+  padding-top: 100px;
+}

@@ -36,7 +36,7 @@ function App() {
         <Switch>
           {/* change the default path from localhost:3000/ to /chess */}
           {/* LATER CHANGE THIS TO /welcome for final product if logged in go to chess */}
-          <Redirect exact from="/" to="/chess" />
+          <Redirect exact from="/" to="/welcome" />
 
           <Route exact path="/welcome">
             <WelcomePage />

@@ -30,6 +30,7 @@ export default function Square({ id }) {
       if (clickedAPiece) {
         const isWhite = square.piece[0] === "w";
         if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite)) {
+          // if (true)
           let legalMoves = [];
           let specialMoves = [];
           if (

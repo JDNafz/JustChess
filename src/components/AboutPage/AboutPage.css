@@ -1,0 +1,21 @@
+
+
+.aboutDiv {
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 837px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.aboutText {
+  font-size: 1.4rem;
+  text-indent: 60px;
+}
+
+.aboutDiv h1 {
+  position:  relative;
+  align-self: start;
+}
