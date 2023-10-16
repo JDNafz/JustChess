@@ -30,7 +30,7 @@ router.get("/current_game", (req, res) => {
         res.send({ gameLog, board });
       })
       .catch((error) => {
-        console.log(`Error game.router/current_game ${query}`, error);
+        console.log(`Error get /current_game ${query}`, error);
         res.sendStatus(500); // Good server always responds
       });
   }

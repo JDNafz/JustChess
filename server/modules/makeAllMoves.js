@@ -6,9 +6,10 @@ function makeAllMoves(moves) {
     for (let move of moves) {
       const start = move.slice(0, 2);
       const end = move.slice(2);
-      console.log("movechar", move[move.length-1])
-      if (move[move.length-1] === "*") {
+      // console.log("move char", move[move.length-1])
+      if (move[move.length - 1] === "*") {
         newBoard = makeSpecialMove(start, end, board);
+        // console.log(newBoard)
       } else {
         newBoard = makeSimpleMove(start, end, newBoard);
       }
@@ -22,7 +23,7 @@ function makeAllMoves(moves) {
 //start and end parameters should be coordinates, not squares.
 //use typescript for this?
 function makeSimpleMove(start, end, board) {
-  console.log(`makingSimpleMove ${start} to ${end}!`);
+  // console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
@@ -94,9 +95,10 @@ function makeSpecialMove(start, end, board) {
     }
     return startX;
   }
-  const  startX = getXCoordinate(startX[0]);
-  const endX = getXCoordinate(endX[0]);
-  const endY = Number(endY[1])
+  const startX = getXCoordinate(start[0]);
+  const endX = getXCoordinate(end[0]);
+  const endY = Number(end[1] - 1);
+  const startY = Number(start[1] - 1);
 
   let specialX;
 
@@ -123,17 +125,31 @@ function makeSpecialMove(start, end, board) {
       specialY = 7;
     }
   }
-  // console.log(
-  //   `Making special Move: \n removing start(${start.coordinate}), end (${end.coordinate}), and special coordinates (${specialX}${specialY})`
-  // );
+
+  console.log(start, specialX, specialY)
   const [boardAfterRemoval, startingPiece] = removeStartingPieceSpecial(
     board,
     start,
     specialX,
     specialY
   );
-  const newBoard = replaceDestinationSpecial(boardAfterRemoval, startingPiece, end);
-
+  // for (let sq of boardAfterRemoval){
+  //   if (sq.coordinate === "e5" || sq.coordinate === "f5"){
+  //     console.log(sq)
+  //   }
+  // }
+  // console.log(newBoard)
+  console.log(startingPiece)
+  const newBoard = replaceDestinationSpecial(
+    boardAfterRemoval,
+    startingPiece,
+    end
+  );
+//  for (let sq of newBoard){
+//     if (sq.coordinate === "f6"){
+//       console.log(sq)
+//     }
+//   }
   return newBoard;
 } //end simpleMove Function
 
@@ -142,8 +158,9 @@ function removeStartingPieceSpecial(board, start, specialX, specialY) {
   // console.log("THIS IS board:", board);
   let movingPiece;
   const boardAfterRemoval = board.map((sq) => {
-    if (sq.coordinate === start.coordinate) {
+    if (sq.coordinate === start) {
       //starting piece has been found call it movingPiece
+      console.log("FOUND MOVING PIECE:", sq)
       movingPiece = sq.piece;
       //assign coordinate of movingPiece to null
       return {
