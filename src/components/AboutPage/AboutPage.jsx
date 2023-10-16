@@ -19,7 +19,7 @@ function AboutPage() {
           Swing. I dance regularly in the Twin Cities and travel competing at
           national and international events. I also love taking care of my
           bonsai trees, may they remain small forever 💖
-        </p>
+        </p> 
         {/* <div className="socials">
           <span> WHATS UP</span>
           <a href="https://www.linkedin.com/in/jdnafziger/">
