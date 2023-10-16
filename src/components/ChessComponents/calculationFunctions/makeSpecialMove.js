@@ -5,14 +5,14 @@ export default function makeSpecialMove(start, end, board) {
   let specialY;
 
   // start.y indicates if it's a king, en passant pawn
-  console.log("start.y:", start.y)
+  console.log("start.y:", start.y);
   // console.log("start.y:", start.y)
   if (start.y === 4) {
     specialX = end.x;
-    specialY = end.y + 1;
+    specialY = end.y - 1;
   } else if (start.y === 3) {
     specialX = end.x;
-    specialY = end.y - 1;
+    specialY = end.y + 1;
   } else if (start.y === 0) {
     if (end.x === 2) {
       specialX = 0;
@@ -31,9 +31,7 @@ export default function makeSpecialMove(start, end, board) {
     }
   }
   console.log(
-    `Making special Move: \n removing start(${start.coordinate}), end (${end.coordinate}), and special coordinates (${
-      specialX}${specialY
-    })`
+    `Making special Move: \n removing start(${start.coordinate}), end (${end.coordinate}), and special coordinates (${specialX}${specialY})`
   );
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(
     board,
@@ -51,10 +49,16 @@ function removeStartingPiece(board, start, specialX, specialY) {
   // console.log("THIS IS board:", board);
   let movingPiece;
   const boardAfterRemoval = board.map((sq) => {
-    if (sq.coordinate === start.coordinate || (sq.x === specialX && sq.y === specialY)) {
+    if (sq.coordinate === start.coordinate) {
       //starting piece has been found call it movingPiece
       movingPiece = sq.piece;
       //assign coordinate of movingPiece to null
+      return {
+        ...sq,
+        piece: null,
+      };
+    }
+    if (sq.x === specialX && sq.y === specialY){
       return {
         ...sq,
         piece: null,
