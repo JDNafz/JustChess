@@ -8,11 +8,11 @@ function AboutPage() {
         <h1> Hi, my name is JD</h1>
         <p className="aboutText">
           JC by JD was created using PostgreSQL, Express, React, and Node (the
-          PERN stack). Before getting into web development I started my career
+          PERN stack), check it out on <a href="https://github.com/JDNafz/JustChess">Github</a>. Before getting into web development I started my career
           with a certification in Python Algorithms from AlgoExpert, and fell in
           love with solving complex problems using efficient and elegant code.
           This project is definitely super efficient nor elegant, but I'd love
-          to take another pass at it after I get everything working 😅.
+          to take another pass at it after I get everything working 😅. To see my other projects checkout my <a href="www.jdnafziger.com">portfolio</a>.
         </p>
         <p className="aboutText">
           Besides coding, I have a passion for dance, especially West Coast
