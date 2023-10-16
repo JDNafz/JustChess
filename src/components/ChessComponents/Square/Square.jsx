@@ -4,6 +4,7 @@ import { useLegalMoves } from "../../../hooks/useLegalMoves";
 import Image from "../Image/Image";
 import Coordinate from "../Coordinate/Coordinate";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
+import makeSpecialMove from "../calculationFunctions/makeSpecialMove";
 
 import "./Square.css";
 
@@ -65,7 +66,7 @@ export default function Square({ id }) {
           dispatch({
             type: "MAKE_MOVE",
             payload: {
-              newBoard: makeSpecialMove(start, end, board),
+              newBoard: makeSpecialMove(selectedPiece, square, board),
               move: start + end,
               gameLog: gameLog,
             },

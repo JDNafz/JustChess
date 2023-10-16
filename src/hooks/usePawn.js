@@ -36,7 +36,6 @@ export function usePawn() {
         (isValidTwoSquareMove && squareIsNotOccupied)
       );
     });
-    // console.log("SMOKEY", basicMoves);
 
     //bug where basicMoves was returning hopping over a piece to go to the second row.
     //This fixes that. TODO: Refactoring pawn movement calc would be great later
@@ -103,7 +102,6 @@ export function usePawn() {
 
       if (lastPiece === "p" && movedTwoSquares) {
         const yCoordinateToAttack = rowOfStart === "2" ? 2 : 5;
-        console.log("SMOKE", sP.y);
         if (
           //make sure pawn can only make the en passant attack if white is in row 5 and black is in row 4 (zero indexed)
           (sP.y === 4 && sP.piece[0] === "w") ||
