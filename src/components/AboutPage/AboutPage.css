@@ -5,13 +5,13 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 830px;
+  width: 837px;
   margin: auto;
   padding-top: 50px;
 }
 
 .aboutText {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-indent: 60px;
 }
 

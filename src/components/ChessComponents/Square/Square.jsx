@@ -28,8 +28,8 @@ export default function Square({ id }) {
     if (noSelectedPiece) {
       if (clickedAPiece) {
         const isWhite = square.piece[0] === "w";
-        // if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite))
-        if (true)
+        if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite))
+        // if (true)
           dispatch({
             type: "SELECT_PIECE",
             payload: {
