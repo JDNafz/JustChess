@@ -1,28 +1,28 @@
-const board = require('./startingBoard');
+const board = require("./startingBoard");
 
-function makeAllMoves(moves){
+function makeAllMoves(moves) {
   let newBoard = board;
   if (moves !== null) {
     for (let move of moves) {
       const start = move.slice(0, 2);
       const end = move.slice(2);
-      newBoard = makeSimpleMove(start, end, newBoard);
+      console.log("movechar", move[move.length-1])
+      if (move[move.length-1] === "*") {
+        newBoard = makeSpecialMove(start, end, board);
+      } else {
+        newBoard = makeSimpleMove(start, end, newBoard);
+      }
     }
     return newBoard;
   }
   return board;
 }
-
-
-
-
-
 //this function returns newBoard after moving the piece that moved.
 
 //start and end parameters should be coordinates, not squares.
 //use typescript for this?
 function makeSimpleMove(start, end, board) {
-  // console.log(`makingSimpleMove ${start} to ${end}!`);
+  console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
@@ -68,10 +68,114 @@ function replaceDestination(board, startingPiece, end) {
   return newBoard;
 }
 
+// -----------------------------------------------------------------------
 
+function makeSpecialMove(start, end, board) {
+  console.log(`making SPECIAL MOVE ${start} to ${end}!`);
 
+  function getXCoordinate(letter) {
+    let startX;
+    if (letter === "a") {
+      startX = 0;
+    } else if (letter === "b") {
+      startX = 1;
+    } else if (letter === "c") {
+      startX = 2;
+    } else if (letter === "d") {
+      startX = 3;
+    } else if (letter === "e") {
+      startX = 4;
+    } else if (letter === "f") {
+      startX = 5;
+    } else if (letter === "g") {
+      startX = 6;
+    } else if (letter === "h") {
+      startX = 7;
+    }
+    return startX;
+  }
+  const  startX = getXCoordinate(startX[0]);
+  const endX = getXCoordinate(endX[0]);
+  const endY = Number(endY[1])
 
+  let specialX;
 
-module.exports = makeAllMoves
+  if (startY === 4) {
+    specialX = endX;
+    specialY = endY - 1;
+  } else if (startY === 3) {
+    specialX = endX;
+    specialY = endY + 1;
+  } else if (startY === 0) {
+    if (endX === 2) {
+      specialX = 0;
+      specialY = 0;
+    } else {
+      specialX = 7;
+      specialY = 0;
+    }
+  } else if (startY === 7) {
+    if (endX === 2) {
+      specialX = 0;
+      specialY = 7;
+    } else {
+      specialX = 7;
+      specialY = 7;
+    }
+  }
+  // console.log(
+  //   `Making special Move: \n removing start(${start.coordinate}), end (${end.coordinate}), and special coordinates (${specialX}${specialY})`
+  // );
+  const [boardAfterRemoval, startingPiece] = removeStartingPieceSpecial(
+    board,
+    start,
+    specialX,
+    specialY
+  );
+  const newBoard = replaceDestinationSpecial(boardAfterRemoval, startingPiece, end);
 
+  return newBoard;
+} //end simpleMove Function
 
+// map over board, set start to null return [board, piece name]
+function removeStartingPieceSpecial(board, start, specialX, specialY) {
+  // console.log("THIS IS board:", board);
+  let movingPiece;
+  const boardAfterRemoval = board.map((sq) => {
+    if (sq.coordinate === start.coordinate) {
+      //starting piece has been found call it movingPiece
+      movingPiece = sq.piece;
+      //assign coordinate of movingPiece to null
+      return {
+        ...sq,
+        piece: null,
+      };
+    }
+    if (sq.x === specialX && sq.y === specialY) {
+      return {
+        ...sq,
+        piece: null,
+      };
+    }
+    return sq;
+  });
+
+  return [boardAfterRemoval, movingPiece];
+} //end removeStartingPiece
+
+// This is duplicate and unneeded for special Moves
+function replaceDestinationSpecial(board, startingPiece, end) {
+  const newBoard = board.map((sq) => {
+    if (sq.coordinate === end.coordinate) {
+      return {
+        ...sq,
+        piece: startingPiece,
+      };
+    }
+    return sq;
+  });
+
+  return newBoard;
+}
+
+module.exports = makeAllMoves;

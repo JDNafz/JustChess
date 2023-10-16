@@ -67,7 +67,7 @@ export default function Square({ id }) {
             type: "MAKE_MOVE",
             payload: {
               newBoard: makeSpecialMove(selectedPiece, square, board),
-              move: start + end,
+              move: start + end + "*",
               gameLog: gameLog,
             },
           });
