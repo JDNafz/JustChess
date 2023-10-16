@@ -8,6 +8,7 @@
 //     database: 'chess2',
 // });
 
+// console.log("connected locally")
 // module.exports = pool;
 
 // ------------------------------------------------------------------
@@ -37,5 +38,5 @@ if (process.env.DATABASE_URL) {
     },
   });
 }
-
+console.log("connected to neon");
 module.exports = pool;
