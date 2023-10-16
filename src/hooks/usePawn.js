@@ -102,15 +102,24 @@ export function usePawn() {
         (Number(rowOfStart) + Number(rowOfFinish)) % 2 === 0;
 
       if (lastPiece === "p" && movedTwoSquares) {
-        const yCoordinateToAttack = rowOfStart === "2" ? 2 : 5
-        if (lastSq.x + 1 === sP.x) {
-          enPassantAttack = board.filter((sq) => {
-            return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
-          });
-        } else if (lastSq.x - 1 === sP.x) {
-          enPassantAttack = board.filter((sq) => {
-            return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
-          });
+        const yCoordinateToAttack = rowOfStart === "2" ? 2 : 5;
+        console.log("SMOKE", sP.y);
+        if (
+          //make sure pawn can only make the en passant attack if white is in row 5 and black is in row 4 (zero indexed)
+          (sP.y === 4 && sP.piece[0] === "w") ||
+          (sP.y === 3 && sP.piece[0] === "b")
+        ) {
+          // check if last moved was in a column to the right
+          if (lastSq.x + 1 === sP.x) {
+            enPassantAttack = board.filter((sq) => {
+              return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
+            });
+            // check if last moved was in a column to the left
+          } else if (lastSq.x - 1 === sP.x) {
+            enPassantAttack = board.filter((sq) => {
+              return sq.x === lastSq.x && sq.y === yCoordinateToAttack;
+            });
+          }
         }
       }
       // console.log("EnPassantAttack", enPassantAttack);
