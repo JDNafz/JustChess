@@ -85,7 +85,7 @@ export function usePawn() {
     });
 
     //en passant
-    let enPassantAttack;
+    let enPassantAttack = [];
     if (moves.length > 1) {
       checkEnPassant(sP, moves, board);
     }
@@ -126,6 +126,7 @@ export function usePawn() {
     const attacks = isWhite ? whiteAttacks : blackAttacks;
     const validMoves = [...fixedMoves, ...attacks];
 
+    console.log("enP", enPassantAttack)
     //pass enPassant in as an array to maintain data shape( need for castling special moves)
     return [validMoves, enPassantAttack];
   };
