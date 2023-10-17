@@ -1,16 +1,16 @@
-
-
 const makeAllMoves = require("../../server/modules/makeAllMoves");
-const board = makeAllMoves(["a2e5","e2d2","e1b1"]);
+const board = makeAllMoves([
+"e1e4"
+]);
 
-  function getKingMoves(selectedPiece){
-    // console.log("Searching for valid Knight Moves");
+function getKingMoves(sP) {
+  // console.log("Searching for valid Knight Moves");
+  const kingColor = sP.piece[0];
+  getAllAttacks(board, kingColor);
 
-
-
-    console.log("valid moves:", validMoves.length)
-    return validMoves;
-  };
+  console.log("valid moves:", validMoves.length);
+  return validMoves;
+}
 //   return { getKnightMoves };
 // }
 
