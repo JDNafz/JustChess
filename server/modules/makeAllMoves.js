@@ -11,14 +11,16 @@ function makeAllMoves(moves) {
       console.log("end",end)
       if (move[move.length - 1] === "*") {
         console.log("MAKING SPECIAL MOVE")
+        
         const middle = `${end[0] + start[1]}`;
-        tempBoard = makeSimpleMove(start, middle, board);
+        console.log(start, middle, end)
+        tempBoard = makeSimpleMove(start, middle, newBoard);
+        // tempBoard.map((sq)=>{
+        //   if (sq.coordinate === "f5"){
+        //     console.log(sq.coordinate,sq.piece);
+        //   }
+        // })
         newBoard = makeSimpleMove(middle, end, tempBoard);
-        newBoard.map((sq)=>{
-          if (sq.coordinate === "e2" || "f6"){
-            console.log(sq.coordinate,sq.piece);
-          }
-        })
       } else {
         newBoard = makeSimpleMove(start, end, newBoard);
       }
@@ -32,9 +34,14 @@ function makeAllMoves(moves) {
 //start and end parameters should be coordinates, not squares.
 //TODO: typescript for this? it's been really buggy getting types right.
 function makeSimpleMove(start, end, board) {
-  // console.log(`makingSimpleMove ${start} to ${end}!`);
+  console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
+  for (let sq of board){
+    if (sq.coordinate === "e5"){
+      console.log(sq)
+    }
+  }
 
   return newBoard;
 } //end simpleMove Function
@@ -47,6 +54,7 @@ function removeStartingPiece(board, start) {
     if (sq.coordinate === start) {
       //starting piece has been found call it movingPiece
       movingPiece = sq.piece;
+      console.log("FOUND",movingPiece)
       //assign coordinate of movingPiece to null
       return {
         ...sq,

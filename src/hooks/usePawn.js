@@ -93,7 +93,7 @@ export function usePawn() {
       const lastMove = moves[moves.length - 1];
       const rowOfStart = lastMove.slice(1, 2);
       const rowOfFinish = lastMove.slice(3);
-      const coordinateOfEnd = lastMove.slice(2);
+      const coordinateOfEnd = lastMove.slice(2,4);
 
       const lastSq = board.filter((sq) => sq.coordinate === coordinateOfEnd)[0];
       const lastPiece = lastSq.piece[1];
