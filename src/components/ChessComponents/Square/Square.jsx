@@ -23,6 +23,25 @@ export default function Square({ id }) {
   const specialMoves = useSelector((store) => store.specialMoves);
   const square = board[id];
 
+  // let winner = true;
+  // let winText = "No winner yet"
+  // let winnerDiv = <div>{winText}</div>;
+
+  // if (square.piece === 'wk'){
+  //   dispatch({ type: "SET_WINNER", payload: 'b';
+  // } else if (square.piece ==='bk'){
+  //   dispatch({ type: "SET_WINNER", payload: 'w';
+  // }
+  // function declareWinner(stringOfColor){
+  //   winner = true
+  //   if (stringOfColor === "w"){
+  //     winText += "White Wins!"
+  //   } else if (stringOfColor === "b"){
+  //     winText += "Black Wins!"
+  //   }
+  // }
+
+
   const legalPlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
     const clickedAPiece = square.piece !== null;
@@ -63,6 +82,11 @@ export default function Square({ id }) {
         if (foundSpecialMove.length === 1) {
           const start = selectedPiece.coordinate;
           const end = square.coordinate;
+          if (square.piece === 'wk'){
+            dispatch({ type: "SET_WINNER", payload: 'b'})
+          } else if (square.piece ==='bk'){
+            dispatch({ type: "SET_WINNER", payload: 'w'})
+          }
           dispatch({
             type: "MAKE_MOVE",
             payload: {
@@ -121,6 +145,12 @@ export default function Square({ id }) {
     } else {
       const start = selectedPiece.coordinate;
       const end = square.coordinate;
+      console.log(square);
+      if (square.piece === 'wk'){
+        dispatch({ type: "SET_WINNER", payload: {bool: true, color: 'b'}})
+      } else if (square.piece ==='bk'){
+        dispatch({ type: "SET_WINNER", payload: {bool: true, color: 'w'}})
+      }
       dispatch({
         type: "MAKE_MOVE",
         payload: {

@@ -4,21 +4,20 @@ import "./Chess.css";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
+import Winner from "../Winner/Winner";
 
 export default function Chess() {
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch({ type: "FETCH_CURRENT_GAME" });
   }, []);
 
- 
-
   return (
     <div id="background">
       <div id="playArea">
         <Board />
+        <Winner />
       </div>
 
       <Menu />

@@ -13,6 +13,7 @@ function* fetchMoves(action) {
 function* newGame(action) {
   try {
     yield axios.post('/newGame');
+    yield put({ type: "RESET_WINNER"})
     yield put({ type: 'FETCH_MOVES'});
   } catch (error) {
     console.log('Error newGame Saga:', error);
