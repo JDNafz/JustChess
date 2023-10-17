@@ -1,32 +1,21 @@
-// import { useKnight } from "./useKnight";
 import { useKnight } from "./useKnight";
 import { usePawn } from "./usePawn";
 import { useRook } from "./useRook";
 import { useBishop } from "./useBishop";
 import { useQueen } from "./useQueen";
-//this function runs when a square is clicked in square.jsx(handleClick)
+import { useKing } from "./useKing";
+
 export function useLegalMoves() {
   const { getPawnMoves } = usePawn();
   const { getRookMoves } = useRook();
   const { getKnightMoves } = useKnight();
   const { getBishopMoves } = useBishop();
   const { getQueenMoves } = useQueen();
+  const { getKingMoves } = useKing();
 
   const getLegalMoves = (square) => {
-    // const pieceMoves = {
-    //   "p": getPawnMoves(square),
-    //   "r": getRookMoves(square),
-    //   "n": getPawnMoves(square),
-    //   "b": getPawnMoves(square),
-    //   "q": getPawnMoves(square),
-    //   "k": getPawnMoves(square),
-    // };
 
-
-    const piece = square.piece.slice(1,2);
-    // console.log("PIECE:", piece);
-    
-
+    const piece = square.piece.slice(1,2);    
     if (piece === "p"){
       return getPawnMoves(square);
     } else if( piece === 'r'){
@@ -39,8 +28,10 @@ export function useLegalMoves() {
       return getQueenMoves(square);
       // or skip the file and use the following:
       return [...getRookMoves(square),...getBishopMoves(square)]
-
+    } else if ( piece === 'k'){
+      return getKingMoves(square);
     }
+
     return getPawnMoves(square)
     
 
@@ -48,3 +39,13 @@ export function useLegalMoves() {
   };
   return { getLegalMoves };
 }
+
+
+    // const pieceMoves = {
+    //   "p": getPawnMoves(square),
+    //   "r": getRookMoves(square),
+    //   "n": getPawnMoves(square),
+    //   "b": getPawnMoves(square),
+    //   "q": getPawnMoves(square),
+    //   "k": getPawnMoves(square),
+    // };
