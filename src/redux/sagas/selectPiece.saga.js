@@ -5,6 +5,7 @@ function* selectPiece(action) {
   const validMoves = action.payload.validMoves
   try {
     yield put({ type: "SET_LEGAL_MOVES", payload: validMoves})
+    yield put({ type: "SET_SPECIAL_MOVES", payload: action.payload.specialMoves})
 
 
   } catch (error) {

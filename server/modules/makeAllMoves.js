@@ -1,26 +1,29 @@
-const board = require('./startingBoard');
+const board = require("./startingBoard");
 
-function makeAllMoves(moves){
-  let newBoard = board;
+function makeAllMoves(moves) {
   if (moves !== null) {
+    let newBoard = board;
     for (let move of moves) {
       const start = move.slice(0, 2);
-      const end = move.slice(2);
-      newBoard = makeSimpleMove(start, end, newBoard);
+      const end = move.slice(2,4);
+
+      if (move[move.length - 1] === "*") {
+        // console.log("MAKING SPECIAL MOVE")
+        const middle = `${end[0] + start[1]}`;
+        tempBoard = makeSimpleMove(start, middle, newBoard);
+        newBoard = makeSimpleMove(middle, end, tempBoard);
+      } else {
+        newBoard = makeSimpleMove(start, end, newBoard);
+      }
     }
     return newBoard;
   }
   return board;
 }
 
-
-
-
-
 //this function returns newBoard after moving the piece that moved.
-
 //start and end parameters should be coordinates, not squares.
-//use typescript for this?
+//TODO: typescript for this? it's been really buggy getting types right.
 function makeSimpleMove(start, end, board) {
   // console.log(`makingSimpleMove ${start} to ${end}!`);
   const [boardAfterRemoval, startingPiece] = removeStartingPiece(board, start);
@@ -62,16 +65,9 @@ function replaceDestination(board, startingPiece, end) {
     }
     return sq;
   });
-  // this test was used to check moving from 'a1' to 'b1' the first two items in array.
-  // console.log("changes made?", movingPiece ,moveToEnd[0],moveToEnd[1])
 
   return newBoard;
 }
 
 
-
-
-
-module.exports = makeAllMoves
-
-
+module.exports = makeAllMoves;

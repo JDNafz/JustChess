@@ -4,6 +4,8 @@ import { useLegalMoves } from "../../../hooks/useLegalMoves";
 import Image from "../Image/Image";
 import Coordinate from "../Coordinate/Coordinate";
 import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
+import makeSpecialMove from "../calculationFunctions/makeSpecialMove";
+
 import "./Square.css";
 
 export default function Square({ id }) {
@@ -18,7 +20,7 @@ export default function Square({ id }) {
   const selectedPiece = useSelector((store) => store.selectedPiece);
   const highlightLast = useSelector((store) => store.highlightLast);
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
-
+  const specialMoves = useSelector((store) => store.specialMoves);
   const square = board[id];
 
   const legalPlayClick = () => {
@@ -28,23 +30,50 @@ export default function Square({ id }) {
     if (noSelectedPiece) {
       if (clickedAPiece) {
         const isWhite = square.piece[0] === "w";
-        if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite))
-        // if (true)
+        if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite)) {
+          // if (true)
+          let legalMoves = [];
+          let specialMoves = [];
+          if (
+            square.piece.slice(1, 2) === "p" ||
+            square.piece.slice(1, 2) === "k"
+          ) {
+            [legalMoves, specialMoves] = getLegalMoves(square);
+          } else {
+            legalMoves = getLegalMoves(square);
+          }
           dispatch({
             type: "SELECT_PIECE",
             payload: {
               square: square,
-              validMoves: getLegalMoves(square),
+              validMoves: legalMoves,
+              specialMoves: specialMoves,
             },
           });
+        }
       }
     } else {
       if (square !== selectedPiece) {
         const foundLegalMove = legalMoves.filter(
           (move) => square.coordinate === move.coordinate
         );
-        // tryToMakeMove(foundLegalMove, selectedPiece,square)
-        if (foundLegalMove.length === 1) {
+        const foundSpecialMove = specialMoves.filter(
+          (move) => square.coordinate === move.coordinate
+        );
+        if (foundSpecialMove.length === 1) {
+          const start = selectedPiece.coordinate;
+          const end = square.coordinate;
+          dispatch({
+            type: "MAKE_MOVE",
+            payload: {
+              newBoard: makeSpecialMove(selectedPiece, square, board),
+              move: start + end + "*",
+              gameLog: gameLog,
+            },
+          });
+          // if the second sq clicked is null skip this, and just deselect
+        } else if (foundLegalMove.length === 1) {
+          // tryToMakeMove(foundLegalMove, selectedPiece,square)
           const start = selectedPiece.coordinate;
           const end = square.coordinate;
           dispatch({
@@ -57,11 +86,22 @@ export default function Square({ id }) {
           });
           // if the second sq clicked is null skip this, and just deselect
         } else if (square.piece !== null) {
+          let legalMoves = [];
+          let specialMoves = [];
+          if (
+            square.piece.slice(1, 2) === "p" ||
+            square.piece.slice(1, 2) === "k"
+          ) {
+            [legalMoves, specialMoves] = getLegalMoves(square);
+          } else {
+            legalMoves = getLegalMoves(square);
+          }
           dispatch({
             type: "SELECT_PIECE",
             payload: {
               square: square,
-              validMoves: getLegalMoves(square),
+              validMoves: legalMoves,
+              specialMoves: specialMoves,
             },
           });
         }
@@ -102,6 +142,11 @@ export default function Square({ id }) {
   //highlight legal moves
   if (showLegalMoves) {
     for (let sq of legalMoves) {
+      if (square.coordinate === sq.coordinate) {
+        squareClass += " legalMove";
+      }
+    }
+    for (let sq of specialMoves) {
       if (square.coordinate === sq.coordinate) {
         squareClass += " legalMove";
       }

@@ -16,7 +16,6 @@ function saveFile(content,fileName){
 
 // //call the function
 // let array = getStartingState();
-// // console.log("SMOKE", array);
 // let string = '';
 // for (let obj of array){
 //   string += JSON.stringify(obj);
