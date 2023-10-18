@@ -8,6 +8,7 @@ function* newGame(action) {
     yield put({ type: "RESET_TURN" });
   yield put({ type: "DESELECT_PIECE" });
     yield put({ type: "RESET_LEGAL_MOVES" });
+    yield put ({ type: "RESET_WINNER"})
     yield axios.post(`/games/new`);
     yield put({ type: "FETCH_CURRENT_GAME" });
   } catch (error) {
