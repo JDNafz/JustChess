@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 // import { useKnight } from "./useKnight";
 // import { usePawn } from "./usePawn";
@@ -13,6 +12,7 @@ export function useKing() {
   // const { getBishopMoves } = useBishop();
   // const { getQueenMoves } = useQueen();
   const board = useSelector((store) => store.board);
+  const gameLog = useSelector((store) => store.gameLog);
 
   function getKingMoves(sP) {
     // console.log("Searching for valid Knight Moves");
@@ -36,13 +36,24 @@ export function useKing() {
       }
     });
 
-    // getAllAttacks(board, kingColor);
-
+    let castleMoves = [];
+    if (!kingHasMoved(sP, board, gameLog)) {
+      if (!rookHasMoved(sP, board, gameLog, "a")) {
+        castleMoves.push(aRookCastle(sP));
+      }
+      if (!rookHasMoved(sP, board, gameLog, "h")) {
+        castleMoves.push(hRookCastle(sP))
+      }
+    }
     const validMoves = king8Squares;
-    // console.log("valid moves:", validMoves.length);
-    return validMoves;
+
+    return [validMoves, castleMoves];
   }
   return { getKingMoves };
+}
+
+function kingHasMoved(board, gameLog) {
+  return false;
 }
 
 function getAllAttacks(board, kingColor) {
@@ -63,17 +74,3 @@ function getAllAttacks(board, kingColor) {
   //   console.log( sq.piece)
   // }
 }
-
-const selectedPiece = {
-  id: 36,
-  coordinate: "e4",
-  x: 4,
-  y: 3,
-  piece: "wk",
-  underAttackFromWhite: false,
-  underAttackFromBlack: false,
-  isBlack: false,
-};
-
-// const output = getKingMoves(selectedPiece);
-// console.log(output)
