@@ -2,11 +2,20 @@
 
 
 .selectNewPiece {
-  width: 200px;
-  height: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  
+  position:absolute;
+  width: 350px;
+  height: 100px;
+  border: 2px black solid;
   background-color: blanchedalmond;
+  border-radius: 40px;
+  padding: 20px;
+  top: 320px;
 }
-
 
 
 

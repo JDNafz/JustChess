@@ -16,6 +16,9 @@ import { perspective } from "./perspective.reducer";
 import { specialMoves } from "./specialMoves.reducer";
 import { winner } from "./winner.reducer";
 import { bio } from "./bio.reducer";
+import { promotion } from "./promotion.reducer";
+
+
 // combine all imported reducers
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
@@ -35,6 +38,7 @@ const rootReducer = combineReducers({
   specialMoves,
   winner,
   bio,
+  promotion,
 });
 
 export default rootReducer;
