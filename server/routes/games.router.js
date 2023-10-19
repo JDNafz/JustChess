@@ -26,11 +26,10 @@ router.get("/current_game", (req, res) => {
       .then((result) => {
         const gameLog = result.rows[0];
         const board = makeAllMoves(gameLog.moves);
-        // console.log("all calcs done currentBoard:", board);
         res.send({ gameLog, board });
       })
       .catch((error) => {
-        console.log(`Error get /current_game ${query}`, error);
+        console.log(`Error get /current_game`, error);
         res.sendStatus(500); // Good server always responds
       });
   }

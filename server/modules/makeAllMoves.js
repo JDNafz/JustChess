@@ -8,10 +8,14 @@ function makeAllMoves(moves) {
       const end = move.slice(2,4);
 
       if (move[move.length - 1] === "*") {
-        // console.log("MAKING SPECIAL MOVE")
-        const middle = `${end[0] + start[1]}`;
-        tempBoard = makeSimpleMove(start, middle, newBoard);
-        newBoard = makeSimpleMove(middle, end, tempBoard);
+        console.log("MAKING SPECIAL MOVE", start)
+        if (start === "e1" || start === "e8") {
+          console.log("about to castle")
+          newBoard = castle(start, end, newBoard);
+        } else {
+          console.log("making En passant")
+          newBoard = makeEnPassant(start, end, newBoard);
+        }
       } else {
         newBoard = makeSimpleMove(start, end, newBoard);
       }
@@ -20,6 +24,32 @@ function makeAllMoves(moves) {
   }
   return board;
 }
+function makeEnPassant(start, end, newBoard){
+        const middle = `${end[0] + start[1]}`;
+        tempBoard = makeSimpleMove(start, middle, newBoard);
+        return makeSimpleMove(middle, end, tempBoard);
+}
+
+function castle(start, end, board) {
+  // console.log(start,end)
+  const tempBoard = makeSimpleMove(start, end, board);
+
+  
+  isWhite = start[1] === "1";
+  towardsH = end[0] === "g";
+  const [rookCoordinate, rookDestCoordinate] = towardsH
+    ? isWhite
+      ? ["h1", "f1"]
+      : ["h8", "f8"]
+    : isWhite
+    ? ["a1", "d1"]
+    : ["a8", "d8"];
+  const newBoard = makeSimpleMove(rookCoordinate, rookDestCoordinate, tempBoard);
+
+  return newBoard
+}
+
+
 
 //this function returns newBoard after moving the piece that moved.
 //start and end parameters should be coordinates, not squares.

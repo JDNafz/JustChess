@@ -23,24 +23,6 @@ export default function Square({ id }) {
   const specialMoves = useSelector((store) => store.specialMoves);
   const square = board[id];
 
-  // let winner = true;
-  // let winText = "No winner yet"
-  // let winnerDiv = <div>{winText}</div>;
-
-  // if (square.piece === 'wk'){
-  //   dispatch({ type: "SET_WINNER", payload: 'b';
-  // } else if (square.piece ==='bk'){
-  //   dispatch({ type: "SET_WINNER", payload: 'w';
-  // }
-  // function declareWinner(stringOfColor){
-  //   winner = true
-  //   if (stringOfColor === "w"){
-  //     winText += "White Wins!"
-  //   } else if (stringOfColor === "b"){
-  //     winText += "Black Wins!"
-  //   }
-  // }
-
 
   const legalPlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
