@@ -18,7 +18,7 @@ function UserPage() {
 
   const handleEditButtonClick = () => {
     if (isEditing) {
-      dispatch({ type: "SAVE_BIO", payload: {} });
+      dispatch({ type: "SAVE_BIO", payload: {bio} });
     }
     setIsEditing(!isEditing);
   };
@@ -38,7 +38,7 @@ function UserPage() {
         <div>
           <h3>Welcome, {user.username}!</h3>
           <p>Your ID is: {user.id}</p>
-          <textarea disabled={!isEditing} value={bio}></textarea>
+          <textarea disabled={!isEditing} value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
           <div id="profileButtons">
             <button onClick={handleEditButtonClick}>
               {isEditing ? "Save" : "Edit"}

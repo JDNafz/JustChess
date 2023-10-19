@@ -135,4 +135,46 @@ router.put("/delete_saved_game", (req, res) => {
   }
 });
 
+
+router.get("/bio", (req, res) => {
+  if (req.isAuthenticated()) {
+    const id = req.user.id;
+    query = ` SELECT bio FROM "user" WHERE "user".id = $1;`;
+    pool
+      .query(query, [id])
+      .then((result) => {
+        console.log("from db:", result.rows[0].bio);
+
+        res.send(result.rows[0]);
+      })
+      .catch((err) => {
+        console.log("Error getting bio: ", err);
+        res.sendStatus(500);
+      });
+  }
+});
+
+router.put("/bio/", (req, res) => {
+  if (req.isAuthenticated()) {
+    const bio = req.body
+    console.log("bio",bio)
+    // console.log("req.body in user/put/bio is:", req.body);
+    const id = req.user.id;
+    query = ` UPDATE "user" SET bio  = $2 WHERE "user".id = $1;`;
+    pool
+      .query(query, [id,bio])
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        console.log("Error getting bio: ", err);
+        res.sendStatus(500);
+      });
+  }
+});
+
+
+
+
+
 module.exports = router;
