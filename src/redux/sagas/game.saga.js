@@ -20,7 +20,10 @@ function* fetchCurrentGame(action) {
   try {
     //currentGame = {gameLog,board}
     const currentGame = yield axios.get(`/games/current_game`);
-    // console.log("GOT CURRENT MOVES BACK", currentMoves.data)
+    const moveCount = currentGame.data.gameLog.moves.length
+    const isWhiteTurn = moveCount % 2 === 0;
+    yield put({ type: "SET_TURN", payload: isWhiteTurn})
+    // console.log("isWhiteTurn?:", isWhiteTurn)
     yield put({ type: "SET_GAME_LOG", payload: currentGame.data.gameLog });
     yield put({ type: "SET_BOARD", payload: currentGame.data.board });
     yield put({ type: "FETCH_SAVED_GAMES" });
