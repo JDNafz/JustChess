@@ -156,7 +156,7 @@ router.get("/bio", (req, res) => {
 
 router.put("/bio/", (req, res) => {
   if (req.isAuthenticated()) {
-    const bio = req.body
+    const bio = req.body.data
     console.log("bio",bio)
     // console.log("req.body in user/put/bio is:", req.body);
     const id = req.user.id;

@@ -18,7 +18,7 @@ function UserPage() {
 
   const handleEditButtonClick = () => {
     if (isEditing) {
-      dispatch({ type: "SAVE_BIO", payload: {bio} });
+      dispatch({ type: "SAVE_BIO", payload: bio });
     }
     setIsEditing(!isEditing);
   };
