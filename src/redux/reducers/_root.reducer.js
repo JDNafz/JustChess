@@ -15,6 +15,7 @@ import { isWhiteTurn } from "./isWhiteTurn.reducer";
 import { perspective } from "./perspective.reducer";
 import { specialMoves } from "./specialMoves.reducer";
 import { winner } from "./winner.reducer";
+import { bio } from "./bio.reducer";
 // combine all imported reducers
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   perspective,
   specialMoves,
   winner,
+  bio,
 });
 
 export default rootReducer;

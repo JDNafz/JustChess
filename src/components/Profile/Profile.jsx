@@ -5,20 +5,22 @@ import { useEffect, useState } from "react";
 
 function UserPage() {
   const user = useSelector((store) => store.user);
+  const bioReducer = useSelector((store) => store.bio);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedTab, setSelectedTab] = useState("tab1"); // 'tab1' or 'tab2'
-  const [bio, setBio] = useState("Bio");
+  const [bio, setBio] = useState(bioReducer);
   const dispatch = useDispatch();
   const savedGameList = useSelector((store) => store.savedGameList);
   const recentGamesList = useSelector((store) => store.recentGamesList);
 
   useEffect(() => {
     dispatch({ type: "FETCH_SAVED_GAMES" });
+    dispatch({ type: "FETCH_BIO" });
   }, []);
 
   const handleEditButtonClick = () => {
     if (isEditing) {
-      dispatch({ type: "SAVE_BIO", payload: bio });
+      dispatch({ type: "PUT_BIO", payload: bio });
     }
     setIsEditing(!isEditing);
   };

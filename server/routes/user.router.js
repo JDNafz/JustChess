@@ -143,9 +143,9 @@ router.get("/bio", (req, res) => {
     pool
       .query(query, [id])
       .then((result) => {
-        console.log("from db:", result.rows[0].bio);
+        // console.log("from db:", result.rows[0].bio);
 
-        res.send(result.rows[0]);
+        res.send(result.rows[0].bio);
       })
       .catch((err) => {
         console.log("Error getting bio: ", err);
@@ -157,7 +157,7 @@ router.get("/bio", (req, res) => {
 router.put("/bio/", (req, res) => {
   if (req.isAuthenticated()) {
     const bio = req.body.data
-    console.log("bio",bio)
+    // console.log("bio",bio)
     // console.log("req.body in user/put/bio is:", req.body);
     const id = req.user.id;
     query = ` UPDATE "user" SET bio  = $2 WHERE "user".id = $1;`;
