@@ -8,12 +8,12 @@ function makeAllMoves(moves) {
       const end = move.slice(2,4);
 
       if (move[move.length - 1] === "*") {
-        console.log("MAKING SPECIAL MOVE", start)
+        // console.log("MAKING SPECIAL MOVE", start)
         if (start === "e1" || start === "e8") {
-          console.log("about to castle")
+          // console.log("about to castle")
           newBoard = castle(start, end, newBoard);
         } else {
-          console.log("making En passant")
+          // console.log("making En passant")
           newBoard = makeEnPassant(start, end, newBoard);
         }
       } else {
