@@ -90,3 +90,39 @@ form,
   font-size: 10px;
   text-align: left;
 }
+
+
+/* @media screen and (max-width: 900px) {
+  #board {
+    height: 900px;
+    width: 900px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #board {
+    height: 800px;
+    width: 800px;
+  }
+} */
+
+@media screen and (max-width: 600px) {
+  #board {
+    height: 600px;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #board {
+    height: 425px;
+    width: 425px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #board {
+    height: 375px;
+    width: 375px;
+  }
+}
