@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
 import Winner from "../Winner/Winner";
+import PromotePawn from "../ChessComponents/PromotePawn/PromotePawn";
 
 export default function Chess() {
   const dispatch = useDispatch();
@@ -16,8 +17,10 @@ export default function Chess() {
   return (
     <div id="background">
       <div id="playArea">
+        
         <Board />
         <Winner />
+        <PromotePawn />
       </div>
 
       <Menu />
