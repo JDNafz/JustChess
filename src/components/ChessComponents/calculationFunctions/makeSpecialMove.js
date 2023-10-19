@@ -11,8 +11,8 @@ export default function makeSpecialMove(start, end, board) {
 function castle(start, end, board) {
   makeSimpleMove(start, end, board);
 
-  isWhite = start.piece[0] === "w";
-  towardsH = end[0] === "1";
+  isWhite = start[1] === "1";
+  towardsH = end[0] === "g";
   const [rookCoordinate, rookDestCoordinate] = towardsH
     ? isWhite
       ? ["h1", "f1"]

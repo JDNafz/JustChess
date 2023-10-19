@@ -45,7 +45,7 @@ function castle(start, end, board) {
     ? ["a1", "d1"]
     : ["a8", "d8"];
   const newBoard = makeSimpleMove(rookCoordinate, rookDestCoordinate, tempBoard);
-
+  
   return newBoard
 }
 
