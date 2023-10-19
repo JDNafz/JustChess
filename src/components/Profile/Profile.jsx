@@ -8,7 +8,7 @@ function UserPage() {
   const bioReducer = useSelector((store) => store.bio);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedTab, setSelectedTab] = useState("tab1"); // 'tab1' or 'tab2'
-  const [bio, setBio] = useState(bioReducer);
+  const [bio, setBio] = useState("Enter Your Bio here");
   const dispatch = useDispatch();
   const savedGameList = useSelector((store) => store.savedGameList);
   const recentGamesList = useSelector((store) => store.recentGamesList);
@@ -37,13 +37,20 @@ function UserPage() {
           src="https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/st0ckfish/phpwr6GK5.gif"
           alt="Profile"
         />
-        <div>
-          <h3>Welcome, {user.username}!</h3>
-          <p>Your ID is: {user.id}</p>
-          <textarea disabled={!isEditing} value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
+        <div className="profileInfo">
+          <h3>{user.username}</h3>
+          {/* <p>Your ID is: {user.id}</p> */}
+          {isEditing && (
+            <textarea
+              disabled={!isEditing}
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+            ></textarea>
+          )}
+          <p className="bioText">{bioReducer}</p>
           <div id="profileButtons">
             <button onClick={handleEditButtonClick}>
-              {isEditing ? "Save" : "Edit"}
+              {isEditing ? "Save" : "Edit Bio"}
             </button>
             <LogOutButton className="btn" />
           </div>

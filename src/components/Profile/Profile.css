@@ -28,16 +28,20 @@
 .profile-header textarea {
   flex: 1;
   height: 50px;
-  width: 400px;
+  max-width: 400px;
   padding: 10px;
   font-size: 16px;
 }
 
 .profile-header button {
-  padding: 10px 20px;
-  font-size: 16px;
+  margin-top: 50px;
+  font-size: 14px;
   display: flex;
-  flex-flow: column wrap
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 20px;
 }
 
 .profile-tabs {
@@ -81,10 +85,19 @@
   display:flex;
   justify-content: space-between;
   flex-flow: row nowrap;
-  max-width: 500px;
+  max-width: 300px;
 }
 
 
 .historyList{
   padding: 15px 25px;
 }
+
+.profileInfo {
+  width: 350px;
+}
+
+
+
+
+
