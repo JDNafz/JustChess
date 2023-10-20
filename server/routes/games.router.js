@@ -87,5 +87,30 @@ router.put("/moves", (req, res) => {
   }
 });
 
+//when promoting pawn, step1 is to delete the regular pawn movement notation.
+router.put("/moves/promotion", (req, res) => {
+  if (req.isAuthenticated()) {
+    // const user_id = req.user.id;
+    const gameId = req.body.id
+    // console.log("data", info);
+    const moveToDelete = req.body.moves[req.body.moves.length -1 ]
+    // console.log("HERE", moveToDelete)
+
+
+    const updateQuery = ` UPDATE game
+                          SET "moves" = array_remove( moves, $1)
+                          WHERE game.id = $2;`;
+    pool
+      .query(updateQuery, [moveToDelete, gameId])
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((error) => {
+        console.log(`Error in put router`, error);
+        res.sendStatus(500); // Good server always responds
+      });
+  }
+});
+
 
 module.exports = router;
