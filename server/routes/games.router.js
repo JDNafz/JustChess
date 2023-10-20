@@ -26,6 +26,7 @@ router.get("/current_game", (req, res) => {
       .then((result) => {
         const gameLog = result.rows[0];
         const board = makeAllMoves(gameLog.moves);
+        
         res.send({ gameLog, board });
       })
       .catch((error) => {
