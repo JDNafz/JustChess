@@ -1,25 +1,53 @@
 
 
 
-.selectNewPiece {
+.newPieceContainer {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
+  flex-flow: column nowrap;
   align-items: center;
   
   position:absolute;
-  width: 350px;
-  height: 100px;
-  border: 2px black solid;
-  background-color: blanchedalmond;
-  border-radius: 40px;
+  width: 250px;
+  height: 190px;
+  /* border: 2px black solid; */
+  /* background-color: rgba(255, 235, 205, 0.363); */
+  border-radius: 20px;
   padding: 20px;
   top: 320px;
 }
 
+.secondaryOptions{
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  
+}
+.selectPiece{
+  /* border: 2px rgba(43, 255, 0, 0.979) solid; */
+  display:flex;
+  padding: 0px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background-color: rgba(0, 255, 255, 0.562);
 
+}
 
+/* .selectPiece :hover {
+  background-color: rgba(0, 255, 255, 0.562);
+} */
 
+.selectwq {
+  height: 80%;
+  width: 80%;
+  padding: 0px;
+}
 
 
 
