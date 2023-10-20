@@ -50,17 +50,12 @@ export default function PromotePawn() {
     //makeSpecialMove()
   };
 
+  //double ternary to see if anything should be displayed
   const promotionJSX = whitePromotion
     ? getPromotionJSX("w")
     : blackPromotion
     ? getPromotionJSX("b")
     : null;
-    // console.log("WHITE PROMO", whitePromotion);
-  // : null;
-  // whitePromotion ?
-  // : blackPromotion
-  // ? getPromotionJSX("b")
-  // : null;
 
   function getPromotionJSX(color) {
     return (
