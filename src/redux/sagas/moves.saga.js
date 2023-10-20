@@ -27,8 +27,9 @@ function* promotion(action) {
   const {newBoard, move, gameLog } = action.payload;
   const moveToDelete = gameLog.moves[gameLog.moves.length -1 ]
   try {
-    yield axios.put(`/games/moves/promotion`, moveToDelete)
-    put({ type: "MAKE_MOVE", payload: {newBoard, move, gameLog}})
+    yield axios.put(`/games/moves/promotion`, moveToDelete);
+    yield put({ type: "MAKE_MOVE", payload: {newBoard, move, gameLog}});
+    yield put({ type: "SET_PROMOTION_FALSE"});
   } catch (error) {
     console.log("Error during promotion", error);
   }

@@ -2,8 +2,8 @@ export default function promote(location, newPiece, board) {
   // console.log(`makingSimpleMove ${start} to ${end}!`);
 
   const newBoard = board.map((sq) => {
-    if (sq.coordinate === location.coordinate) {
-      //assign coordinate of movingPiece to null
+    if (sq.coordinate === location) {
+      //replace pawn with selected piece
       return {
         ...sq,
         piece: newPiece,

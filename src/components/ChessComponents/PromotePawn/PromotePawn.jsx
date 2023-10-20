@@ -31,9 +31,10 @@ export default function PromotePawn() {
   }, [board]);
 
   const selectPromotion = (piece) => {
-    console.log("clicked selector", piece)
-    const newBoard = promote(location, piece, board);
-    const move = gameLog.moves[moveNumber-1] + piece
+    // console.log("clicked selector", piece)
+    const lastMoveCoordinate = gameLog.moves[gameLog.moves.length -1].slice(2)
+    const newBoard = promote(lastMoveCoordinate, piece, board);
+    const move = gameLog.moves[moveNumber-1] + piece + "*"
     dispatch({ type: "PROMOTION", payload: {newBoard, move, gameLog} }) //TODO
     //special move replace pawn square with selected piece
 
