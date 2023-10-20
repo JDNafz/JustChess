@@ -29,8 +29,10 @@ export default function PromotePawn() {
   }, [board]);
 
   const selectPromotion = (piece) => {
-    // replace last move with "e8Q"
+    console.log("clicked selector", piece)
+    dispatch({ type: "PUT_GAME_LOG_PROMOTION", piece}) //TODO
     //special move replace pawn square with selected piece
+    
     //makeSpecialMove()
   };
   return (
