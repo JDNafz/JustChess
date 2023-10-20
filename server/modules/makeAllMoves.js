@@ -1,7 +1,6 @@
 const board = require("./startingBoard");
 
 function makeAllMoves(moves) {
-  console.log("TWICE?");
   if (moves !== null) {
     let newBoard = board;
     for (let move of moves) {

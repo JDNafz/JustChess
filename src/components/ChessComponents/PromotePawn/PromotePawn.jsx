@@ -9,40 +9,96 @@ import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 
 export default function PromotePawn() {
   const dispatch = useDispatch();
-  const promotion = useSelector((store) => store.promotion);
-  const board = useSelector((store) => store.board);
-  const gameLog = useSelector((store) => store.gameLog)
+  const whitePromotion = useSelector((store) => store.whitePromotion);
+  const blackPromotion = useSelector((store) => store.blackPromotion);
 
-  const moveNumber = gameLog.moves.length
+  const board = useSelector((store) => store.board);
+  const gameLog = useSelector((store) => store.gameLog);
+  const moveNumber = gameLog.moves.length;
+
   useEffect(() => {
-    const pawnArrayOfOne = board.filter((sq) => {
+    const blackPromotion = board.filter((sq) => {
       if (sq.piece !== null) {
-        if (
-          (sq.piece[1] === "p" && sq.y === 0) ||
-          (sq.piece[1] === "p" && sq.y === 7)
-        ) {
+        if (sq.piece[1] === "p" && sq.y === 0) {
           return sq;
         }
       }
     });
-    if (pawnArrayOfOne.length === 1) {
-      dispatch({ type: "SET_PROMOTION_TRUE" });
+    const whitePromotion = board.filter((sq) => {
+      if (sq.piece !== null) {
+        if (sq.piece[1] === "p" && sq.y === 7) {
+          return sq;
+        }
+      }
+    });
+    if (whitePromotion.length === 1) {
+      dispatch({ type: "SET_WHITE_PROMOTION_TRUE" });
+    }
+    if (blackPromotion.length === 1) {
+      dispatch({ type: "SET_BLACK_PROMOTION_TRUE" });
     }
   }, [board]);
 
   const selectPromotion = (piece) => {
     // console.log("clicked selector", piece)
-    const lastMoveCoordinate = gameLog.moves[gameLog.moves.length -1].slice(2)
+    const lastMoveCoordinate = gameLog.moves[gameLog.moves.length - 1].slice(2);
     const newBoard = promote(lastMoveCoordinate, piece, board);
-    const move = gameLog.moves[moveNumber-1] + piece + "*"
-    dispatch({ type: "PROMOTION", payload: {newBoard, move, gameLog} }) //TODO
+    const move = gameLog.moves[moveNumber - 1] + piece + "*";
+    dispatch({ type: "PROMOTION", payload: { newBoard, move, gameLog } }); //TODO
     //special move replace pawn square with selected piece
 
     //makeSpecialMove()
   };
+
+  const promotionJSX = whitePromotion
+    ? getPromotionJSX("w")
+    : blackPromotion
+    ? getPromotionJSX("b")
+    : null;
+    // console.log("WHITE PROMO", whitePromotion);
+  // : null;
+  // whitePromotion ?
+  // : blackPromotion
+  // ? getPromotionJSX("b")
+  // : null;
+
+  function getPromotionJSX(color) {
+    return (
+      <div className="newPieceContainer">
+        <div
+          className="selectwq selectPiece"
+          onClick={() => selectPromotion(`${color}q`)}
+        >
+          <Image piece={`${color}q`} />
+        </div>
+        <div className="secondaryOptions">
+          <div
+            className="selectwr selectPiece"
+            onClick={() => selectPromotion(`${color}r`)}
+          >
+            <Image piece={`${color}r`} />
+          </div>
+          <div
+            className="selectPiece"
+            onClick={() => selectPromotion(`${color}b`)}
+          >
+            <Image piece={`${color}b`} />
+          </div>
+          <div
+            className="selectPiece"
+            onClick={() => selectPromotion(`${color}nr`)}
+          >
+            <Image piece={`${color}nr`} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  
   return (
     <>
-      {promotion && (
+      {/* {whitePromotion && (
         <div className="newPieceContainer">
           <div
             className="selectwq selectPiece"
@@ -65,7 +121,8 @@ export default function PromotePawn() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+      {promotionJSX}
     </>
   );
 }

@@ -16,7 +16,8 @@ import { perspective } from "./perspective.reducer";
 import { specialMoves } from "./specialMoves.reducer";
 import { winner } from "./winner.reducer";
 import { bio } from "./bio.reducer";
-import { promotion } from "./promotion.reducer";
+import { whitePromotion } from "./whitePromotion.reducer";
+import { blackPromotion } from "./blackPromotion.reducer";
 
 
 // combine all imported reducers
@@ -26,7 +27,6 @@ const rootReducer = combineReducers({
   selectedPiece, // First time clicking a piece selects it
   legalMoves,
   board,
-  // turn,
   gameLog,
   gameMode,
   savedGameList,
@@ -38,7 +38,8 @@ const rootReducer = combineReducers({
   specialMoves,
   winner,
   bio,
-  promotion,
+  whitePromotion,
+  blackPromotion,
 });
 
 export default rootReducer;
