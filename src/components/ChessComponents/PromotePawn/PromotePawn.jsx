@@ -58,8 +58,9 @@ export default function PromotePawn() {
     : null;
 
   function getPromotionJSX(color) {
+    const containerCSS = `newPieceContainer NPC${color}`
     return (
-      <div className="newPieceContainer">
+      <div className={containerCSS}>
         <div
           className="selectwq selectPiece"
           onClick={() => selectPromotion(`${color}q`)}
