@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import Image from "../Image/Image";
-
+import promote from "../calculationFunctions/promote";
 import "./PromotePawn.css";
 
 import { useEffect } from "react";
 import { useState } from "react";
+import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 
 export default function PromotePawn() {
   const dispatch = useDispatch();
   const promotion = useSelector((store) => store.promotion);
   const board = useSelector((store) => store.board);
+  const gameLog = useSelector((store) => store.gameLog)
 
+  const moveNumber = gameLog.moves.length
   useEffect(() => {
     const pawnArrayOfOne = board.filter((sq) => {
       if (sq.piece !== null) {
@@ -18,7 +21,6 @@ export default function PromotePawn() {
           (sq.piece[1] === "p" && sq.y === 0) ||
           (sq.piece[1] === "p" && sq.y === 7)
         ) {
-          // console.log("PROMOTION", sq)
           return sq;
         }
       }
@@ -30,9 +32,11 @@ export default function PromotePawn() {
 
   const selectPromotion = (piece) => {
     console.log("clicked selector", piece)
-    dispatch({ type: "PUT_GAME_LOG_PROMOTION", piece}) //TODO
+    const newBoard = promote(location, piece, board);
+    const move = gameLog.moves[moveNumber-1] + piece
+    dispatch({ type: "PROMOTION", payload: {newBoard, move, gameLog} }) //TODO
     //special move replace pawn square with selected piece
-    
+
     //makeSpecialMove()
   };
   return (
