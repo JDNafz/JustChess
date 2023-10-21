@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Winner.css";
 import { useEffect } from "react";
 
-export default function Menu() {
+export default function Winner() {
   const dispatch = useDispatch();
   const board = useSelector((store) => store.board);
  

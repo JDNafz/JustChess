@@ -15,12 +15,13 @@
 .menuList {
   padding: 60px;
   width:180px;
-  /* background-color: rgb(120, 133, 120); */
   margin: 50px;
   overflow: hidden;
 }
 .menuList * {
   width: 100%;
+  
+  min-width: 80px;
 }
 
 .menuButtons {

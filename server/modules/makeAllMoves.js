@@ -5,11 +5,20 @@ function makeAllMoves(moves) {
     let newBoard = board;
     for (let move of moves) {
       const start = move.slice(0, 2);
-      const end = move.slice(2,4);
+      const end = move.slice(2, 4);
 
       if (move[move.length - 1] === "*") {
+        const letterChar = move[move.length - 2];
+        //note that selecting a knight results in "wnr" so the "r" is rook and knight
+        if (letterChar === "q" || letterChar === "b" || letterChar === "r") {
+          const piece = move.slice(4, move.length - 1);
+
+          // console.log("Calced pieceName:", piece, end);
+          newBoard = promote(end, piece, start, newBoard);
+          
+        }
         // console.log("MAKING SPECIAL MOVE", start)
-        if (start === "e1" || start === "e8") {
+        else if (start === "e1" || start === "e8") {
           // console.log("about to castle")
           newBoard = castle(start, end, newBoard);
         } else {
@@ -20,21 +29,46 @@ function makeAllMoves(moves) {
         newBoard = makeSimpleMove(start, end, newBoard);
       }
     }
+    
     return newBoard;
   }
   return board;
 }
-function makeEnPassant(start, end, newBoard){
-        const middle = `${end[0] + start[1]}`;
-        tempBoard = makeSimpleMove(start, middle, newBoard);
-        return makeSimpleMove(middle, end, tempBoard);
+
+function promote(location, newPiece, start, board) {
+  // console.log(`makingSimpleMove ${start} to ${end}!`);
+
+  const newBoard = board.map((sq) => {
+    if (sq.coordinate === location) {
+      //replace pawn with selected piece
+      return {
+        ...sq,
+        piece: newPiece,
+      };
+    }
+    if (sq.coordinate === start){
+      return {
+        ...sq,
+        piece: null,
+      }
+    }
+    return sq;
+  });
+
+  
+  return newBoard;
+}
+
+function makeEnPassant(start, end, newBoard) {
+  const middle = `${end[0] + start[1]}`;
+  tempBoard = makeSimpleMove(start, middle, newBoard);
+  return makeSimpleMove(middle, end, tempBoard);
 }
 
 function castle(start, end, board) {
   // console.log(start,end)
   const tempBoard = makeSimpleMove(start, end, board);
 
-  
   isWhite = start[1] === "1";
   towardsH = end[0] === "g";
   const [rookCoordinate, rookDestCoordinate] = towardsH
@@ -44,12 +78,14 @@ function castle(start, end, board) {
     : isWhite
     ? ["a1", "d1"]
     : ["a8", "d8"];
-  const newBoard = makeSimpleMove(rookCoordinate, rookDestCoordinate, tempBoard);
-  
-  return newBoard
+  const newBoard = makeSimpleMove(
+    rookCoordinate,
+    rookDestCoordinate,
+    tempBoard
+  );
+
+  return newBoard;
 }
-
-
 
 //this function returns newBoard after moving the piece that moved.
 //start and end parameters should be coordinates, not squares.
@@ -98,6 +134,5 @@ function replaceDestination(board, startingPiece, end) {
 
   return newBoard;
 }
-
 
 module.exports = makeAllMoves;
