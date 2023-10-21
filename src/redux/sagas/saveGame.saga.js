@@ -29,7 +29,8 @@ function* fetchSavedGames(){
 
 function* deleteSavedGame(action){
   try {
-    yield axios.put('/api/user/delete_saved_game', action.payload);
+    yield axios.delete(`/api/user/delete_saved_game/${action.payload}`);
+    yield put({ type: "FETCH_SAVED_GAMES" })
   } catch (error) {
     console.log("Error deleting game in Saga:", error);
   }

@@ -33,6 +33,8 @@ function* fetchCurrentGame(action) {
   }
 }
 
+
+
 export default function* gameSaga() {
   yield takeLatest("NEW_GAME", newGame);
   yield takeLatest("FETCH_CURRENT_GAME", fetchCurrentGame);
