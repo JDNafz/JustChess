@@ -24,11 +24,8 @@ function AboutPage() {
           bonsai trees, may they remain small forever 💖
         </p>
         <p className="aboutText">
-          Development Todo List for the week of 10/16/23:
-          <br />- Two player functionality
-          <br />- King movement
-          <br />- Calculate check and checkmate
-          <br />- Win, loss, stalemate pop-up
+          Note to regular chess players: <br/>
+          Check, checkmate, and stalemate are still in development, currently kill the king to win.
         </p>
         {/* <div className="socials">
           <span> WHATS UP</span>
