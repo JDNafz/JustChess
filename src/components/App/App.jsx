@@ -17,6 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import Profile from "../Profile/Profile";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../RegisterPage/RegisterPage";
+import MissingRoute from "../MissingRoute/MissingRoute";
 import Chess from "../Chess/Chess";
 
 import "./App.css";
@@ -67,7 +68,7 @@ function App() {
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
-            <h1>404</h1>
+            <MissingRoute />
           </Route>
         </Switch>
         <Footer />
