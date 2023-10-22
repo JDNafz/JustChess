@@ -12,7 +12,7 @@ function Nav() {
       <Link to="/welcome">
         <h2 className="nav-title">JustChess</h2>
       </Link>
-      <div>
+      <div className="navWrapper">
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links
@@ -45,7 +45,7 @@ function Nav() {
               About
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton className="navLink logout" />
           </>
         )}
       </div>

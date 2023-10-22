@@ -24,7 +24,7 @@
   margin: 0;
 }
 
-.navLink {
+.navWrapper .navLink {
   display: inline-block;
   color: #f2f2f2;
   background-color: #235037;
@@ -38,10 +38,14 @@
   border: none;
   cursor: pointer;
   outline: 0;
-  width: 50px;
+  width: 60px;
   border-bottom: 5px solid transparent;
 }
 
 .navLink:hover {
   border-bottom: 5px solid white;
+}
+
+.navLink.logout {
+  width: 80px;
 }
