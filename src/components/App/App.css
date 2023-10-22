@@ -1,3 +1,17 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(157, 175, 141);
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+
 .container {
   padding-top: 64px;
 }
@@ -5,33 +19,19 @@
 .btn {
   display: inline-block;
   padding: 10px 20px;
+  min-width: 80px;
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #347251;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
 }
 
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
 .btn:hover {
-  background-color: #008183;
+  background-color: #235037;
   text-decoration: none;
 }
 
@@ -48,8 +48,7 @@
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  color: #235037;
 }
 
 /* --------------------------------------------------------------------------------
@@ -67,18 +66,14 @@ Alert
   font-size: 0.8rem;
 }
 
-/* --------------------------------------------------------------------------------
-Form Treatment
--------------------------------------------------------------------------------- */
-
 .formPanel {
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
-  padding: 25px;
+  padding: 25px 60px;
   margin: 0 auto 20px;
   background-color: #efefef;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 

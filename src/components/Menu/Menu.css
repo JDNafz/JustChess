@@ -1,27 +1,11 @@
-
-
-.hamburgerMenu {
-  padding-top: 20px;
-  padding-right: 20px;
-  width: 140px;
-  min-width: 140px;
-  max-width: 140px;
-}
-
-.hamburgerMenu * {
-  width: 100%;
-}
-
 .menuList {
   padding: 60px;
-  width:180px;
-  margin: 50px;
+  width: 250px;
   overflow: hidden;
 }
-.menuList * {
+.menuList button {
   width: 100%;
-  
-  min-width: 80px;
+  margin: 3px 0;
 }
 
 .menuButtons {
@@ -29,13 +13,11 @@
   min-width: 120px;
   flex-flow: column nowrap;
   padding: 30px;
-  
 }
 
 .greenButton {
   background-color: rgb(150, 202, 150);
 }
-
 
 .lineBreak {
   margin: 50px 0;

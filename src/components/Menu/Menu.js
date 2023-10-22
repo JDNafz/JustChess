@@ -47,15 +47,10 @@ export default function Menu() {
       {showGameInfo && <GameInfo />}
 
       <div className="menuList">
-        <button onClick={toggleMenu}> Menu </button>
-        <button onClick={newGame}>New Game</button>
-        <button onClick={saveGame}>Save Game</button>
+        <button className="btn" onClick={toggleMenu}> Menu </button>
+        <button className="btn" onClick={newGame}>New Game</button>
+        <button className="btn" onClick={saveGame}>Save Game</button>
         <div className="lineBreak"></div>
-
-        <button onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}>
-          {" "}
-          {showLegalMovesText}{" "}
-        </button>
 
         <button onClick={toggleGameInfo}>{gameInfoText}</button>
         <button

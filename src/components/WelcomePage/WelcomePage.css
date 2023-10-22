@@ -1,4 +1,3 @@
-
 .grid {
   display: flex;
   flex: 0 1 auto;
@@ -21,15 +20,12 @@
   max-width: 50%;
 }
 
-body {
-  background-color: rgb(157, 175, 141);
-}
-
 .welcome {
-  font-size: 3rem;
+  font-size: 2.8rem;
 }
 .welcomeParagraph {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  padding-right: 70px;
 }
 
 .loginDiv {

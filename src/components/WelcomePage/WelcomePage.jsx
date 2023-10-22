@@ -39,7 +39,7 @@ export default function WelcomePage() {
             <LoginForm />
             <center>
               <button
-                className="btn btn_sizeSm"
+                className="btn"
                 onClick={() => history.push("/register")}
               >
                 Sign Up!

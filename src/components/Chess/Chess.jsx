@@ -25,7 +25,6 @@ export default function Chess() {
       </div>
 
       <Menu />
-      <Footer />
     </div>
   );
 } //end Board

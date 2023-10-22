@@ -31,47 +31,45 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Nav />
-        <Switch>
-          {/* change the default path from localhost:3000/ to /chess */}
-          {/* LATER CHANGE THIS TO /welcome for final product if logged in go to chess */}
-          <Redirect exact from="/" to="/welcome" />
+      <Nav />
+      <Switch>
+        {/* change the default path from localhost:3000/ to /chess */}
+        {/* LATER CHANGE THIS TO /welcome for final product if logged in go to chess */}
+        <Redirect exact from="/" to="/welcome" />
 
-          <Route exact path="/welcome">
-            <WelcomePage />
-          </Route>
-          <Route exact path="/chess">
-            <Chess />
-          </Route>
+        <Route exact path="/welcome">
+          <WelcomePage />
+        </Route>
+        <Route exact path="/chess">
+          <Chess />
+        </Route>
 
-          <Route exact path="/about">
-            <AboutPage />
-          </Route>
+        <Route exact path="/about">
+          <AboutPage />
+        </Route>
 
-          {/* Only logged in users may see protected routes */}
-          <ProtectedRoute exact path="/profile">
-            <Profile />
-          </ProtectedRoute>
+        {/* Only logged in users may see protected routes */}
+        <ProtectedRoute exact path="/profile">
+          <Profile />
+        </ProtectedRoute>
 
-          <Route exact path="/register">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /profile page
-              <Redirect to="/profile" />
-            ) : (
-              // Otherwise, show the registration page
-              <RegisterPage />
-            )}
-          </Route>
+        <Route exact path="/register">
+          {user.id ? (
+            // If the user is already logged in,
+            // redirect them to the /profile page
+            <Redirect to="/profile" />
+          ) : (
+            // Otherwise, show the registration page
+            <RegisterPage />
+          )}
+        </Route>
 
-          {/* If none of the other routes matched, we will show a 404. */}
-          <Route>
-            <h1>404</h1>
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
+        {/* If none of the other routes matched, we will show a 404. */}
+        <Route>
+          <h1>404</h1>
+        </Route>
+      </Switch>
+      <Footer />
     </Router>
   );
 }
