@@ -91,6 +91,8 @@
 
 .historyList{
   padding: 15px 25px;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
 }
 
 .profileInfo {
