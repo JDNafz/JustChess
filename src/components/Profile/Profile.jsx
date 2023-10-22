@@ -30,7 +30,7 @@ function UserPage() {
   };
 
   const removeFromSaved = (id) => {
-    dispatch({ type: "DELETE_SAVED_GAME", payload: id})
+    dispatch({ type: "DELETE_SAVED_GAME", payload: id });
   };
 
   return (
@@ -83,7 +83,12 @@ function UserPage() {
                 return (
                   <div key={`game_id${game.id}`} className="historyList">
                     <div> Game {idx + 1}</div>
-                    <div> Move order: {game.moves} </div>
+                    <div>
+                      Moves:{" "}
+                      {game.moves.map((move) => {
+                        return move + ", ";
+                      })}
+                    </div>
                   </div>
                 );
               })}
@@ -94,7 +99,9 @@ function UserPage() {
                 return (
                   <div key={`game_id${game.id}`} className="historyList">
                     <h3> Game {idx + 1}</h3>
-                    <div> Moves: {game.moves} </div>
+                    <div> Moves: {game.moves.map((move) => {
+                        return move + ", ";
+                      })} </div>
                     <button onClick={() => removeFromSaved(game.id)}>
                       Removed From Saved
                     </button>
