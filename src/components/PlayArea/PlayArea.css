@@ -1,0 +1,60 @@
+#background {
+  display: flex;
+  flex-flow: row; /* chess grid */
+  padding-top: 64px;
+}
+
+#playArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 20px;
+}
+
+#board {
+  border: 10px rgb(144, 108, 42) solid;
+  border-radius: 2%;
+  height: 700px;
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+form,
+#forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#gameInfo {
+  padding-top: 30px;
+}
+
+#formInputs {
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  #board {
+    height: 600px;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #board {
+    height: 425px;
+    width: 425px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #board {
+    height: 375px;
+    width: 375px;
+  }
+}
