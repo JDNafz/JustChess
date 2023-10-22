@@ -23,14 +23,17 @@ export default function Square({ id }) {
   const specialMoves = useSelector((store) => store.specialMoves);
   const square = board[id];
 
+  const noSelectedPiece = selectedPiece.coordinate === "";
+  const clickedAPiece = square.piece !== null;
+  const isAPawn = clickedAPiece && square.piece.slice(1, 2) === "p"
+  const isAKing = clickedAPiece && square.piece.slice(1, 2) === "k";
 
   const legalPlayClick = () => {
-    const noSelectedPiece = selectedPiece.coordinate === "";
-    const clickedAPiece = square.piece !== null;
-
+    //if no piece is selected select a piece (if it's not null)
     if (noSelectedPiece) {
       if (clickedAPiece) {
         const isWhite = square.piece[0] === "w";
+        //check who's turn it is, only select on the proper turn
         if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite)) {
           // if (true)
           let legalMoves = [];
@@ -55,19 +58,21 @@ export default function Square({ id }) {
       }
     } else {
       if (square !== selectedPiece) {
+        //check if the current square is a legal move or special move
         const foundLegalMove = legalMoves.filter(
           (move) => square.coordinate === move.coordinate
         );
         const foundSpecialMove = specialMoves.filter(
           (move) => square.coordinate === move.coordinate
         );
+        //if it's a special move
         if (foundSpecialMove.length === 1) {
           const start = selectedPiece.coordinate;
           const end = square.coordinate;
-          if (square.piece === 'wk'){
-            dispatch({ type: "SET_WINNER", payload: 'b'})
-          } else if (square.piece ==='bk'){
-            dispatch({ type: "SET_WINNER", payload: 'w'})
+          if (square.piece === "wk") {
+            dispatch({ type: "SET_WINNER", payload: "b" });
+          } else if (square.piece === "bk") {
+            dispatch({ type: "SET_WINNER", payload: "w" });
           }
           dispatch({
             type: "MAKE_MOVE",
@@ -77,9 +82,8 @@ export default function Square({ id }) {
               gameLog: gameLog,
             },
           });
-          // if the second sq clicked is null skip this, and just deselect
+          // if the square is a normal (legal) move
         } else if (foundLegalMove.length === 1) {
-          // tryToMakeMove(foundLegalMove, selectedPiece,square)
           const start = selectedPiece.coordinate;
           const end = square.coordinate;
           dispatch({
@@ -94,10 +98,7 @@ export default function Square({ id }) {
         } else if (square.piece !== null) {
           let legalMoves = [];
           let specialMoves = [];
-          if (
-            square.piece.slice(1, 2) === "p" ||
-            square.piece.slice(1, 2) === "k"
-          ) {
+          if (isAPawn || isAKing) {
             [legalMoves, specialMoves] = getLegalMoves(square);
           } else {
             legalMoves = getLegalMoves(square);
@@ -112,9 +113,35 @@ export default function Square({ id }) {
           });
         }
       }
+      //the second click did not make a move
       dispatch({ type: "DESELECT_PIECE" });
+
+      //if you clicked a piece of the same color
+      if (clickedAPiece){
+        if (square.piece[0] === selectedPiece.piece[0]){
+          selectPiece(square);
+        }
+      }
     }
   };
+
+  function selectPiece(square){
+    let legalMoves = [];
+    let specialMoves = [];
+    if (isAPawn || isAKing) {
+      [legalMoves, specialMoves] = getLegalMoves(square);
+    } else {
+      legalMoves = getLegalMoves(square);
+    }
+    dispatch({
+      type: "SELECT_PIECE",
+      payload: {
+        square: square,
+        validMoves: legalMoves,
+        specialMoves: specialMoves,
+      },
+    });
+  }
 
   const freePlayClick = () => {
     const noSelectedPiece = selectedPiece.coordinate === "";
@@ -128,10 +155,10 @@ export default function Square({ id }) {
       const start = selectedPiece.coordinate;
       const end = square.coordinate;
       console.log(square);
-      if (square.piece === 'wk'){
-        dispatch({ type: "SET_WINNER", payload: {bool: true, color: 'b'}})
-      } else if (square.piece ==='bk'){
-        dispatch({ type: "SET_WINNER", payload: {bool: true, color: 'w'}})
+      if (square.piece === "wk") {
+        dispatch({ type: "SET_WINNER", payload: { bool: true, color: "b" } });
+      } else if (square.piece === "bk") {
+        dispatch({ type: "SET_WINNER", payload: { bool: true, color: "w" } });
       }
       dispatch({
         type: "MAKE_MOVE",
