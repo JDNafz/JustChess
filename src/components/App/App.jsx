@@ -8,8 +8,8 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Nav from "../Page/Nav";
+import Footer from "../Page/Footer";
 
 import ProtectedRoute from "../Auth/ProtectedRoute/ProtectedRoute";
 
@@ -17,7 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import Profile from "../Profile/Profile";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../Auth/RegisterPage/RegisterPage";
-import Chess from "../Chess/Chess";
+import PlayArea from "../PlayArea/PlayArea";
 
 import "./App.css";
 
@@ -41,7 +41,7 @@ function App() {
           <WelcomePage />
         </Route>
         <Route exact path="/chess">
-          <Chess />
+          <PlayArea />
         </Route>
 
         <Route exact path="/about">

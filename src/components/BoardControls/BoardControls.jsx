@@ -6,12 +6,12 @@ export default function BoardControls() {
     <div className="boardControls">
       <img
         src="/flip-13.png"
-        className="boardControls flipButton"
+        className="boardControl flipButton"
         onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}
       />
       <img
         src="/eye-open.png"
-        className="boardControls showLegalMoves"
+        className="boardControl showLegalMoves"
         onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}
       />
     </div>

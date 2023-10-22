@@ -1,11 +1,18 @@
-
 .boardControls {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.boardControl {
   width: 30px;
   padding: 10px;
   cursor: pointer;
-  margin-top: 100px;
 }
 
-/* .flipButton {
-
-} */
+.boardControl:hover {
+  /* GENERATE FILTER COLOR: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(39%) sepia(16%) saturate(1293%) hue-rotate(95deg)
+    brightness(91%) contrast(87%);
+}

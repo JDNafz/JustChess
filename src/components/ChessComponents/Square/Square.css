@@ -17,10 +17,11 @@
   text-transform: uppercase;
 }
 
-.coordinate::selection {
+.coordinate::selection, .coordinate::-moz-selection {
   user-select: none;
   pointer-events: none;
 }
+
 
 .coordinate {
   pointer-events: none;
