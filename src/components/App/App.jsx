@@ -17,7 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import Profile from "../Profile/Profile";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../Auth/RegisterPage/RegisterPage";
-import PlayArea from "../PlayArea/PlayArea";
+import PlayArea from "../ChessComponents/PlayArea/PlayArea"
 
 import "./App.css";
 

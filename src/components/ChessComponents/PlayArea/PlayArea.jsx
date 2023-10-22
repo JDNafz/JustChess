@@ -1,11 +1,11 @@
 import { useState, useEffect, useDebugValue } from "react";
-import Board from "../ChessComponents/Board/Board";
+import Board from "../Board/Board";
 import "./PlayArea.css";
 import { useDispatch, useSelector } from "react-redux";
-import Footer from "../Page/Footer";
-import Menu from "../Menu/Menu";
-import Winner from "../ChessComponents/Winner/Winner";
-import PromotePawn from "../ChessComponents/PromotePawn/PromotePawn";
+import Footer from "../../Page/Footer";
+import Menu from "../../Menu/Menu";
+import Winner from "../Winner/Winner";
+import PromotePawn from "../PromotePawn/PromotePawn";
 import BoardControls from "../BoardControls/BoardControls";
 
 export default function Chess() {

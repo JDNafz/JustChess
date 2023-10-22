@@ -7,16 +7,16 @@ import "./Menu.css";
 export default function Menu() {
   const dispatch = useDispatch();
   // const [showInputs, setShowInputs] = useState(false);
-  const [showGameInfo, setShowGameInfo] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-
+  
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
   const gameMode = useSelector((store) => store.gameMode);
   const user = useSelector((store) => store.user);
   const gameLog = useSelector((store) => store.gameLog);
-
-
- 
+  
+  
+  
+  const [showGameInfo, setShowGameInfo] = useState(false);
   const toggleGameInfo = () => {
     setShowGameInfo((prev) => !prev);
   };
