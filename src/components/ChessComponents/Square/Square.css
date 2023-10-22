@@ -55,6 +55,9 @@ svg {
 .legalMove {
   background-color: rgb(145, 193, 231);
 }  
+.black.legalMove {
+  background-color: rgb(129, 174, 211);
+}  
 
 .selected {
   background-color: rgba(0, 223, 252, 0);

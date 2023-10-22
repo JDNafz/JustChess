@@ -24,7 +24,12 @@
 }
 
 .menuList .newGameBtn {
-  background-color: rgb(219, 233, 92);
+  background-color: rgb(232, 235, 62);
+  color: black;
+}
+
+.menuList .newGameBtn:hover {
+  background-color: rgb(180, 226, 55);
   color: black;
 }
 
