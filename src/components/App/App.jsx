@@ -17,6 +17,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import Profile from "../Profile/Profile";
 import WelcomePage from "../WelcomePage/WelcomePage";
 import RegisterPage from "../Auth/RegisterPage/RegisterPage";
+import MissingRoute from "../MissingRoute/MissingRoute";
 import PlayArea from "../ChessComponents/PlayArea/PlayArea"
 
 import "./App.css";
@@ -64,12 +65,13 @@ function App() {
           )}
         </Route>
 
-        {/* If none of the other routes matched, we will show a 404. */}
-        <Route>
-          <h1>404</h1>
-        </Route>
-      </Switch>
-      <Footer />
+          {/* If none of the other routes matched, we will show a 404. */}
+          <Route>
+            <MissingRoute />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
     </Router>
   );
 }

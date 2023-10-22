@@ -118,15 +118,15 @@ router.get("/recent_games", (req, res) => {
 });
 
 
-router.put("/delete_saved_game", (req, res) => {
+router.delete("/delete_saved_game/:id", (req, res) => {
   if (req.isAuthenticated()) {
-    const id = req.user.id;
-    const game_id = req.body.id;
-    const query = ` UPDATE "user"
-                    SET saved_games =array_remove (saved_games, $2)
-                    WHERE "id" = $1;`;
+    const user_id = req.user.id;
+    const game_id = req.params.id;
+    const query = ` DELETE FROM saved_game
+                    WHERE user_id = $1 and
+                    game_id = $2;`;
     pool
-      .query(query, [id, game_id])
+      .query(query, [user_id, game_id])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log("Error deleting game (put) from saved_games: ", err);
