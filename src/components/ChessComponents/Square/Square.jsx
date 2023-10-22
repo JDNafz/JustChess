@@ -7,6 +7,7 @@ import makeSimpleMove from "../calculationFunctions/makeSimpleMove";
 import makeSpecialMove from "../calculationFunctions/makeSpecialMove";
 
 import "./Square.css";
+import { select } from "@redux-saga/core/effects";
 
 export default function Square({ id }) {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function Square({ id }) {
 
   const noSelectedPiece = selectedPiece.coordinate === "";
   const clickedAPiece = square.piece !== null;
-  const isAPawn = clickedAPiece && square.piece.slice(1, 2) === "p"
+  const isAPawn = clickedAPiece && square.piece.slice(1, 2) === "p";
   const isAKing = clickedAPiece && square.piece.slice(1, 2) === "k";
 
   const legalPlayClick = () => {
@@ -35,25 +36,7 @@ export default function Square({ id }) {
         const isWhite = square.piece[0] === "w";
         //check who's turn it is, only select on the proper turn
         if ((isWhiteTurn && isWhite) || (!isWhiteTurn && !isWhite)) {
-          // if (true)
-          let legalMoves = [];
-          let specialMoves = [];
-          if (
-            square.piece.slice(1, 2) === "p" ||
-            square.piece.slice(1, 2) === "k"
-          ) {
-            [legalMoves, specialMoves] = getLegalMoves(square);
-          } else {
-            legalMoves = getLegalMoves(square);
-          }
-          dispatch({
-            type: "SELECT_PIECE",
-            payload: {
-              square: square,
-              validMoves: legalMoves,
-              specialMoves: specialMoves,
-            },
-          });
+          selectPiece(square);
         }
       }
     } else {
@@ -96,36 +79,27 @@ export default function Square({ id }) {
           });
           // if the second sq clicked is null skip this, and just deselect
         } else if (square.piece !== null) {
-          let legalMoves = [];
-          let specialMoves = [];
-          if (isAPawn || isAKing) {
-            [legalMoves, specialMoves] = getLegalMoves(square);
-          } else {
-            legalMoves = getLegalMoves(square);
-          }
-          dispatch({
-            type: "SELECT_PIECE",
-            payload: {
-              square: square,
-              validMoves: legalMoves,
-              specialMoves: specialMoves,
-            },
-          });
+          selectPiece(square)
         }
       }
       //the second click did not make a move
       dispatch({ type: "DESELECT_PIECE" });
 
       //if you clicked a piece of the same color
-      if (clickedAPiece){
-        if (square.piece[0] === selectedPiece.piece[0]){
-          selectPiece(square);
+      if (clickedAPiece) {
+        //if clicking another white piece select it
+        if (square.id !== selectedPiece.id) {
+          if (square.piece[0] === selectedPiece.piece[0]) {
+            selectPiece(square);
+          }
+        } else {
+          // square IS equal to ID, don't reselect it
         }
       }
     }
   };
 
-  function selectPiece(square){
+  function selectPiece(square) {
     let legalMoves = [];
     let specialMoves = [];
     if (isAPawn || isAKing) {

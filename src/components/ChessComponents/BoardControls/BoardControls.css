@@ -16,3 +16,15 @@
   filter: invert(39%) sepia(16%) saturate(1293%) hue-rotate(95deg)
     brightness(91%) contrast(87%);
 }
+
+.showLegalMovesTrue {
+  /* #81aed3 slightly darker than this? */
+  /* background-color: #437aa7; */
+  filter: invert(55%) sepia(29%) saturate(5268%) hue-rotate(159deg)
+    brightness(92%) contrast(101%);
+}
+
+.showLegalMovesTrue:hover {
+  filter: invert(51%) sepia(4%) saturate(7155%) hue-rotate(166deg)
+    brightness(83%) contrast(79%);
+}

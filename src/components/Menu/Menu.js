@@ -7,7 +7,7 @@ import "./Menu.css";
 export default function Menu() {
   const dispatch = useDispatch();
   // const [showInputs, setShowInputs] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
   
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
   const gameMode = useSelector((store) => store.gameMode);
@@ -23,9 +23,9 @@ export default function Menu() {
 
   // const inputsText = showInputs ? "Hide Inputs" : "Show Inputs";
   const gameInfoText = showGameInfo ? "Hide Move List" : "Show Move List";
-  const showLegalMovesText = showLegalMoves
-    ? "Show Legal Moves"
-    : "Hide Legal Moves";
+  // const showLegalMovesText = showLegalMoves
+  //   ? "Show Legal Moves"
+  //   : "Hide Legal Moves";
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
   };

@@ -18,6 +18,7 @@ import { winner } from "./winner.reducer";
 import { bio } from "./bio.reducer";
 import { whitePromotion } from "./whitePromotion.reducer";
 import { blackPromotion } from "./blackPromotion.reducer";
+import { showMoveList } from "./moveList.reducer";
 
 
 // combine all imported reducers
@@ -40,6 +41,7 @@ const rootReducer = combineReducers({
   bio,
   whitePromotion,
   blackPromotion,
+  showMoveList,
 });
 
 export default rootReducer;
