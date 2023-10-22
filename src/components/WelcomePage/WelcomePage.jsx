@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import "./WelcomePage.css";
 
 // import RegisterForm from '../RegisterForm/RegisterForm';
-import LoginForm from "../LoginForm/LoginForm";
+import LoginForm from "../Auth/LoginForm/LoginForm";
 import { useSelector } from "react-redux";
 
 export default function WelcomePage() {

@@ -58,7 +58,7 @@ export default function PromotePawn() {
     : null;
 
   function getPromotionJSX(color) {
-    const containerCSS = `newPieceContainer NPC${color}`
+    const containerCSS = `newPieceContainer NPC${color}`;
     return (
       <div className={containerCSS}>
         <div
@@ -91,34 +91,5 @@ export default function PromotePawn() {
     );
   }
 
-  
-  return (
-    <>
-      {/* {whitePromotion && (
-        <div className="newPieceContainer">
-          <div
-            className="selectwq selectPiece"
-            onClick={() => selectPromotion("wq")}
-          >
-            <Image piece={"wq"} />
-          </div>
-          <div className="secondaryOptions">
-            <div
-              className="selectwr selectPiece"
-              onClick={() => selectPromotion("wr")}
-            >
-              <Image piece={"wr"} />
-            </div>
-            <div className="selectPiece" onClick={() => selectPromotion("wb")}>
-              <Image piece={"wb"} />
-            </div>
-            <div className="selectPiece" onClick={() => selectPromotion("wnr")}>
-              <Image piece={"wnr"} />
-            </div>
-          </div>
-        </div>
-      )} */}
-      {promotionJSX}
-    </>
-  );
+  return <>{promotionJSX}</>;
 }

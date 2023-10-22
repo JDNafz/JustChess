@@ -10,7 +10,7 @@ export default function Menu() {
   const [showGameInfo, setShowGameInfo] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
-  const showLegalMoves = useSelector((store) => store.showLegalMoves)
+  const showLegalMoves = useSelector((store) => store.showLegalMoves);
   const gameMode = useSelector((store) => store.gameMode);
   const user = useSelector((store) => store.user);
   const gameLog = useSelector((store) => store.gameLog);
@@ -44,33 +44,32 @@ export default function Menu() {
   const freePlay = gameMode === 0 ? "greenButton" : "";
   return (
     <>
-      {/* {showInputs && <FormInput />} */}
       {showGameInfo && <GameInfo />}
-      {showMenu && (
-        <div className="menuList">
-          <button onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}> Flip Board </button>
 
-          <button onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}> {showLegalMovesText} </button>
-
-          <button onClick={toggleGameInfo}>{gameInfoText}</button>
-          <button
-            className={freePlay}
-            onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 0 })}
-          >
-            Free Play
-          </button>
-          <button
-            className={legalPlay}
-            onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 1 })}
-          >
-            Legal Play
-          </button>
-        </div>
-      )}
-      <div className="hamburgerMenu">
+      <div className="menuList">
         <button onClick={toggleMenu}> Menu </button>
         <button onClick={newGame}>New Game</button>
         <button onClick={saveGame}>Save Game</button>
+        <div className="lineBreak"></div>
+
+        <button onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}>
+          {" "}
+          {showLegalMovesText}{" "}
+        </button>
+
+        <button onClick={toggleGameInfo}>{gameInfoText}</button>
+        <button
+          className={freePlay}
+          onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 0 })}
+        >
+          Free Play
+        </button>
+        <button
+          className={legalPlay}
+          onClick={() => dispatch({ type: "SET_GAME_MODE", payload: 1 })}
+        >
+          Legal Play
+        </button>
       </div>
     </>
   );

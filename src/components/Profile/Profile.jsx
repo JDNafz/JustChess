@@ -1,4 +1,4 @@
-import LogOutButton from "../LogOutButton/LogOutButton";
+import LogOutButton from "../Auth/LogOutButton/LogOutButton";
 import { useDispatch, useSelector } from "react-redux";
 import "./Profile.css";
 import { useEffect, useState } from "react";

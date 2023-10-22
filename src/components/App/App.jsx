@@ -11,12 +11,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../Auth/ProtectedRoute/ProtectedRoute";
 
 import AboutPage from "../AboutPage/AboutPage";
 import Profile from "../Profile/Profile";
 import WelcomePage from "../WelcomePage/WelcomePage";
-import RegisterPage from "../RegisterPage/RegisterPage";
+import RegisterPage from "../Auth/RegisterPage/RegisterPage";
 import Chess from "../Chess/Chess";
 
 import "./App.css";

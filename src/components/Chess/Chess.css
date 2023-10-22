@@ -91,20 +91,12 @@ form,
   text-align: left;
 }
 
-
-/* @media screen and (max-width: 900px) {
-  #board {
-    height: 900px;
-    width: 900px;
-  }
+.flipButton {
+  margin-top: 660px;
+  padding: 10px;
+  width: 30px;
+  cursor: pointer;
 }
-
-@media screen and (max-width: 800px) {
-  #board {
-    height: 800px;
-    width: 800px;
-  }
-} */
 
 @media screen and (max-width: 600px) {
   #board {
