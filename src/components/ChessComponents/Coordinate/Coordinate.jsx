@@ -7,4 +7,4 @@ export default function Coordinate({coordinate}){
       </div>
     </>
   )
-}//end Coordinate
+}

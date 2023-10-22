@@ -66,7 +66,7 @@ export default function Image({ piece }) {
       break;
     default:
       imageComponent = null;
-  } //end switch
+  }
 
   return (
     <>

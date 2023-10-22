@@ -8,7 +8,7 @@ export default function makeSimpleMove(start, end, board) {
   const newBoard = replaceDestination(boardAfterRemoval, startingPiece, end);
 
   return newBoard;
-} //end simpleMove Function
+}
 
 // map over board, set start to null return [board, piece name]
 function removeStartingPiece(board, start) {
@@ -28,7 +28,7 @@ function removeStartingPiece(board, start) {
   });
 
   return [boardAfterRemoval, movingPiece];
-} //end removeStartingPiece
+} 
 
 // map over board, replace end coordinate with the piece that is moving.
 function replaceDestination(board, startingPiece, end) {

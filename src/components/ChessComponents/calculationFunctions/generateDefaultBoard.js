@@ -30,11 +30,10 @@ function getStartingState(){
             })
             counter ++;
             isBlack = !isBlack
-        } //end inner 
+        }
     isBlack = !isBlack //on next row, start with opposite color
-    }//end outer
-    // console.log("state",state);
+    }
     return state
-}//end getStartingState
+}
 
 module.exports = getStartingState; // saveFile module

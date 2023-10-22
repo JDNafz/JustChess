@@ -19,11 +19,11 @@ function checkState(data){
     } else{
       currentBoard = simpleMove(currentBoard,move);
       // chessNotationReader(currentBoard,move)
-    }//end else
-  }//end for loop
+    }
+  }
   currentTurn = currentTurn + Number(1)
   return {currentBoard, currentTurn}
-}//end checkState
+}
 
 
 
@@ -62,6 +62,6 @@ function simpleMove(currentBoard,move){
   // console.log("changes made?", movingPiece ,moveToEnd[0],moveToEnd[1]) 
 
   return newBoard
-}//end SimpleMove
+}
 
 module.exports = checkState;

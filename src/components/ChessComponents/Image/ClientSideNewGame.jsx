@@ -100,7 +100,7 @@ switch(coordinate) {
   default:
     // char = null;
     piece = null;
-  } //end switch
+  }
 
   return(
     <>

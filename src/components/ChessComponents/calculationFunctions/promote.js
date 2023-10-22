@@ -13,4 +13,4 @@ export default function promote(location, newPiece, board) {
   });
 
   return newBoard;
-} //end simpleMove Function
+}

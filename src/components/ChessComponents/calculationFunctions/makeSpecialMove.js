@@ -6,7 +6,7 @@ export default function makeSpecialMove(start, end, board) {
   } else {
     return castle(start, end, board);
   }
-} //end simpleMove Function
+}
 
 function castle(start, end, board) {
   makeSimpleMove(start, end, board);
@@ -69,7 +69,7 @@ function removeStartingPiece(board, start, specialX, specialY) {
   });
 
   return [boardAfterRemoval, movingPiece];
-} //end removeStartingPiece
+}
 
 // map over board, replace end coordinate with the piece that is moving.
 function replaceDestination(board, startingPiece, end) {

@@ -11,7 +11,7 @@ function saveFile(content,fileName){
   if (err) {
     console.error("Error writing file:",err);
     }});
-}//end saveFile
+}
 
 
 // //call the function

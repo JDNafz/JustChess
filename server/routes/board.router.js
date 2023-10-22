@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
       console.log(`Error making database query ${sqlText}`, error);
       res.sendStatus(500); // Good server always responds
     });
-}); // END GET Route
+});
 
 // POST Route
 router.post("/", (req, res) => {

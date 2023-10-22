@@ -22,7 +22,7 @@ function LoginForm() {
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-  }; // end login
+  };
 
   return (
     <form className="formPanel" onSubmit={login}>
