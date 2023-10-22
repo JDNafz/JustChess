@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 export default function BoardControls() {
   const dispatch = useDispatch();
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
+  const gameMode = useSelector((store) => store.gameMode);
+
+
+  const gameModeIcon = gameMode === 0 ? "/star.png" :  "/balance.png"
 
   let eyeOpenClass = "boardControl showLegalMoves";
   if (showLegalMoves) {
@@ -13,20 +17,29 @@ export default function BoardControls() {
 
   return (
     <div className="boardControls">
+      {/* Sparkle icons created by Freepik - Flaticon
+        https://www.flaticon.com/free-icons/sparkle 
+      Law icon created by Kiranshastry - Flaticon 
+        https://www.flaticon.com/free-icons/law */}
       <img
         src="/numberedList.png"
         className="boardControl"
         onClick={() => dispatch({ type: "TOGGLE_SHOW_MOVE_LIST" })}
       />
       <img
-        src="/flip-13.png"
+        src={gameModeIcon}
         className="boardControl"
-        onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}
+        onClick={() => dispatch({ type: "TOGGLE_GAME_MODE" })}
       />
       <img
         src="/eye-open.png"
         className={eyeOpenClass}
         onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}
+      />
+      <img
+        src="/flip-13.png"
+        className="boardControl"
+        onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}
       />
     </div>
   );
