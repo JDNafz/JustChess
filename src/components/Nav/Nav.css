@@ -1,11 +1,13 @@
 .nav {
-  /* flex box layout */
+  position: fixed;
+  width: 100%;
+  height: 64px;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   margin: 0 0 0px;
-  /* background-color: #00acb0; PRIME COLOR */
   background-color: #235037;
   overflow: hidden;
 }
@@ -25,21 +27,21 @@
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  /* background-color: #00acb0; */
   background-color: #235037;
 
   text-align: center;
-  padding: 24px 10px;
+  padding: 28px 10px 20px;
+  margin-bottom: 5px;
   text-decoration: none;
   font-size: 15px;
 
-  /* these last two make the logout button in
-  the nav bar look like another link */
   border: none;
   cursor: pointer;
   outline: 0;
+  width: 50px;
+  border-bottom: 5px solid transparent;
 }
 
 .navLink:hover {
-  background-color: #008183;
+  border-bottom: 5px solid white;
 }

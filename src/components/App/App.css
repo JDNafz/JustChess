@@ -11,7 +11,6 @@ body {
   padding: 0px;
 }
 
-
 .container {
   padding-top: 64px;
 }
@@ -20,14 +19,14 @@ body {
   display: inline-block;
   padding: 10px 20px;
   min-width: 80px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
+  border: none;
   border-radius: 4px;
   background-color: #347251;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  transition: ease-in-out color 0.3s;
 }
 
 .btn:hover {
@@ -80,4 +79,16 @@ Alert
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+p a,
+p a:visited {
+  color: rgb(21, 128, 30);
+  text-decoration: none;
+  font-weight: 700;
+  transition: ease-in-out color 0.3s;
+}
+
+p a:hover {
+  color: rgb(25, 63, 38);
 }

@@ -15,12 +15,8 @@ export default function Menu() {
   const user = useSelector((store) => store.user);
   const gameLog = useSelector((store) => store.gameLog);
 
-  const toggleMenu = () => {
-    setShowMenu((prev) => !prev);
-  };
-  // const toggleInputs = () => {
-  //   setShowInputs((prev) => !prev);
-  // };
+
+ 
   const toggleGameInfo = () => {
     setShowGameInfo((prev) => !prev);
   };
@@ -47,8 +43,7 @@ export default function Menu() {
       {showGameInfo && <GameInfo />}
 
       <div className="menuList">
-        <button className="btn" onClick={toggleMenu}> Menu </button>
-        <button className="btn" onClick={newGame}>New Game</button>
+        <button className="btn newGameBtn" onClick={newGame}>New Game</button>
         <button className="btn" onClick={saveGame}>Save Game</button>
         <div className="lineBreak"></div>
 

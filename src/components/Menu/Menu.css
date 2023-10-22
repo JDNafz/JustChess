@@ -22,3 +22,9 @@
 .lineBreak {
   margin: 50px 0;
 }
+
+.menuList .newGameBtn {
+  background-color: rgb(219, 233, 92);
+  color: black;
+}
+

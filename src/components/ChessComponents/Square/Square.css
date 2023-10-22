@@ -1,4 +1,13 @@
-
+.square {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12.5%;
+  width: 12.5%;
+  font-size: 10px;
+  text-align: left;
+}
 
 .square .coordinate {
   position: absolute;
@@ -6,6 +15,15 @@
   left: 0;
   padding: 4px;
   text-transform: uppercase;
+}
+
+.coordinate::selection {
+  user-select: none;
+  pointer-events: none;
+}
+
+.coordinate {
+  pointer-events: none;
 }
 
 .pieceImage {
