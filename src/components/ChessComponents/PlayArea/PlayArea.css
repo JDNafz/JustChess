@@ -6,17 +6,18 @@
   justify-content: center;
 }
 
-#playArea,
-.plusTable {
+#playArea {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  height: 700px;
+  height: 100%;
   padding-top: 20px;
 }
-
+.plusTable {
+  height: 700px;
+}
 #board {
   border: 10px rgb(144, 108, 42) solid;
   border-radius: 2%;
@@ -40,7 +41,7 @@
     height: 600px;
     width: 600px;
   }
-  #playArea {
+  .plusTable {
     height: 600px;
   }
 }
@@ -49,7 +50,7 @@
     height: 550px;
     width: 550px;
   }
-  #playArea {
+  .plusTable {
     height: 550px;
   }
 }
@@ -57,19 +58,15 @@
   #background {
     flex-flow: row wrap;
   }
-  .plusTable{
-    max-height: 600px;
+  .plusTable {
+    height: 600px;
   }
 }
-
 
 @media screen and (max-width: 660px) {
   #board {
     height: 550px;
     width: 550px;
-  }
-  #playArea{
-    height: 550px;
   }
 }
 
@@ -78,28 +75,23 @@
     height: 450px;
     width: 450px;
   }
-  #playArea{
-    height: 450px;
-  }
-  .plusTable{
+  .plusTable {
     max-height: 500px;
   }
 }
 
 @media screen and (max-width: 450px) {
   #board {
-    max-height: 270px;
-    max-width: 270px;
+    max-height: 400px;
+    max-width: 400px;
   }
   #playArea {
-    max-height: 270px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    max-width: 270px;
   }
-  .plusTable{
-    height: 300px;
+  .plusTable {
+    height: 460px;
   }
 }
 
@@ -109,15 +101,13 @@
     max-width: 300px;
   }
   #playArea {
-    max-height: 300px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
   }
-  .plusTable{
-    max-height: 355px;
+  .plusTable {
+    max-height: 370px;
   }
- 
 }
 
 @media screen and (max-width: 280px) {
@@ -131,42 +121,7 @@
     flex-flow: row wrap;
     justify-content: center;
   }
-  .plusTable{
+  .plusTable {
     max-height: 355px;
-  }
-}
-
-
-/* height breaks*/
-@media screen and (max-height: 950px) {
-  #board {
-    height: 500px;
-    width: 500px;
-  }
-  #playArea {
-    height: 500px;
-  }
-  .plusTable{
-    max-height: 550px;
-  }
-}
-
-@media screen and (max-height: 650px) {
-  #board {
-    height: 400px;
-    width: 400px;
-  }
-  #playArea {
-    height: 400px;
-  }
-}
-
-@media screen and (max-height: 550px) {
-  #board {
-    height: 300px;
-    width: 300px;
-  }
-  #playArea {
-    height: 300px;
   }
 }

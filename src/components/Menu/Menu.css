@@ -44,7 +44,7 @@
 }
 @media screen and (max-width: 450px) {
   .menuList{
-    padding-top: 50px;
+    margin-top: 50px;
   }
   
 }
