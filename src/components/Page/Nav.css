@@ -56,7 +56,7 @@
 
 @media screen and (max-width: 500px) {
   .navWrapper .navLink {
-  width: 17%;
+  margin: 0;
   }
 }
 

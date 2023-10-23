@@ -1,7 +1,7 @@
 .container.WelcomePage {
   display: flex;
   flex-flow: column;
-  padding: 40px;
+  margin: 0 300px;
 }
 
 .welcomeContent {
@@ -43,3 +43,19 @@
 
   }
 }
+
+@media screen and (max-width: 1600px) {
+  .container.WelcomePage {
+    display: flex;
+    flex-flow: column;
+    margin: 0 200px;
+  }
+}
+@media screen and (max-width: 1500px) {
+    .container.WelcomePage {
+      display: flex;
+      flex-flow: column;
+      margin: 0 100px;
+    }
+}
+
