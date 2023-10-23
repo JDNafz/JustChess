@@ -27,22 +27,7 @@
 .paragraphs {
   max-width: 60%;
 }
-@media screen and (max-width: 910px) {
-  .welcomeContent{
-    flex-flow: wrap;
-  }
-  .paragraphs {
-    max-width: 100%;
-  }
-}
 
-
-@media screen and (max-width: 600px) {
-  .paragraphs{
-    max-width: 100%;
-
-  }
-}
 
 @media screen and (max-width: 1600px) {
   .container.WelcomePage {
@@ -57,5 +42,34 @@
       flex-flow: column;
       margin: 0 100px;
     }
+}
+
+
+@media screen and (max-width: 910px) {
+  .welcomeContent{
+    flex-flow: wrap;
+  }
+  .paragraphs {
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .container.WelcomePage {
+    display: flex;
+    flex-flow: column;
+    margin: 0 40px 0 60px;
+  }
+}
+@media screen and (max-width: 501px) {
+  .paragraphs{
+    max-width: 100%;
+  }
+  .container.WelcomePage {
+    display: flex;
+    flex-flow: column;
+    margin: 0 20px 0 40px;
+  }
 }
 
