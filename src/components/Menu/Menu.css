@@ -42,7 +42,7 @@
   }
   
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 450px) {
   .menuList{
     padding-top: 50px;
   }
