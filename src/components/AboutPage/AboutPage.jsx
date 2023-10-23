@@ -15,7 +15,7 @@ function AboutPage() {
           complex problems using efficient and elegant code. This project is
           definitely super efficient nor elegant, but I'd love to take another
           pass at it after I get everything working 😅. To see my other projects
-          checkout my <a href="www.jdnafziger.com">portfolio</a>.
+          checkout my <a href="https://www.jdnafziger.com">portfolio</a>.
         </p>
         <p className="aboutText">
           Besides coding, I have a passion for dance, especially West Coast
