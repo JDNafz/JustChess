@@ -52,6 +52,10 @@
   .paragraphs {
     max-width: 100%;
   }
+  .welcomeParagraph {
+    padding-right: 0;
+    padding: 0 auto;
+  }
 }
 
 
@@ -59,7 +63,8 @@
   .container.WelcomePage {
     display: flex;
     flex-flow: column;
-    margin: 0 40px 0 60px;
+    margin: 0 0 0 20px;
+
   }
 }
 @media screen and (max-width: 501px) {
@@ -69,7 +74,7 @@
   .container.WelcomePage {
     display: flex;
     flex-flow: column;
-    margin: 0 20px 0 40px;
+    margin: 0 0 0 20px;
   }
 }
 

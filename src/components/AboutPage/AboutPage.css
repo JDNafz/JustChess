@@ -19,3 +19,66 @@
   position:  relative;
   align-self: start;
 }
+
+
+@media screen and (max-width: 950px) {
+  .aboutDiv {
+    width: 700px;
+    padding-top: 50px;
+  }
+  .aboutText {
+    font-size: 1.3rem;
+    text-indent: 60px;
+  }
+  .aboutDiv h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .aboutDiv {
+    width: 700px;
+  }
+  .aboutText {
+    font-size: 1.3rem;
+    text-indent: 45px;
+  }
+  .aboutDiv h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .aboutDiv {
+    width: 500px;
+  }
+  .aboutText {
+    font-size: 1rem;
+    text-indent: 30px;
+  }
+  .aboutDiv h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .aboutDiv {
+    width: 300px;
+  }
+  .aboutText {
+    font-size: .8rem;
+    text-indent: 15px;
+  }
+  .aboutDiv h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutDiv {
+    width: 200px;
+  }
+  .aboutDiv h1 {
+    font-size: 1rem;
+  }
+}

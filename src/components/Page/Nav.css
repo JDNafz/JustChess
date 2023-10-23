@@ -57,11 +57,11 @@
 @media screen and (max-width: 500px) {
   .navWrapper .navLink {
   margin: 0;
+  padding: 0 5px;
+  font-size: .8rem;
   }
-}
-
-@media screen and (max-width: 330px) {
-  .navWrapper .navLink {
-  width: 13%;
+  .nav-title {
+    font-size: .8rem;
+    padding: 0;
   }
 }

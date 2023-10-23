@@ -108,6 +108,9 @@
     height: 375px;
     width: 375px;
   }
+  #playArea{
+    height: 350px;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -133,9 +136,7 @@
     height: 500px;
     width: 500px;
   }
-  #playArea {
-    height: 500px;
-  }
+
   .plusTable{
     max-height: 550px;
   }
