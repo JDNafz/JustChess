@@ -28,3 +28,15 @@
   filter: invert(51%) sepia(4%) saturate(7155%) hue-rotate(166deg)
     brightness(83%) contrast(79%);
 }
+
+@media screen and (max-width: 450px) {
+  .boardControls {
+    display: flex;
+    flex-flow: row;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+  justify-content: flex-end;
+
+  }
+}

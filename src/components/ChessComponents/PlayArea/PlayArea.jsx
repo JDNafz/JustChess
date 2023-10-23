@@ -7,8 +7,10 @@ import Menu from "../../Menu/Menu";
 import Winner from "../Winner/Winner";
 import PromotePawn from "../PromotePawn/PromotePawn";
 import BoardControls from "../BoardControls/BoardControls";
+import GameInfo from "../GameInfo/GameInfo";
 
 export default function Chess() {
+  const showMoveList = useSelector((store) => store.showMoveList);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,13 +19,15 @@ export default function Chess() {
 
   return (
     <div id="background">
-      <div id="playArea">
-        <Board />
-        <BoardControls />
-        <Winner />
-        <PromotePawn />
+      <div className="plusTable">
+        <div id="playArea">
+          <Board />
+          <BoardControls />
+          <Winner />
+          <PromotePawn />
+        </div>
+        {showMoveList && <GameInfo />}
       </div>
-
       <Menu />
     </div>
   );

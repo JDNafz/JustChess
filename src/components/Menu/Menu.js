@@ -6,7 +6,6 @@ export default function Menu() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const gameLog = useSelector((store) => store.gameLog);
-  const showMoveList = useSelector((store) => store.showMoveList);
 
   const newGame = () => {
     dispatch({ type: "NEW_GAME" });
@@ -19,9 +18,6 @@ export default function Menu() {
   };
   return (
     <>
-      {/* This is toggled in the BoardControls.jsx */}
-      {showMoveList && <GameInfo />}
-
       <div className="menuList">
         <button className="btn newGameBtn" onClick={newGame}>
           New Game

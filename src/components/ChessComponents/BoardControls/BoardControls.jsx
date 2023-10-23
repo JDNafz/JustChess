@@ -24,21 +24,25 @@ export default function BoardControls() {
       <img
         src="/numberedList.png"
         className="boardControl"
+        title="Show Move List"
         onClick={() => dispatch({ type: "TOGGLE_SHOW_MOVE_LIST" })}
       />
       <img
         src={gameModeIcon}
         className="boardControl"
+        title="Free Play/Legal Play"
         onClick={() => dispatch({ type: "TOGGLE_GAME_MODE" })}
       />
       <img
         src="/eye-open.png"
         className={eyeOpenClass}
+        title="Show Legal Moves on the Board"
         onClick={() => dispatch({ type: "TOGGLE_SHOW_LEGAL_MOVES" })}
       />
       <img
         src="/flip-13.png"
         className="boardControl"
+        title="Flip Board"
         onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}
       />
     </div>

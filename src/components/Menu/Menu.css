@@ -1,7 +1,9 @@
 .menuList {
   padding: 60px;
-  width: 250px;
+  width: 100%;
+  max-width: 200px;
   overflow: hidden;
+
 }
 .menuList button {
   width: 100%;
@@ -33,3 +35,10 @@
   color: black;
 }
 
+
+@media screen and (max-width: 800px) {
+  .menuList{
+    padding: 0;
+  }
+  
+}

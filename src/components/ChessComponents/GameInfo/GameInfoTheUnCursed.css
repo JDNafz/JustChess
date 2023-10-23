@@ -17,9 +17,11 @@ th {
 
 .gameInfo {
   margin-top: 70px;
+  height: 500px;
   max-height: 650px;
   overflow-y: scroll;
   width: 100%;
+  max-width:200px;
   overflow: auto;
   padding: 0 10px;
 }
@@ -27,11 +29,6 @@ th {
 .gameInfo::-webkit-scrollbar {
   width: 12px;
 }
-/* .gameInfo::-webkit-scrollbar-track {
-  background-color: transparent;
-  border: 1.5px solid #7e7e7e;
-  border-radius: 8px;
-} */
 
 .gameInfo::-webkit-scrollbar-thumb {
   background-color: #e60f0f00;
