@@ -26,8 +26,8 @@ export default function Chess() {
           <Winner />
           <PromotePawn />
         </div>
-        {showMoveList && <GameInfo />}
       </div>
+        {showMoveList && <GameInfo />}
       <Menu />
     </div>
   );
