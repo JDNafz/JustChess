@@ -64,9 +64,6 @@ svg {
   background-color: rgb(129, 174, 211);
 }  
 
-.black.selected {
+.black.selected, .white.selected {
   background-color: rgba(0, 223, 252, 0) ;
 }  
-.white.selected {
-  background-color: rgba(0, 223, 252, 0) ;
-} 
