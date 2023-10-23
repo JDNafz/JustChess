@@ -30,7 +30,6 @@ export default function GameInfo() {
 
   return (
     <div className="moveList">
-      <p>Only working when logged in*</p>
       <div className="gameInfo">
         <table>
           <thead>

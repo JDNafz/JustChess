@@ -1,27 +1,18 @@
-.grid {
+.container.WelcomePage {
   display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* defaults to 'flex-start' */
+  flex-flow: column;
+  padding: 40px;
+}
+
+.welcomeContent {
+  display: flex;
+  flex-flow: row-reverse wrap;
   justify-content: center;
-  align-items: flex-start;
+  width: 100%;
 }
-
-.grid-col {
-  flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
-  box-sizing: border-box;
-}
-
-.grid-col_6 {
-  flex-basis: 50%;
-  max-width: 50%;
-}
-
 .welcome {
   font-size: 2.8rem;
+  text-align: center;
 }
 .welcomeParagraph {
   font-size: 1.5rem;
@@ -30,4 +21,9 @@
 
 .loginDiv {
   padding-top: 100px;
+  width:40%;
+}
+
+.paragraphs {
+  max-width: 60%;
 }

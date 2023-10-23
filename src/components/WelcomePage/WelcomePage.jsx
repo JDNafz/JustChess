@@ -11,17 +11,28 @@ export default function WelcomePage() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="container">
-      <div className="grid">
-        <div className="grid-col grid-col_6">
-          <h1 className="welcome">
-            Welcome <br /> to JC by JD
-          </h1>
+    <div className="container WelcomePage">
+      <h1 className="welcome">
+        Welcome <br /> to JC by JD
+      </h1>
+      <div className="welcomeContent">
+        {!user.id && (
+          <div className="LoginArea">
+            <LoginForm />
+            <center>
+              <button className="btn" onClick={() => history.push("/register")}>
+                Sign Up!
+              </button>
+            </center>
+          </div>
+
+        )}
+        <div className="paragraphs">
           <p className="welcomeParagraph">
-            JustChess (by JD) is exactly what it sounds like, it’s just
-            chess. A simple two player board game brought to the web to play
-            online, move pieces around the board and capture other pieces until
-            you can capture the enemy king.
+            JustChess (by JD) is exactly what it sounds like, it’s just chess. A
+            simple two player board game brought to the web to play online, move
+            pieces around the board and capture other pieces until you can
+            capture the enemy king.
           </p>
           <p className="welcomeParagraph">
             Chess is a game hundreds of years old. People play chess to be
@@ -34,19 +45,6 @@ export default function WelcomePage() {
             peaceful, without adding too much noise to the experience.
           </p>
         </div>
-        {!user.id && (
-          <div className="grid-col grid-col_4 loginDiv">
-            <LoginForm />
-            <center>
-              <button
-                className="btn"
-                onClick={() => history.push("/register")}
-              >
-                Sign Up!
-              </button>
-            </center>
-          </div>
-        )}
       </div>
     </div>
   );

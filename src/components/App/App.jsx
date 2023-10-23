@@ -44,6 +44,9 @@ function App() {
         <Route exact path="/chess">
           <PlayArea />
         </Route>
+        <ProtectedRoute exact path="/chess">
+          <Profile />
+        </ProtectedRoute>
 
         <Route exact path="/about">
           <AboutPage />
@@ -58,7 +61,7 @@ function App() {
           {user.id ? (
             // If the user is already logged in,
             // redirect them to the /profile page
-            <Redirect to="/profile" />
+            <Redirect to="/Chess" />
           ) : (
             // Otherwise, show the registration page
             <RegisterPage />

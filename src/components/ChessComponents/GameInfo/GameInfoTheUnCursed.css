@@ -16,6 +16,7 @@ th {
 }
 
 .gameInfo {
+  margin-top: 70px;
   max-height: 650px;
   overflow-y: scroll;
   width: 100%;
