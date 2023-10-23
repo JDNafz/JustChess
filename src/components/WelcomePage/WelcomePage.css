@@ -6,7 +6,7 @@
 
 .welcomeContent {
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: row-reverse nowrap;
   justify-content: center;
   width: 100%;
 }
@@ -26,4 +26,20 @@
 
 .paragraphs {
   max-width: 60%;
+}
+@media screen and (max-width: 910px) {
+  .welcomeContent{
+    flex-flow: wrap;
+  }
+  .paragraphs {
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .paragraphs{
+    max-width: 100%;
+
+  }
 }

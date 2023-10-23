@@ -16,15 +16,7 @@
   text-decoration: none;
 }
 
-.nav-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f2f2f2;
-  padding-left: 10px;
-  margin: 0;
-}
-
-.navWrapper .navLink {
+.navWrapper .navLink, .nav-title {
   display: inline-block;
   color: #f2f2f2;
   background-color: #235037;
@@ -41,6 +33,18 @@
   width: 60px;
   border-bottom: 5px solid transparent;
 }
+.nav-title {
+  font-size: 24px;
+  padding: 20px 10px 10px;
+  font-weight: 700;
+  color: #f2f2f2;
+  padding-left: 10px;
+  margin: 0;
+  width: 110px;
+}
+.nav-title:hover {
+  border-bottom: 5px solid white;
+}
 
 .navLink:hover {
   border-bottom: 5px solid white;
@@ -48,4 +52,16 @@
 
 .navLink.logout {
   width: 80px;
+}
+
+@media screen and (max-width: 500px) {
+  .navWrapper .navLink {
+  width: 17%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .navWrapper .navLink {
+  width: 13%;
+  }
 }
