@@ -1,28 +1,32 @@
-#profileContainer,.profile-page {
+#profileContainer,
+.profile-page {
   padding-top: 68px;
 }
 
 .profile-page {
   display: flex;
   justify-content: center;
-  flex-flow: row wrap;
-  max-width: 900px;
+  flex-flow: column;
+  max-width: 60%;
   margin: 0 auto;
 }
 
 .profile-header {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
   background-color: #f0f0f0;
 }
 
 .profile-header img {
   border-radius: 5%;
   margin-right: 20px;
-    width: 240px;
-    height: 200px;
-    /* padding-top: 30px; */
+  width: 240px;
+  height: 200px;
+  /* padding-top: 30px; */
 }
 
 .profile-header textarea {
@@ -66,8 +70,10 @@
 .profile-content {
   padding: 20px;
   background-color: #dfdddd;
-  width: 500px;
-
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .profile-content ul {
@@ -79,27 +85,44 @@
   padding: 10px 0;
   font-size: 18px;
 }
+.flexyTable {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+}
 
-
-#profileButtons{
-  display:flex;
+#profileButtons {
+  display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
   max-width: 300px;
 }
 
-
-.historyList{
+.historyList {
   padding: 15px 25px;
   overflow-x: hidden;
   overflow-wrap: break-word;
 }
 
 .profileInfo {
-  width: 350px;
+  width: 100%;
 }
 
+@media screen and (max-width: 850px) {
+  .profile-page {
+    max-width: 500px;
+  }
+}
 
-
-
-
+@media screen and (max-width: 500px) {
+  .profile-page {
+    max-width: 250px;
+  }
+  .profile-header{
+    flex-wrap: wrap;
+  }
+  .profile-header img {
+    max-width: 100px;
+    max-height: 80px;
+  }
+}

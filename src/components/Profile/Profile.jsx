@@ -60,22 +60,23 @@ function UserPage() {
           </div>
         </div>
       </div>
-      <div className="table">
-        <div className="profile-tabs">
-          <button
-            onClick={() => handleTabChange("tab1")}
-            className={selectedTab === "tab1" ? "active" : ""}
-          >
-            Recent Games
-          </button>
-          <button
-            onClick={() => handleTabChange("tab2")}
-            className={selectedTab === "tab2" ? "active" : ""}
-          >
-            Saved Games
-          </button>
+      <div className="flexyTable">
+        <div className="table">
+          <div className="profile-tabs">
+            <button
+              onClick={() => handleTabChange("tab1")}
+              className={selectedTab === "tab1" ? "active" : ""}
+            >
+              Recent Games
+            </button>
+            <button
+              onClick={() => handleTabChange("tab2")}
+              className={selectedTab === "tab2" ? "active" : ""}
+            >
+              Saved Games
+            </button>
+          </div>
         </div>
-
         <div className="profile-content">
           {selectedTab === "tab1" ? (
             <div>
@@ -99,9 +100,13 @@ function UserPage() {
                 return (
                   <div key={`game_id${game.id}`} className="historyList">
                     <h3> Game {idx + 1}</h3>
-                    <div> Moves: {game.moves.map((move) => {
+                    <div>
+                      {" "}
+                      Moves:{" "}
+                      {game.moves.map((move) => {
                         return move + ", ";
-                      })} </div>
+                      })}{" "}
+                    </div>
                     <button onClick={() => removeFromSaved(game.id)}>
                       Removed From Saved
                     </button>
