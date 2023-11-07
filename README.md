@@ -1,6 +1,6 @@
 # JustChess
 
-Welcome to my solo Project. Want to fast track to some of my interesting code from this project? Check out [moves.saga.js](src/redux/sagas/moves.saga.js), [usePawn.js](src\hooks\usePawn.js), or perhaps my bulkiest file, [Square.jsx](src\components\ChessComponents\Square\Square.jsx), where most of the logic for playing happens.
+Welcome to my solo Project. Want to fast track to some of my interesting code from this project? Check out [moves.saga.js](src/redux/sagas/moves.saga.js), [usePawn.js](src/hooks/usePawn.js), or perhaps my bulkiest file, [Square.jsx](src/components/ChessComponents/Square/Square.jsx), where most of the logic for playing happens.
 
 ## Description
 
