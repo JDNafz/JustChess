@@ -1,30 +1,17 @@
-## Chess Solo Project
-
-this is a big work in progress, over the next two weeks (October 9th until October 23rd), this repo will be undergoing lots of changes! Check back in to see the progress!
-
----
-
 # JustChess
 
 JC by JD
 
 ## Description
 
-It's a chess App in progress, current version is [deployed](https://chess-production-0c9da90cf130.herokuapp.com/#/welcome) check, it out! 
+It's a chess website, it is deployed at [JCbyJD.com](https://JCbyJD.com) check, it out! 
 
-(```must be logged in``` to record moves 10/10/2023)
+I had a great time sorting through all the challenges of coding a game of chess from scratch, and still have some goals left to make it seamless.
 
- 
-    updates: 
-        - Legal Pawn Moves
-        - Legal Rook Moves
+I can't wait to expand it's functionality more in the coming weeks after I graduate. Thanks for checking it out.
 
-To see the current site progress, please visit: [DEPLOYED VERSION OF APP](https://chess-production-0c9da90cf130.herokuapp.com/#/welcome)
-
-## Demo as of 10.1.23: 
-.| |
-:-------------------------:|:----------------------:
-![Chess Demo](/public/Chess_Demo_10.1.23.gif)
+## Demo: 
+![Chess Demo](/public/JCbyJD.gif)
 
 
 ### Prerequisites
@@ -33,8 +20,7 @@ Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
 - [Postgres](https://www.postgresql.org/download/)
-- [Postico](https://eggerapps.at/postico/v1.php)or [PgAdmin](https://www.postgresql.org/download/) (optionally included in Postgres installation)
-- 
+- [Postico](https://eggerapps.at/postico/v1.php) or [PgAdmin](https://www.postgresql.org/download/) (optionally included in Postgres installation)
 
 ## Local Installation
 
@@ -64,8 +50,8 @@ How does someone use this application? Tell a user story here.
 - React
 - Redux
 - Sagas
+- Passport
 - Material UI
-- Tailwind  ----------- TBD
 - Node.js
 - HTML 
 - CSS
