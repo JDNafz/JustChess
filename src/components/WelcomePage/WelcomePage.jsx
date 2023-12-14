@@ -17,15 +17,19 @@ export default function WelcomePage() {
       </h1>
       <div className="welcomeContent">
         {!user.id && (
-          <div className="LoginArea">
+          <div className="loginArea">
             <LoginForm />
-            <center>
+            <div>
               <button className="btn" onClick={() => history.push("/register")}>
                 Sign Up!
               </button>
-            </center>
+            </div>
+            <div className="loginNote">
+              * * * Note * * * <br /> Login is needed for the app to run
+              smoothly, feel free to use "user" "user" for username and
+              password. Or create an account for your own experience.{" "}
+            </div>
           </div>
-
         )}
         <div className="paragraphs">
           <p className="welcomeParagraph">
