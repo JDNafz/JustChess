@@ -27,6 +27,17 @@
 .paragraphs {
   max-width: 60%;
 }
+.loginArea {
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 0px;
+  justify-content: center;
+}
+.loginNote {
+  display: flex;
+  width: 80%;
+
+}
 
 
 @media screen and (max-width: 1600px) {
