@@ -30,7 +30,8 @@
 .loginArea {
   display: flex;
   flex-flow: row wrap;
-  max-height: 0px;
+  max-height: 450px;
+  max-width: 500px;
   justify-content: center;
 }
 .loginNote {
