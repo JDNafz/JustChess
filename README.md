@@ -2,8 +2,6 @@
 
 Welcome to my solo Project. Want to fast track to some of my interesting code from this project? Check out [usePawn.js](src/hooks/usePawn.js) or [Square.jsx](src/components/ChessComponents/Square/Square.jsx), where most of the logic for playing movement happens.
 
-<!-- Moves Saga: src>redux>sagas>moves.saga.js -->
-
 ## Description
 
 It's a chess website, it is deployed at [JCbyJD.com](https://JCbyJD.com) check, it out! 
