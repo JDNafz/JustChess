@@ -6,13 +6,17 @@ export default function BoardControls() {
   const dispatch = useDispatch();
   const showLegalMoves = useSelector((store) => store.showLegalMoves);
   const gameMode = useSelector((store) => store.gameMode);
-
+  const flipThePerspective = useSelector((store) => store.perspective);
 
   const gameModeIcon = gameMode === 0 ? "/star.png" :  "/balance.png"
 
   let eyeOpenClass = "boardControl showLegalMoves";
   if (showLegalMoves) {
     eyeOpenClass += " showLegalMovesTrue";
+  }
+  let flipClass = "boardControl"
+  if (flipThePerspective){
+    flipClass += " flipThePerspectiveTrue"
   }
 
   return (
@@ -41,7 +45,7 @@ export default function BoardControls() {
       />
       <img
         src="/flip-13.png"
-        className="boardControl"
+        className={flipClass}
         title="Flip Board"
         onClick={() => dispatch({ type: "TOGGLE_PERSPECTIVE" })}
       />
