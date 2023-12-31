@@ -3,6 +3,9 @@ import axios from 'axios';
 
 // worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
+  const {username,password, history} = action.payload
+  const loginObj = {username,password}
+
   try {
 
     // clear any existing error on the login page
@@ -16,12 +19,12 @@ function* loginUser(action) {
     // send the action.payload as the body
     // the config includes credentials which
     // allow the server session to recognize the user
-    yield axios.post('/api/user/login', action.payload, config);
+    yield axios.post('/api/user/login', loginObj, config);
 
     // after the user has logged in
     // get the user information from the server
     yield put({ type: 'FETCH_USER' });
-
+    yield history.push('/chess')
   } catch (error) {
     console.log('Error with user login:', error);
     if (error.response.status === 401) {

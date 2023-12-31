@@ -17,8 +17,9 @@ function LoginForm() {
       dispatch({
         type: 'LOGIN',
         payload: {
-          username: username,
-          password: password,
+          username,
+          password,
+          history
         },
       });
     } else {
