@@ -1,5 +1,6 @@
 
 // this was generated from './generateDefaultBoard.js'
+// this file is used to set the default board in board.reducer.js
 export const defaultBoard = [
   {
     "id":0,
