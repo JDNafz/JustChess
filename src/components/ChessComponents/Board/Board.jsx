@@ -5,7 +5,7 @@ import Square from "../Square/Square";
 // This component creates the 8x8 grid of pieces mapping through the board Array that contains all piece info.
 export default function Board() {
   const board = useSelector((store) => store.board);
-  const perspective = useSelector((store) => store.perspective);
+  const flipThePerspective = useSelector((store) => store.perspective);
   const isWhiteTurn = useSelector((store) => store.isWhiteTurn);
 
   //standard map of board
@@ -14,10 +14,13 @@ export default function Board() {
   ));
   //slice() creates a copy of whiteView as to avoid mutating the whiteView const
   const blackView = whiteView.slice().reverse();
-  
-  const manualFlip = perspective ? whiteView : blackView
-  const autoFlip = !isWhiteTurn && perspective ? blackView: whiteView
-  // const view = autoFlip &&
 
-  return <div id="board">{manualFlip}</div>;
+  // this conditional will alternate the view based on whose turn it is.
+  // if the flip board icon is clicked it will show the opposite view.
+  const view =
+    isWhiteTurn && !flipThePerspective ? whiteView : 
+    isWhiteTurn && flipThePerspective ? blackView  : 
+    flipThePerspective ? whiteView : blackView; // !isWhiteTurn is implied as this is the else
+
+  return <div id="board">{view}</div>;
 }
