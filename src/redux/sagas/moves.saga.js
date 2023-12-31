@@ -1,8 +1,8 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
-// worker Saga: will be fired on "REGISTER" actions
 function* makeMove(action) {
+
   const newBoard = action.payload.newBoard;
   const move = action.payload.move;
   const game_id = action.payload.gameLog.id;
@@ -26,7 +26,6 @@ function* makeMove(action) {
 function* promotion(action) {
   const {newBoard, move, gameLog } = action.payload;
 
-  // console.log("PROMOTION INFO", newBoard, move, gameLog, moveToDelete);
   try {
     yield axios.put(`/games/moves/promotion`, gameLog);
     yield put({ type: "MAKE_MOVE", payload: {newBoard, move, gameLog}});
